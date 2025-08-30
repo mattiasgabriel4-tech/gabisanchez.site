@@ -1,14 +1,146 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
-	<META NAME="CREATED" CONTENT="20121024;3275900">
-	<META NAME="CHANGED" CONTENT="0;0">
-</HEAD>
-<BODY LANG="es-AR" DIR="LTR">
-<P><BR><BR>
-</P>
-</BODY>
-</HTML>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogalería</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        /* ===== GALERÍA GRID ===== */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px 0;
+        }
+        .galeria-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .galeria-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== SLIDER ===== */
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-buttons button {
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        /* ===== WIDGET INSTAGRAM ===== */
+        .instagram-widget {
+            margin: 50px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="fotogaleria.html">Fotogalería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+                <li><a href="propuestas.html">Propuestas</a></li>
+                <li><a href="quien-soy.html">Quién Soy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Fotogalería</h1>
+        <p>Descubrí nuestras fotos más recientes.</p>
+
+        <!-- ===== GRID DE FOTOS ===== -->
+        <div class="galeria-grid">
+            <img src="img/foto1.jpg" alt="Foto 1">
+            <img src="img/foto2.jpg" alt="Foto 2">
+            <img src="img/foto3.jpg" alt="Foto 3">
+            <img src="img/foto4.jpg" alt="Foto 4">
+            <img src="img/foto5.jpg" alt="Foto 5">
+            <img src="img/foto6.jpg" alt="Foto 6">
+        </div>
+
+        <!-- ===== SLIDER ===== -->
+        <div class="slider">
+            <div class="slides">
+                <img src="img/foto1.jpg" alt="Slide 1">
+                <img src="img/foto2.jpg" alt="Slide 2">
+                <img src="img/foto3.jpg" alt="Slide 3">
+            </div>
+            <div class="slider-buttons">
+                <button id="prev">&#10094;</button>
+                <button id="next">&#10095;</button>
+            </div>
+        </div>
+
+        <!-- ===== WIDGET INSTAGRAM ===== -->
+        <div class="instagram-widget">
+            <h2>Seguinos en Instagram</h2>
+            <!-- Insertar embed oficial de Instagram -->
+            <iframe src="https://www.instagram.com/p/CODE/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Gabi Sánchez
+    </footer>
+
+    <script>
+        // ===== SLIDER =====
+        const slides = document.querySelector('.slides');
+        const slideImages = document.querySelectorAll('.slides img');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        let index = 0;
+
+        function showSlide(i) {
+            if(i < 0) index = slideImages.length - 1;
+            else if(i >= slideImages.length) index = 0;
+            else index = i;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        next.addEventListener('click', () => showSlide(index + 1));
+        prev.addEventListener('click', () => showSlide(index - 1));
+
+        // Cambio automático cada 5 segundos
+        setInterval(() => showSlide(index + 1), 5000);
+    </script>
+</body>
+</html>

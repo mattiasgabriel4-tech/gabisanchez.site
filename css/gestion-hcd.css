@@ -1,0 +1,48 @@
+/* ----------------------------
+   Estilos específicos para Gestión HCD
+------------------------------- */
+.gestion-hcd {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9); /* fondo semi-transparente */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.gestion-hcd h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-principal);
+}
+
+.gestion-hcd h2 {
+    font-size: 1.7em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--color-acento);
+}
+
+.gestion-hcd p {
+    font-size: 1.2em; /* letras más grandes */
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Botón para PDFs */
+.gestion-hcd .btn-pdf {
+    display: inline-block;
+    background-color: var(--color-boton);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.gestion-hcd .btn-pdf:hover {
+    background-color: darken(var(--color-boton), 10%);
+    text-decoration: none;
+}

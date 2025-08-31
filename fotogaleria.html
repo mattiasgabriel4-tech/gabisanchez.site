@@ -1,28 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotogalería</title>
-    <link rel="stylesheet" href="css/estilo.css"> <!-- Conexión con tu CSS -->
+    <title>Fotogalería - Profundidad 2027</title>
+    <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/galeria.css">
     <link rel="stylesheet" href="slider.css">
-
-
     <style>
--
-        -
-        -
-        -
-        -
-        /* Estilos específicos de la galería */
+        /* Estilos slider */
+        .slider {
+            width: 80%;
+            max-width: 700px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .slide {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: none;
+        }
+
+        /* Flechas */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+
+        .prev:hover, .next:hover { background-color: rgba(0,0,0,0.6); }
+
+        /* Galería de miniaturas */
         .galeria {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .galeria img {
@@ -31,8 +62,8 @@
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .galeria img:hover {
@@ -40,47 +71,62 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
-        /* Slider automático */
-        .slider {
-            width: 80%;
-            max-width: 700px;
-            margin: 0 auto 50px auto;
-            position: relative;
-            overflow: hidden;
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
             border-radius: 12px;
         }
 
-        .slider img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="img/logo.png" alt="Logo">
+    <div class="logo">
+        <img src="img/logo.png" alt="Logo Profundidad">
+    </div>
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="quien-soy.html">¿Quién soy?</a></li>
             <li><a href="propuestas.html">Propuestas</a></li>
-              <li><a href="fotogaleria.html">Fotogalería</a></li>
+            <li><a href="fotogaleria.html">Fotogalería</a></li>
             <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 </header>
 
-<!-- Slider de fotos principal -->
+<!-- Slider principal -->
 <div class="slider">
-    <img src="img/foto1.jpg" alt="Foto 1">
+    <img src="img/foto1.jpg" alt="Foto 1"> 
     <img src="img/foto2.jpg" alt="Foto 2">
     <img src="img/foto3.jpg" alt="Foto 3">
-     <img src="img/foto4.jpg" alt="Foto 4">
+    <img src="img/foto4.jpg" alt="Foto 4"> 
     <img src="img/foto5.jpg" alt="Foto 5">
-    <img src="img/foto6.jpg" alt="Foto 6"> 
+     <img src="img/foto6.jpg" alt="Foto 6"> 
     <img src="img/foto11.jpg" alt="Foto 11">
     <img src="img/foto7.jpg" alt="Foto 7">
     <img src="img/foto8.jpg" alt="Foto 8"> 
@@ -206,76 +252,79 @@
     <img src="img/foto129.jpg" alt="Foto 129">
     <img src="img/foto130.jpg" alt="Foto 130">
     </div>
-<div class="slider">
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <!-- Agregá todas las demás imágenes necesarias -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
+
 <!-- Galería de miniaturas -->
 <div class="galeria">
-    <img src="img/foto15.jpg" alt="Foto 15">
-    <img src="img/foto20.jpg" alt="Foto 20">
-    <img src="img/foto38.jpg" alt="Foto 38">
-    <img src="img/foto44.jpg" alt="Foto 44">
-    <img src="img/foto59.jpg" alt="Foto 59">
-     <img src="img/foto111.jpg" alt="Foto 111">
-    <img src="img/foto69.jpg" alt="Foto 69">
-    <img src="img/foto89.jpg" alt="Foto 89">
-    <img src="img/foto4.jpg" alt="Foto 4">
-    <img src="img/foto8.jpg" alt="Foto 8">
-    <img src="img/foto55.jpg" alt="Foto 55">
-    <img src="img/foto105.jpg" alt="Foto 105">
-
+    <img src="img/foto15.jpg" alt="Foto 15" onclick="openLightbox(this.src)">
+    <img src="img/foto20.jpg" alt="Foto 20" onclick="openLightbox(this.src)">
+    <img src="img/foto38.jpg" alt="Foto 38" onclick="openLightbox(this.src)">
+    <img src="img/foto44.jpg" alt="Foto 44" onclick="openLightbox(this.src)">
+    <img src="img/foto59.jpg" alt="Foto 59" onclick="openLightbox(this.src)">
+    <img src="img/foto111.jpg" alt="Foto 111" onclick="openLightbox(this.src)">
 </div>
-    <!-- Lightbox para ver fotos en grande -->
-<div id="lightbox" class="lightbox">
-  <span class="close" onclick="closeLightbox()">&times;</span>
-  
- 
-    
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Foto grande">
+</div>
 
 <footer>
-    
-    <!-- ICONOS DE REDES SOCIALES -->
     <div class="redes">
-        <a href="https://www.tiktok.com/@gabisanchez01.ok?_t=ZM-8zJmsICoqeM&_r=1" target="_blank">
-            <img src="img/tiktok.png" alt="TikTok">
-        </a>
-        <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank">
-            <img src="img/facebook.png" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/gabisanchez01.ok?igsh=Z3F0dnh4emE1b2Zx" target="_blank">
-            <img src="img/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://wa.me/+5493765148121" target="_blank">
-            <img src="img/whatsapp.png" alt="WhatsApp">
-        </a>
-        <a href="mailto:mattiasgabrielssanchez1998@gmail.com">
-            <img src="img/email.png" alt="Correo Electrónico">
-        </a>
-        <a href="https://x.com/gabi_sanchez01?t=BnusYCcT9e_afHCDydF2iA&s=09" target="_blank">
-            <img src="img/x.png" alt="X / Twitter">
-        </a>
+        <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank"><img src="img/tiktok.png" alt="TikTok"></a>
+        <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank"><img src="img/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
+        <a href="https://wa.me/+5493765148121" target="_blank"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+        <a href="mailto:mattiasgabrielssanchez1998@gmail.com"><img src="img/email.png" alt="Correo Electrónico"></a>
+        <a href="https://x.com/gabi_sanchez01" target="_blank"><img src="img/x.png" alt="X / Twitter"></a>
     </div>
     <p>© 2025 Gabi Sanchez. Todos los derechos reservados.</p>
 </footer>
 
 <script>
-    // Slider automático simple
-    const slider = document.querySelector('.slider');
-    const slides = slider.querySelectorAll('img');
-    let index = 0;
+/* Slider automático y manual */
+let slideIndex = 0;
+const slides = document.getElementsByClassName("slide");
 
-    slides.forEach((slide, i) => {
-        if(i !== 0) slide.style.display = 'none';
-    });
+function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 4000); // cambio automático cada 4 segundos
+}
 
-    setInterval(() => {
-        slides[index].style.display = 'none';
-        index = (index + 1) % slides.length;
-        slides[index].style.display = 'block';
-    }, 4000); // Cambia cada 4 segundos
+function plusSlides(n) {
+    slideIndex += n - 1;
+    if (slideIndex < 0) { slideIndex = slides.length - 1; }
+    if (slideIndex >= slides.length) { slideIndex = 0; }
+    showCurrentSlide();
+}
 
+function showCurrentSlide() {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex].style.display = "block";
+}
 
+showSlides();
+
+/* Lightbox */
+function openLightbox(src) {
+    document.getElementById('lightbox').style.display = 'flex';
+    document.getElementById('lightbox-img').src = src;
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
 </script>
 
 </body>

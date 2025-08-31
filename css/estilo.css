@@ -7,7 +7,7 @@
     --color-fondo-oscuro: #ffffff;
     --color-texto-claro: #ffffff;
     --color-texto-oscuro: #4a90e2;
-    --color-acento: #ffffff; /* morado suave */
+    --color-acento: #4a90e2; /* morado suave */
     --color-boton: #4a90e2;
     --color-boton-texto: ##4a90e2;
 }
@@ -45,7 +45,7 @@ body {
 }
 
 a {
-    color: var(--color-acento);
+    color: var(--color-texto-claro);
     text-decoration: none;
 }
 

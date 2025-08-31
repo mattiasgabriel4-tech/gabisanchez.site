@@ -1,0 +1,87 @@
+/* somos-profundidad.css */
+
+/* Fondo y contenedor principal */
+.somos-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fffbe6; /* un amarillo suave de la paleta */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Títulos principales */
+.somos-container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #3b7a57; /* verde del logo */
+    margin-bottom: 20px;
+}
+
+.somos-container h2 {
+    font-size: 1.8em;
+    color: #1fa5d6; /* celeste del logo */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Párrafos */
+.somos-container p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #4b382a; /* marrón del logo */
+    margin-bottom: 20px;
+}
+
+/* Galería de imágenes */
+.somos-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.somos-gallery img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid #1fa5d6; /* marco celeste */
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.somos-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Botón para ver documentos */
+.btn-volver {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #3b7a57; /* verde */
+    color: #fff; /* texto blanco */
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #2e5c41; /* verde más oscuro */
+}
+
+/* Footer */
+footer {
+    background-color: #f2f2f2;
+    padding: 25px 0;
+    text-align: center;
+    color: #4b382a; /* marrón */
+}
+
+footer .redes img {
+    width: 30px;
+    margin: 0 8px;
+}

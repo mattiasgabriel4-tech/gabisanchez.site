@@ -6,7 +6,7 @@
     <title>Gestiones en el HCD - Profundidad</title>
     <link rel="stylesheet" href="css/estilo.css"> <!-- tu CSS principal -->
     <style>
-        /* Cards para enlaces a páginas con PDFs */
+        /* Cards para enlaces a carpetas de Drive */
         .gestion-section {
             padding: 50px 20px;
             max-width: 1200px;
@@ -111,17 +111,18 @@
 </footer>
 
 <script>
-/* --> Cambiá aquí los destinos: páginas HTML que contienen las listas de PDFs <-- */
+/* --> Aquí apuntamos directamente a las carpetas de Google Drive <-- */
 const pdfFiles = [
-    {name: "Proyectos presentados por mí", page: "proyectos.html", icon: "img/pdf.png"},
-    {name: "Ordenanzas vigentes del 10/12/2023", page: "ordenanzas.html", icon: "img/pdf.png"}
+    {name: "Proyectos presentados por mí", page: "https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC", icon: "img/pdf.png"},
+    {name: "Ordenanzas vigentes del 10/12/2023", page: "https://drive.google.com/drive/folders/1QjH-6GlJW694fqUq6sNJtTzLUN1PYF3A", icon: "img/pdf.png"}
 ];
 
 const container = document.getElementById('pdfCards');
 pdfFiles.forEach(pdf => {
     const a = document.createElement('a');
     a.className = 'pdf-card';
-    a.href = pdf.page;               // lleva a la página HTML con todos los PDFs
+    a.href = pdf.page;               // abre carpeta de Drive
+    a.target = "_blank";             // se abre en nueva pestaña
     a.innerHTML = `<img src="${pdf.icon}" alt="PDF icon"><h3>${pdf.name}</h3><div class="ver-mas">Ver archivos &rarr;</div>`;
     container.appendChild(a);
 });

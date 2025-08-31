@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión en el HCD - Profundidad</title>
+    <title>Gestiones en el HCD - Profundidad</title>
     <link rel="stylesheet" href="css/estilo.css"> <!-- tu CSS principal -->
     <style>
-        /* CSS extra solo para PDF modal y botones dinámicos */
+        /* Cards para PDFs */
         .gestion-section {
             padding: 50px 20px;
             max-width: 1200px;
@@ -25,26 +25,38 @@
             margin-bottom: 15px;
         }
 
-        .pdf-buttons {
+        .pdf-cards {
             display: flex;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 20px;
             justify-content: center;
             margin: 30px 0;
         }
 
-        .btn-pdf-link {
-            padding: 12px 25px;
-            background-color: var(--color-boton);
-            color: var(--color-boton-texto);
-            border-radius: 8px;
-            text-decoration: none;
+        .pdf-card {
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .btn-pdf-link:hover {
-            background-color: #5a4abf;
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .pdf-card img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+
+        .pdf-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
         }
 
         /* Modal para ver PDF */
@@ -90,10 +102,24 @@
             text-align:center; 
             margin-top:15px;
         }
+
+        .btn-pdf-link {
+            padding: 12px 25px;
+            background-color: var(--color-boton);
+            color: var(--color-boton-texto);
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-pdf-link:hover {
+            background-color: #5a4abf;
+        }
     </style>
 </head>
 <body>
-    <header>
+<header>
     <div class="logo">
         <img src="img/logo.png" alt="Logo Profundidad">
     </div>
@@ -102,21 +128,20 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="quien-soy.html">¿Quién soy?</a></li>
             <li><a href="propuestas.html">Propuestas</a></li>
-              <li><a href="fotogaleria.html">Fotogalería</a></li>
+            <li><a href="fotogaleria.html">Fotogalería</a></li>
             <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 </header>
 
-
 <section class="gestion-section">
     <h1>Mi Gestión Como Concejal</h1>
     <p>Desde diciembre de 2023, me comprometí a representar con responsabilidad y transparencia a los vecinos de Profundidad.</p>
     <p>En esta sección podés consultar los proyectos y ordenanzas en los que trabajé como concejal.</p>
 
-    <div class="pdf-buttons" id="pdfButtons">
-        <!-- Aquí se generarán los botones automáticamente -->
+    <div class="pdf-cards" id="pdfCards">
+        <!-- Cards PDF generadas automáticamente -->
     </div>
 
     <p>Todos los archivos están en formato PDF para que cualquier vecino pueda acceder libremente, revisar y participar activamente en el control de lo que se aprueba en nuestro municipio.</p>
@@ -134,20 +159,18 @@
 </div>
 
 <script>
-    // Lista de PDFs automáticamente
     const pdfFiles = [
-        {name: "Proyectos presentados por mí", file: "pdf/proyectos.pdf"},
-        {name: "Ordenanzas vigentes del 10/12/2023", file: "pdf/ordenanzas.pdf"}
-        // Si subes más PDFs, los agregas a este array
+        {name: "Proyectos presentados por mí", file: "pdf/proyectos.pdf", icon: "img/pdf-icon.png"},
+        {name: "Ordenanzas vigentes del 10/12/2023", file: "pdf/ordenanzas.pdf", icon: "img/pdf-icon.png"}
     ];
 
-    const container = document.getElementById('pdfButtons');
+    const container = document.getElementById('pdfCards');
     pdfFiles.forEach(pdf => {
-        const btn = document.createElement('span');
-        btn.className = 'btn-pdf-link';
-        btn.textContent = pdf.name;
-        btn.onclick = () => openPDF(pdf.file);
-        container.appendChild(btn);
+        const card = document.createElement('div');
+        card.className = 'pdf-card';
+        card.innerHTML = `<img src="${pdf.icon}" alt="PDF icon"><h3>${pdf.name}</h3>`;
+        card.onclick = () => openPDF(pdf.file);
+        container.appendChild(card);
     });
 
     function openPDF(url) {
@@ -161,9 +184,8 @@
         document.getElementById('pdfFrame').src = '';
     }
 </script>
-<footer>
 
-    <!-- ICONOS DE REDES SOCIALES -->
+<footer>
     <div class="redes">
         <a href="https://www.tiktok.com/@gabisanchez01.ok?_t=ZM-8zJmsICoqeM&_r=1" target="_blank">
             <img src="img/tiktok.png" alt="TikTok">
@@ -184,7 +206,7 @@
             <img src="img/x.png" alt="X / Twitter">
         </a>
     </div>
-    <p>© 2025 Gabi Sanchez. Todos los derechos reservados.</p>
+    <p>© 2025 Gabi Sánchez. Todos los derechos reservados.</p>
 </footer>
 </body>
 </html>

@@ -7,6 +7,8 @@
     <title>Fotogalería</title>
     <link rel="stylesheet" href="css/estilo.css"> <!-- Conexión con tu CSS -->
     <link rel="stylesheet" href="css/galeria.css">
+    <link rel="stylesheet" href="slider.css">
+
 
     <style>
 -
@@ -203,6 +205,22 @@
     <img src="img/foto129.jpg" alt="Foto 129">
     <img src="img/foto130.jpg" alt="Foto 130">
     </div>
+    <div class="slider-container">
+  <div class="slide fade">
+    <img src="img1.jpg" alt="Foto 1">
+  </div>
+  <div class="slide fade">
+    <img src="img2.jpg" alt="Foto 2">
+  </div>
+  <div class="slide fade">
+    <img src="img3.jpg" alt="Foto 3">
+  </div>
+
+  <!-- FLECHITAS -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
 
 <!-- Galería de miniaturas -->
 <div class="galeria">
@@ -328,6 +346,32 @@ miniaturas.forEach((img, i) => {
     currentSlide(i+1);
   });
 });
+</script>
+<script>
+let slideIndex = 0;
+let slides = document.getElementsByClassName("slide");
+showSlides(); // arranca automático
+
+function showSlides() {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 4000); // cambia cada 4 seg
+}
+
+// Funciones para flechas
+function plusSlides(n) {
+  slideIndex += n;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  if (slideIndex < 1) {slideIndex = slides.length}
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slides[slideIndex-1].style.display = "block";  
+}
 </script>
 
 </body>

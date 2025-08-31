@@ -10,7 +10,7 @@
 }
 
 .quien-soy-texto {
-    background-color: rgba(255, 255, 255, 0.85); /* transparencia prudente */
+    background-color: rgba(255, 255, 255, 0.50); /* transparencia prudente */
     padding: 80px;
     border-radius: 12px;
     max-width: 800px;

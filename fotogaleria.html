@@ -1,80 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FotoGalería - Profundidad</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Slick slider CSS opcional para el slider -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <title>Fotogalería</title>
+    <link rel="stylesheet" href="styles/styles.css"> <!-- Conexión con tu CSS -->
+    <style>
+        /* Estilos específicos de la galería */
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .galeria img {
+            width: 250px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Slider automático */
+        .slider {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo Profundidad">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="fotogaleria.html">FotoGalería</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="propuestas.html">Propuestas</a></li>
-                <li><a href="gestiones-en-el-hcd.html">Gestiones HCD</a></li>
-                <li><a href="quien-soy.html">Quién Soy</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Slider de fotos -->
-    <section class="destacados">
-        <h2>Fotos Destacadas</h2>
-        <div class="slider">
-            <div class="tarjeta"><img src="img/foto1.jpg" alt="Foto 1"></div>
-            <div class="tarjeta"><img src="img/foto2.jpg" alt="Foto 2"></div>
-            <div class="tarjeta"><img src="img/foto3.jpg" alt="Foto 3"></div>
-            <div class="tarjeta"><img src="img/foto4.jpg" alt="Foto 4"></div>
-        </div>
-    </section>
+<header>
+    <img src="img/logo.png" alt="Logo">
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="fotogaleria.html">Fotogalería</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Sección de todas las fotos -->
-    <section class="destacados">
-        <h2>Todas las Fotos</h2>
-        <div class="tarjetas">
-            <div class="tarjeta"><img src="img/foto1.jpg" alt="Foto 1"></div>
-            <div class="tarjeta"><img src="img/foto2.jpg" alt="Foto 2"></div>
-            <div class="tarjeta"><img src="img/foto3.jpg" alt="Foto 3"></div>
-            <div class="tarjeta"><img src="img/foto4.jpg" alt="Foto 4"></div>
-            <div class="tarjeta"><img src="img/foto5.jpg" alt="Foto 5"></div>
-            <div class="tarjeta"><img src="img/foto6.jpg" alt="Foto 6"></div>
-        </div>
-    </section>
+<!-- Slider de fotos principal -->
+<div class="slider">
+    <img src="img/foto1.jpg" alt="Foto 1">
+    <img src="img/foto2.jpg" alt="Foto 2">
+    <img src="img/foto3.jpg" alt="Foto 3">
+</div>
 
-    <!-- Sección Instagram -->
-    <section class="destacados">
-        <h2>Síguenos en Instagram</h2>
-        <!-- Embed widget de Instagram, reemplaza con tu link -->
-        <iframe src="https://www.instagram.com/p/CODE_EMBED/embed" width="300" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-    </section>
+<!-- Galería de miniaturas -->
+<div class="galeria">
+    <img src="img/foto1.jpg" alt="Foto 1">
+    <img src="img/foto2.jpg" alt="Foto 2">
+    <img src="img/foto3.jpg" alt="Foto 3">
+    <img src="img/foto4.jpg" alt="Foto 4">
+    <img src="img/foto5.jpg" alt="Foto 5">
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Gabi Sanchez. Todos los derechos reservados.</p>
-    </footer>
+<footer>
+    <p>© 2025 Profundidad. Todos los derechos reservados.</p>
+</footer>
 
-    <!-- Slick slider JS opcional -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.slider').slick({
-                dots: true,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true
-            });
-        });
-    </script>
+<script>
+    // Slider automático simple
+    const slider = document.querySelector('.slider');
+    const slides = slider.querySelectorAll('img');
+    let index = 0;
+
+    slides.forEach((slide, i) => {
+        if(i !== 0) slide.style.display = 'none';
+    });
+
+    setInterval(() => {
+        slides[index].style.display = 'none';
+        index = (index + 1) % slides.length;
+        slides[index].style.display = 'block';
+    }, 3000); // Cambia cada 3 segundos
+</script>
+
 </body>
 </html>

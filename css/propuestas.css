@@ -1,1 +1,19 @@
+/* propuestas.css */
+
+/* Centrar todo el contenido de la sección */
+.propuestas .contenedor {
+    text-align: center;
+}
+
+/* Listas dentro de las tarjetas: eliminar puntos y sangría */
+.tarjeta-propuesta ul {
+    list-style: none; /* elimina los puntos */
+    padding-left: 0;  /* elimina la sangría */
+    text-align: center; /* centra los items */
+}
+
+/* Espacio entre los elementos de la lista */
+.tarjeta-propuesta li {
+    margin-bottom: 8px;
+}
 

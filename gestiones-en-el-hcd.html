@@ -3,12 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión en el HCD</title>
-    <link rel="stylesheet" href="css/estilo.css"> <!-- CSS principal -->
-    <link rel="stylesheet" href="css/gestion-hcd.css"> <!-- CSS solo para esta sección -->
+    <title>Gestión en el HCD - Profundidad</title>
+    <link rel="stylesheet" href="css/estilo.css"> <!-- tu CSS principal -->
+    <style>
+        /* CSS extra solo para PDF modal y botones dinámicos */
+        .gestion-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gestion-section h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .gestion-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .pdf-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .btn-pdf-link {
+            padding: 12px 25px;
+            background-color: var(--color-boton);
+            color: var(--color-boton-texto);
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-pdf-link:hover {
+            background-color: #5a4abf;
+        }
+
+        /* Modal para ver PDF */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            margin: 5% auto;
+            width: 90%;
+            max-width: 900px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        .download-container {
+            text-align:center; 
+            margin-top:15px;
+        }
+    </style>
 </head>
 <body>
-<header>
+    <header>
     <div class="logo">
         <img src="img/logo.png" alt="Logo Profundidad">
     </div>
@@ -17,41 +102,76 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="quien-soy.html">¿Quién soy?</a></li>
             <li><a href="propuestas.html">Propuestas</a></li>
-            <li><a href="fotogaleria.html">Fotogalería</a></li>
+              <li><a href="fotogaleria.html">Fotogalería</a></li>
             <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 </header>
 
-<section class="gestion-hcd">
+
+<section class="gestion-section">
     <h1>Mi Gestión Como Concejal</h1>
     <p>Desde diciembre de 2023, me comprometí a representar con responsabilidad y transparencia a los vecinos de Profundidad.</p>
     <p>En esta sección podés consultar los proyectos y ordenanzas en los que trabajé como concejal.</p>
 
-    <h2>📂 Proyectos presentados por mí</h2>
-    <p>Todos los proyectos de ordenanza que presenté en el Concejo Deliberante, incluyendo aquellos que fueron aprobados, rechazados o aún en tratamiento.</p>
-    <p>
-        <a href="proyectos-presentados.html" class="btn-pdf">Ver proyectos presentados (PDF)</a>
-    </p>
+    <div class="pdf-buttons" id="pdfButtons">
+        <!-- Aquí se generarán los botones automáticamente -->
+    </div>
 
-    <h2>📋 Ordenanzas vigentes desde el 10/12/2023</h2>
-    <p>Documentos oficiales de ordenanzas sancionadas en el Concejo Deliberante desde el inicio de mi mandato.</p>
-    <p>
-        <a href="ordenanzas-vigentes.html" class="btn-pdf">Ver ordenanzas vigentes (PDF)</a>
-    </p>
+    <p>Todos los archivos están en formato PDF para que cualquier vecino pueda acceder libremente, revisar y participar activamente en el control de lo que se aprueba en nuestro municipio.</p>
 </section>
 
+<!-- Modal para ver PDF -->
+<div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closePDF()">&times;</span>
+        <iframe id="pdfFrame" src=""></iframe>
+        <div class="download-container">
+            <a id="downloadLink" href="" download class="btn-pdf-link">Descargar PDF</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Lista de PDFs automáticamente
+    const pdfFiles = [
+        {name: "Proyectos presentados por mí", file: "pdf/proyectos.pdf"},
+        {name: "Ordenanzas vigentes del 10/12/2023", file: "pdf/ordenanzas.pdf"}
+        // Si subes más PDFs, los agregas a este array
+    ];
+
+    const container = document.getElementById('pdfButtons');
+    pdfFiles.forEach(pdf => {
+        const btn = document.createElement('span');
+        btn.className = 'btn-pdf-link';
+        btn.textContent = pdf.name;
+        btn.onclick = () => openPDF(pdf.file);
+        container.appendChild(btn);
+    });
+
+    function openPDF(url) {
+        document.getElementById('pdfFrame').src = url;
+        document.getElementById('downloadLink').href = url;
+        document.getElementById('pdfModal').style.display = 'block';
+    }
+
+    function closePDF() {
+        document.getElementById('pdfModal').style.display = 'none';
+        document.getElementById('pdfFrame').src = '';
+    }
+</script>
 <footer>
+
     <!-- ICONOS DE REDES SOCIALES -->
     <div class="redes">
-        <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank">
+        <a href="https://www.tiktok.com/@gabisanchez01.ok?_t=ZM-8zJmsICoqeM&_r=1" target="_blank">
             <img src="img/tiktok.png" alt="TikTok">
         </a>
         <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank">
             <img src="img/facebook.png" alt="Facebook">
         </a>
-        <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank">
+        <a href="https://www.instagram.com/gabisanchez01.ok?igsh=Z3F0dnh4emE1b2Zx" target="_blank">
             <img src="img/instagram.png" alt="Instagram">
         </a>
         <a href="https://wa.me/+5493765148121" target="_blank">
@@ -60,7 +180,7 @@
         <a href="mailto:mattiasgabrielssanchez1998@gmail.com">
             <img src="img/email.png" alt="Correo Electrónico">
         </a>
-        <a href="https://x.com/gabi_sanchez01" target="_blank">
+        <a href="https://x.com/gabi_sanchez01?t=BnusYCcT9e_afHCDydF2iA&s=09" target="_blank">
             <img src="img/x.png" alt="X / Twitter">
         </a>
     </div>

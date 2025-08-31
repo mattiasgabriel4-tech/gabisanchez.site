@@ -1,1 +1,32 @@
+/* ==========================
+   SECCIÓN QUIÉN SOY
+   ========================== */
+.quien-soy {
+    background: url('../img/fondo1.png') center center / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.quien-soy-texto {
+    background-color: rgba(255, 255, 255, 0.85); /* transparencia prudente */
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 800px;
+    text-align: justify;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.quien-soy-texto h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.quien-soy-texto p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
 

@@ -1,1 +1,57 @@
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+
+.lightbox-content {
+  position: relative;
+  margin: auto;
+  max-width: 80%;
+}
+
+.mySlides {
+  display: none;
+  text-align: center;
+}
+.mySlides img {
+  max-width: 100%;
+  max-height: 80vh;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+.mySlides img:active {
+  transform: scale(1.5); /* zoom al hacer click */
+}
+
+/* Botones */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-size: 24px;
+  transition: 0.3s;
+  user-select: none;
+}
+.next { right: 0; }
+.prev { left: 0; }
+.prev:hover, .next:hover { color: #f1f1f1; }
+
+/* Cerrar */
+.close {
+  position: absolute;
+  top: 15px; right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
 

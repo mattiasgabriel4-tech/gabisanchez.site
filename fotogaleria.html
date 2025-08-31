@@ -64,10 +64,11 @@
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="fotogaleria.html">Fotogalería</a></li>
-            <li><a href="propuestas.html">Mis Proyectos y Propuestas</a></li>
+            <li><a href="quien-soy.html">¿Quién soy?</a></li>
+            <li><a href="propuestas.html">Propuestas</a></li>
+              <li><a href="fotogaleria.html">Fotogalería</a></li>
             <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
-            <li><a href="quien-soy.html">Quien Soy</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 </header>
@@ -273,61 +274,7 @@
         index = (index + 1) % slides.length;
         slides[index].style.display = 'block';
     }, 4000); // Cambia cada 4 segundos
-</script>
-<script>
-let slideIndex = 1;
 
-function openLightbox() {
-  document.getElementById("lightbox").style.display = "block";
-  showSlides(slideIndex);
-}
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
-function changeSlide(n) {
-  showSlides(slideIndex += n);
-}
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-function showSlides(n) {
-  let slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex-1].style.display = "block";
-}
-<script>
-let slideIndexSlider = 0;
-let slides = document.getElementsByClassName("slide");
-
-// Función para mostrar slides
-function showSlides() {
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndexSlider++;
-  if (slideIndexSlider > slides.length) {slideIndexSlider = 1}    
-  slides[slideIndexSlider-1].style.display = "block";  
-  setTimeout(showSlides, 4000); // cambia cada 4 seg
-}
-
-// Funciones para flechas
-function plusSlides(n) {
-  slideIndexSlider += n;
-  if (slideIndexSlider > slides.length) {slideIndexSlider = 1}
-  if (slideIndexSlider < 1) {slideIndexSlider = slides.length}
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slides[slideIndexSlider-1].style.display = "block";  
-}
-
-// Inicia el slider
-showSlides();
-</script>
 
 </script>
 

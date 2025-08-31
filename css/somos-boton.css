@@ -1,1 +1,21 @@
+/* Footer botón Somos Profundidad */
+.footer-somos {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-somos {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #6b1fa2; /* color principal de Somos Profundidad */
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-somos:hover {
+    background-color: #4e1479; /* tono más oscuro al pasar el mouse */
+}
 

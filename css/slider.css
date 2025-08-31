@@ -1,1 +1,34 @@
+/* Botones flecha */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  z-index: 10;
+}
+
+/* Posición izquierda */
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Posición derecha */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Hover efecto */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.6);
+}
 

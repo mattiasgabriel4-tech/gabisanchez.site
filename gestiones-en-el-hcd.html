@@ -6,7 +6,7 @@
     <title>Gestiones en el HCD - Profundidad</title>
     <link rel="stylesheet" href="css/estilo.css"> <!-- tu CSS principal -->
     <style>
-        /* Cards para PDFs */
+        /* Cards para enlaces a páginas con PDFs */
         .gestion-section {
             padding: 50px 20px;
             max-width: 1200px;
@@ -33,14 +33,17 @@
             margin: 30px 0;
         }
 
+        /* ahora .pdf-card es un <a> clickable */
         .pdf-card {
+            display: block;
             background-color: #f9f9f9;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             padding: 20px;
             width: 250px;
             text-align: center;
-            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
@@ -59,62 +62,10 @@
             margin-bottom: 10px;
         }
 
-        /* Modal para ver PDF */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-        }
-
-        .modal-content {
-            margin: 5% auto;
-            width: 90%;
-            max-width: 900px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            position: relative;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-            cursor: pointer;
-            color: #333;
-        }
-
-        .modal iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-        }
-
-        .download-container {
-            text-align:center; 
-            margin-top:15px;
-        }
-
-        .btn-pdf-link {
-            padding: 12px 25px;
-            background-color: var(--color-boton);
-            color: var(--color-boton-texto);
-            border-radius: 8px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn-pdf-link:hover {
-            background-color: #5a4abf;
+        .pdf-card .ver-mas {
+            font-size: 0.95em;
+            color: var(--color-acento, #333);
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -129,7 +80,7 @@
             <li><a href="quien-soy.html">¿Quién soy?</a></li>
             <li><a href="propuestas.html">Propuestas</a></li>
             <li><a href="fotogaleria.html">Fotogalería</a></li>
-            <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+            <li><a href="gestiones-en-el-hcd.html" class="active">Gestiones en el HCD</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
@@ -147,66 +98,33 @@
     <p>Todos los archivos están en formato PDF para que cualquier vecino pueda acceder libremente, revisar y participar activamente en el control de lo que se aprueba en nuestro municipio.</p>
 </section>
 
-<!-- Modal para ver PDF -->
-<div id="pdfModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closePDF()">&times;</span>
-        <iframe id="pdfFrame" src=""></iframe>
-        <div class="download-container">
-            <a id="downloadLink" href="" download class="btn-pdf-link">Descargar PDF</a>
-        </div>
-    </div>
-</div>
-<script>
-    const pdfFiles = [
-        {name: "Proyectos presentados por mí", file: "proyectos.html", icon: "img/pdf.png"},
-        {name: "Ordenanzas vigentes del 10/12/2023", file: "ordenanzas.html", icon: "img/pdf.png"}
-    ];
-</script>
-
-    const container = document.getElementById('pdfCards');
-    pdfFiles.forEach(pdf => {
-        const card = document.createElement('div');
-        card.className = 'pdf-card';
-        card.innerHTML = `<img src="${pdf.icon}" alt="PDF icon"><h3>${pdf.name}</h3>`;
-        card.onclick = () => openPDF(pdf.file);
-        container.appendChild(card);
-    });
-
-    function openPDF(url) {
-        document.getElementById('pdfFrame').src = url;
-        document.getElementById('downloadLink').href = url;
-        document.getElementById('pdfModal').style.display = 'block';
-    }
-
-    function closePDF() {
-        document.getElementById('pdfModal').style.display = 'none';
-        document.getElementById('pdfFrame').src = '';
-    }
-</script>
-
 <footer>
     <div class="redes">
-        <a href="https://www.tiktok.com/@gabisanchez01.ok?_t=ZM-8zJmsICoqeM&_r=1" target="_blank">
-            <img src="img/tiktok.png" alt="TikTok">
-        </a>
-        <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank">
-            <img src="img/facebook.png" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/gabisanchez01.ok?igsh=Z3F0dnh4emE1b2Zx" target="_blank">
-            <img src="img/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://wa.me/+5493765148121" target="_blank">
-            <img src="img/whatsapp.png" alt="WhatsApp">
-        </a>
-        <a href="mailto:mattiasgabrielssanchez1998@gmail.com">
-            <img src="img/email.png" alt="Correo Electrónico">
-        </a>
-        <a href="https://x.com/gabi_sanchez01?t=BnusYCcT9e_afHCDydF2iA&s=09" target="_blank">
-            <img src="img/x.png" alt="X / Twitter">
-        </a>
+        <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank"><img src="img/tiktok.png" alt="TikTok"></a>
+        <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank"><img src="img/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
+        <a href="https://wa.me/+5493765148121" target="_blank"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+        <a href="mailto:mattiasgabrielssanchez1998@gmail.com"><img src="img/email.png" alt="Correo Electrónico"></a>
+        <a href="https://x.com/gabi_sanchez01" target="_blank"><img src="img/x.png" alt="X / Twitter"></a>
     </div>
     <p>© 2025 Gabi Sánchez. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+/* --> Cambiá aquí los destinos: páginas HTML que contienen las listas de PDFs <-- */
+const pdfFiles = [
+    {name: "Proyectos presentados por mí", page: "proyectos.html", icon: "img/pdf.png"},
+    {name: "Ordenanzas vigentes del 10/12/2023", page: "ordenanzas.html", icon: "img/pdf.png"}
+];
+
+const container = document.getElementById('pdfCards');
+pdfFiles.forEach(pdf => {
+    const a = document.createElement('a');
+    a.className = 'pdf-card';
+    a.href = pdf.page;               // lleva a la página HTML con todos los PDFs
+    a.innerHTML = `<img src="${pdf.icon}" alt="PDF icon"><h3>${pdf.name}</h3><div class="ver-mas">Ver archivos &rarr;</div>`;
+    container.appendChild(a);
+});
+</script>
 </body>
 </html>

@@ -1,133 +1,377 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9871058514165036"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestiones en el HCD - Profundidad</title>
-    <link rel="stylesheet" href="css/estilo.css"> <!-- tu CSS principal -->
+    <meta name="description" content="Gestiones de Gabi Sánchez en el Honorable Concejo Deliberante de Profundidad. Proyectos presentados y ordenanzas vigentes desde 2023.">
+    <meta property="og:title" content="Gestiones en el HCD — Gabi Sánchez">
+    <meta property="og:description" content="Proyectos presentados y ordenanzas vigentes. El trabajo concreto de Gabi Sánchez como concejal de Profundidad.">
+    <meta property="og:image" content="img/logo.png">
+    <title>Gestiones en el HCD — Gabi Sánchez</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/estilo.css">
     <style>
-        /* Cards para enlaces a carpetas de Drive */
-        .gestion-section {
-            padding: 50px 20px;
-            max-width: 1200px;
+
+        /* ---- Hero ---- */
+        .gestiones-hero {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            text-align: center;
+            padding: 72px 20px 60px;
+        }
+
+        .gestiones-hero h1 {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .gestiones-hero p {
+            font-size: 1.05rem;
+            max-width: 640px;
             margin: 0 auto;
+            opacity: 0.82;
+            line-height: 1.7;
         }
 
-        .gestion-section h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
+        /* ---- Contenido principal ---- */
+        .gestiones-contenido {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 72px 20px;
         }
 
-        .gestion-section p {
-            font-size: 1.1em;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .pdf-cards {
-            display: flex;
-            flex-wrap: wrap;
+        /* ---- Bloque de estadísticas ---- */
+        .estadisticas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            justify-content: center;
-            margin: 30px 0;
+            margin-bottom: 64px;
         }
 
-        /* ahora .pdf-card es un <a> clickable */
-        .pdf-card {
-            display: block;
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            padding: 20px;
-            width: 250px;
+        .estadistica {
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 28px 20px;
             text-align: center;
+            border-top: 4px solid var(--azul-medio);
+        }
+
+        .estadistica .numero {
+            font-family: var(--fuente-titulo);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--azul-principal);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .estadistica .etiqueta {
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ---- Sección de carpetas ---- */
+        .carpetas-seccion {
+            margin-bottom: 64px;
+        }
+
+        .carpetas-seccion h2 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.7rem;
+            color: var(--azul-principal);
+            margin-bottom: 8px;
+        }
+
+        .carpetas-seccion .descripcion {
+            font-size: 1rem;
+            color: var(--gris-texto);
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .carpetas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .carpeta-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 24px;
             text-decoration: none;
-            color: inherit;
-            transition: transform 0.3s, box-shadow 0.3s;
+            color: var(--negro-suave);
+            border-left: 4px solid var(--azul-medio);
+            transition: transform var(--transicion), box-shadow var(--transicion);
         }
 
-        .pdf-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        .carpeta-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-lg);
+            color: var(--negro-suave);
         }
 
-        .pdf-card img {
-            width: 60px;
-            margin-bottom: 15px;
+        .carpeta-icono {
+            font-size: 2.2rem;
+            flex-shrink: 0;
+            line-height: 1;
         }
 
-        .pdf-card h3 {
-            font-size: 1.1em;
-            margin-bottom: 10px;
+        .carpeta-info h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--azul-principal);
+            margin-bottom: 4px;
         }
 
-        .pdf-card .ver-mas {
-            font-size: 0.95em;
-            color: var(--color-acento, #333);
-            margin-top: 8px;
+        .carpeta-info p {
+            font-size: 0.88rem;
+            color: var(--gris-texto);
+            line-height: 1.5;
+            margin-bottom: 8px;
         }
+
+        .carpeta-info .ver-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--azul-medio);
+        }
+
+        /* ---- Separador entre secciones ---- */
+        .separador-seccion {
+            border: none;
+            border-top: 1px solid var(--gris-medio);
+            margin: 56px 0;
+        }
+
+        /* ---- Nota al pie ---- */
+        .nota-transparencia {
+            background-color: var(--azul-claro);
+            border-radius: var(--radio-md);
+            padding: 28px 32px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .nota-transparencia .nota-icono {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .nota-transparencia h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--azul-principal);
+            margin-bottom: 6px;
+        }
+
+        .nota-transparencia p {
+            font-size: 0.92rem;
+            color: var(--gris-texto);
+            line-height: 1.7;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 768px) {
+            .gestiones-hero {
+                padding: 52px 20px 44px;
+            }
+
+            .gestiones-contenido {
+                padding: 48px 20px;
+            }
+
+            .estadisticas {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .estadistica {
+                padding: 20px 12px;
+            }
+
+            .estadistica .numero {
+                font-size: 1.8rem;
+            }
+
+            .nota-transparencia {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
-<header>
-    <div class="logo">
-        <img src="img/logo.png" alt="Logo Profundidad">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="quien-soy.html">¿Quién soy?</a></li>
-            <li><a href="propuestas.html">Propuestas</a></li>
-            <li><a href="fotogaleria.html">Fotogalería</a></li>
-            <li><a href="gestiones-en-el-hcd.html" class="active">Gestiones en el HCD</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
 
-<section class="gestion-section">
-    <h1>Mi Gestión Como Concejal</h1>
-    <p>Desde diciembre de 2023, me comprometí a representar con responsabilidad y transparencia a los vecinos de Profundidad.</p>
-    <p>En esta sección podés consultar los proyectos y ordenanzas en los que trabajé como concejal.</p>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
+            </a>
+        </div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quien-soy.html">¿Quién soy?</a></li>
+                <li><a href="propuestas.html">Propuestas</a></li>
+                <li><a href="fotogaleria.html">Fotogalería</a></li>
+                <li><a href="gestiones-en-el-hcd.html" class="activo">Gestiones en el HCD</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="pdf-cards" id="pdfCards">
-        <!-- Cards PDF generadas automáticamente -->
-    </div>
+    <main>
 
-    <p>Todos los archivos están en formato PDF para que cualquier vecino pueda acceder libremente, revisar y participar activamente en el control de lo que se aprueba en nuestro municipio.</p>
-</section>
+        <!-- HERO -->
+        <section class="gestiones-hero" aria-label="Gestiones en el HCD">
+            <h1>Mi gestión como concejal</h1>
+            <p>Desde diciembre de 2023 represento a los vecinos de Profundidad en el Honorable Concejo Deliberante. Acá podés consultar todo lo que presenté y lo que se aprobó.</p>
+        </section>
 
-<footer>
-    <div class="redes">
-        <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank"><img src="img/tiktok.png" alt="TikTok"></a>
-        <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank"><img src="img/facebook.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
-        <a href="https://wa.me/+5493765148121" target="_blank"><img src="img/whatsapp.png" alt="WhatsApp"></a>
-        <a href="mailto:mattiasgabrielssanchez1998@gmail.com"><img src="img/email.png" alt="Correo Electrónico"></a>
-        <a href="https://x.com/gabi_sanchez01" target="_blank"><img src="img/x.png" alt="X / Twitter"></a>
-    </div>
-    <p>© 2025 Gabi Sánchez. Todos los derechos reservados.</p>
-</footer>
+        <div class="gestiones-contenido">
 
-<script>
-/* --> Aquí apuntamos directamente a las carpetas de Google Drive <-- */
-const pdfFiles = [
-    {name: "Proyectos presentados por mí", page: "https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC", icon: "img/pdf.png"},
-    {name: "Ordenanzas vigentes del 10/12/2023", page: "https://drive.google.com/drive/folders/1QjH-6GlJW694fqUq6sNJtTzLUN1PYF3A", icon: "img/pdf.png"}
-];
+            <!-- ESTADÍSTICAS -->
+            <div class="estadisticas" aria-label="Resumen de gestión">
+                <div class="estadistica">
+                    <span class="numero">2023</span>
+                    <span class="etiqueta">Inicio del mandato</span>
+                </div>
+                <div class="estadistica">
+                    <span class="numero">+15</span>
+                    <span class="etiqueta">Proyectos presentados</span>
+                </div>
+                <div class="estadistica">
+                    <span class="numero">17</span>
+                    <span class="etiqueta">Ordenanzas vigentes</span>
+                </div>
+            </div>
 
-const container = document.getElementById('pdfCards');
-pdfFiles.forEach(pdf => {
-    const a = document.createElement('a');
-    a.className = 'pdf-card';
-    a.href = pdf.page;               // abre carpeta de Drive
-    a.target = "_blank";             // se abre en nueva pestaña
-    a.innerHTML = `<img src="${pdf.icon}" alt="PDF icon"><h3>${pdf.name}</h3><div class="ver-mas">Ver archivos &rarr;</div>`;
-    container.appendChild(a);
-});
-</script>
+            <!-- PROYECTOS PRESENTADOS -->
+            <section class="carpetas-seccion" aria-labelledby="titulo-proyectos">
+                <h2 id="titulo-proyectos">Proyectos presentados por mí</h2>
+                <p class="descripcion">
+                    Proyectos de ordenanza, resolución y comunicación que presenté ante el HCD desde el inicio de mi mandato. Incluyen propuestas sobre transporte, medio ambiente, salud, educación, desarrollo local y transparencia institucional.
+                </p>
+                <div class="carpetas-grid">
+                    <a class="carpeta-card"
+                       href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Ver todos los proyectos presentados en Google Drive">
+                        <span class="carpeta-icono" aria-hidden="true">📁</span>
+                        <div class="carpeta-info">
+                            <h3>Todos los proyectos</h3>
+                            <p>2023 · 2024 · 2025</p>
+                            <span class="ver-link">Abrir en Google Drive →</span>
+                        </div>
+                    </a>
+                    <a class="carpeta-card"
+                       href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Ver proyectos del año 2025">
+                        <span class="carpeta-icono" aria-hidden="true">📄</span>
+                        <div class="carpeta-info">
+                            <h3>Proyectos 2025</h3>
+                            <p>Régimen de Inversiones Locales, arbolado urbano, cajas eléctricas en plaza y más.</p>
+                            <span class="ver-link">Ver documentos →</span>
+                        </div>
+                    </a>
+                    <a class="carpeta-card"
+                       href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Ver proyectos del año 2024">
+                        <span class="carpeta-icono" aria-hidden="true">📄</span>
+                        <div class="carpeta-info">
+                            <h3>Proyectos 2024</h3>
+                            <p>Transporte, prevención del suicidio, descacharrización, reglamento interno del HCD y más.</p>
+                            <span class="ver-link">Ver documentos →</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <hr class="separador-seccion">
+
+            <!-- ORDENANZAS VIGENTES -->
+            <section class="carpetas-seccion" aria-labelledby="titulo-ordenanzas">
+                <h2 id="titulo-ordenanzas">Ordenanzas vigentes</h2>
+                <p class="descripcion">
+                    Todas las ordenanzas, resoluciones y declaraciones aprobadas por el HCD de Profundidad desde el inicio del mandato en diciembre de 2023. Documentos oficiales en formato PDF, accesibles para cualquier vecino.
+                </p>
+                <div class="carpetas-grid">
+                    <a class="carpeta-card"
+                       href="https://drive.google.com/drive/folders/1QjH-6GlJW694fqUq6sNJtTzLUN1PYF3A"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Ver todas las ordenanzas vigentes en Google Drive">
+                        <span class="carpeta-icono" aria-hidden="true">📋</span>
+                        <div class="carpeta-info">
+                            <h3>Ordenanzas vigentes desde 10/12/2023</h3>
+                            <p>Ordenanzas 01 a 17 del período 2024, resoluciones y declaraciones de interés municipal.</p>
+                            <span class="ver-link">Abrir en Google Drive →</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <hr class="separador-seccion">
+
+            <!-- NOTA DE TRANSPARENCIA -->
+            <div class="nota-transparencia" role="note">
+                <span class="nota-icono" aria-hidden="true">🔓</span>
+                <div>
+                    <h3>Acceso libre para todos los vecinos</h3>
+                    <p>Todos los documentos están en formato PDF y almacenados en Google Drive para que cualquier vecino pueda consultarlos, descargarlos y compartirlos libremente. La transparencia no es opcional: es la base de cualquier gestión seria.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <nav class="redes" aria-label="Redes sociales">
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok">
+                <img src="img/tiktok.png" alt="TikTok">
+            </a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook">
+                <img src="img/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <img src="img/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Correo electrónico">
+                <img src="img/email.png" alt="Email">
+            </a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X / Twitter">
+                <img src="img/x.png" alt="X">
+            </a>
+        </nav>
+        <p>&copy; 2026 Gabi Sánchez. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>

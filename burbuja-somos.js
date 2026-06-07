@@ -1,4 +1,3 @@
-
 /* ============================================================
    burbuja-somos.js
    Inyecta la burbuja flotante "Somos Más Con Vos" en todas
@@ -29,7 +28,7 @@
             background-color: #1a4a7a;
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 18px;
+            padding: 10px;
             border-radius: 50px;
             box-shadow: 0 4px 20px rgba(26, 74, 122, 0.40);
             font-family: 'Inter', 'Segoe UI', sans-serif;
@@ -48,29 +47,19 @@
             color: #ffffff;
         }
 
-        .burbuja-somos-icono {
-            font-size: 1.1rem;
-            line-height: 1;
+        .burbuja-somos-logo {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            display: block;
             flex-shrink: 0;
         }
 
-        .burbuja-somos-texto {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-        }
-
-        .burbuja-somos-partido {
-            font-size: 0.78rem;
-            opacity: 0.75;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .burbuja-somos-nombre {
-            font-size: 0.92rem;
-            font-weight: 700;
+        @media (max-width: 768px) {
+            .burbuja-somos-logo {
+                width: 38px;
+                height: 38px;
+            }
         }
 
         /* Pulso de atención al cargar la página */
@@ -118,11 +107,7 @@
 
     burbuja.innerHTML = `
         <a href="${rutaSomos}" class="burbuja-somos-btn" aria-label="Conocé Somos Más Con Vos, el partido de Gabi Sánchez">
-            <span class="burbuja-somos-icono" aria-hidden="true">🤝</span>
-            <div class="burbuja-somos-texto">
-                <span class="burbuja-somos-partido">Partido político</span>
-                <span class="burbuja-somos-nombre">Somos Más Con Vos</span>
-            </div>
+            <img class="burbuja-somos-logo" src="${enSubcarpeta ? '../' : ''}img/logo-somos.png" alt="Somos Más Con Vos">
         </a>
     `;
 

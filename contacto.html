@@ -1,148 +1,486 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9871058514165036"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Profundidad</title>
-    <link rel="stylesheet" href="css/estilo.css"> <!-- tu CSS principal -->
+    <meta name="description" content="Contacto directo con Gabi Sánchez, concejal de Profundidad. WhatsApp, redes sociales y formulario de contacto.">
+    <meta property="og:title" content="Contacto — Gabi Sánchez">
+    <meta property="og:description" content="Escribile directamente a Gabi. WhatsApp, redes sociales y formulario de contacto.">
+    <meta property="og:image" content="img/logo.png">
+    <title>Contacto — Gabi Sánchez</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/estilo.css">
     <style>
-        /* CSS extra para la sección de contacto */
-        .contacto-section {
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
 
-        .contacto-section h1 {
+        /* ---- Hero ---- */
+        .contacto-hero {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 30px;
+            padding: 72px 20px 60px;
         }
 
-        .contacto-section p {
-            font-size: 1.1em;
+        .contacto-hero h1 {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .contacto-hero p {
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto;
+            opacity: 0.82;
+            line-height: 1.7;
+        }
+
+        /* ---- Contenido principal ---- */
+        .contacto-contenido {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 72px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* ---- Columna izquierda: canales directos ---- */
+        .contacto-canales h2 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.5rem;
+            color: var(--azul-principal);
+            margin-bottom: 8px;
+        }
+
+        .contacto-canales .bajada {
+            font-size: 0.95rem;
+            color: var(--gris-texto);
+            margin-bottom: 32px;
             line-height: 1.6;
-            margin-bottom: 20px;
-            text-align: center;
         }
 
-        .datos-contacto {
+        .canal {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .datos-contacto a {
-            color: var(--color-boton);
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
             text-decoration: none;
-            font-weight: bold;
+            color: var(--negro-suave);
+            margin-bottom: 12px;
+            border-left: 4px solid var(--azul-medio);
+            transition: transform var(--transicion), box-shadow var(--transicion);
         }
 
-        .datos-contacto a:hover {
-            text-decoration: underline;
+        .canal:hover {
+            transform: translateX(4px);
+            box-shadow: var(--sombra-md);
+            color: var(--negro-suave);
         }
 
-        .contacto-form {
+        .canal-icono {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+
+        .canal-info strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--azul-principal);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .canal-info span {
+            font-size: 0.88rem;
+            color: var(--gris-texto);
+        }
+
+        /* ---- Dirección ---- */
+        .contacto-direccion {
+            margin-top: 28px;
+            padding: 18px 20px;
+            background-color: var(--gris-claro);
+            border-radius: var(--radio-md);
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 600px;
-            margin: 0 auto;
+            gap: 14px;
+            align-items: flex-start;
         }
 
-        .contacto-form input,
-        .contacto-form textarea {
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1em;
+        .contacto-direccion .dir-icono {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contacto-direccion strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--azul-principal);
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .contacto-direccion span {
+            font-size: 0.88rem;
+            color: var(--gris-texto);
+        }
+
+        /* ---- Columna derecha: formulario ---- */
+        .contacto-formulario h2 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.5rem;
+            color: var(--azul-principal);
+            margin-bottom: 8px;
+        }
+
+        .contacto-formulario .bajada {
+            font-size: 0.95rem;
+            color: var(--gris-texto);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .form-grupo {
+            margin-bottom: 16px;
+        }
+
+        .form-grupo label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--azul-principal);
+            margin-bottom: 6px;
+            letter-spacing: 0.02em;
+        }
+
+        .form-grupo input,
+        .form-grupo textarea,
+        .form-grupo select {
             width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--gris-medio);
+            border-radius: var(--radio-sm);
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.95rem;
+            color: var(--negro-suave);
+            background-color: var(--blanco);
+            transition: border-color var(--transicion), box-shadow var(--transicion);
+            appearance: none;
         }
 
-        .contacto-form textarea {
+        .form-grupo input:focus,
+        .form-grupo textarea:focus,
+        .form-grupo select:focus {
+            outline: none;
+            border-color: var(--azul-medio);
+            box-shadow: 0 0 0 3px rgba(37, 99, 168, 0.12);
+        }
+
+        .form-grupo textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 130px;
         }
 
-        .contacto-form button {
-            padding: 12px 25px;
-            background-color: var(--color-boton);
-            color: var(--color-boton-texto);
+        .form-aviso {
+            font-size: 0.82rem;
+            color: var(--gris-texto);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            font-family: var(--fuente-cuerpo);
+            font-size: 1rem;
+            font-weight: 600;
             border: none;
-            border-radius: 8px;
-            font-size: 1em;
+            border-radius: var(--radio-md);
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color var(--transicion), transform var(--transicion);
         }
 
-        .contacto-form button:hover {
-            background-color: #5a4abf;
+        .btn-enviar:hover {
+            background-color: var(--azul-medio);
+            transform: translateY(-2px);
         }
+
+        .btn-enviar:active {
+            transform: translateY(0);
+        }
+
+        /* ---- Mensaje de confirmación (oculto por defecto) ---- */
+        .form-confirmacion {
+            display: none;
+            text-align: center;
+            padding: 32px 20px;
+            background-color: var(--azul-claro);
+            border-radius: var(--radio-md);
+            margin-top: 16px;
+        }
+
+        .form-confirmacion .check {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .form-confirmacion h3 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.3rem;
+            color: var(--azul-principal);
+            margin-bottom: 8px;
+        }
+
+        .form-confirmacion p {
+            font-size: 0.92rem;
+            color: var(--gris-texto);
+            line-height: 1.6;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 768px) {
+            .contacto-hero {
+                padding: 52px 20px 44px;
+            }
+
+            .contacto-contenido {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                padding: 48px 20px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
-<header>
-    <div class="logo">
-        <img src="img/logo.png" alt="Logo Profundidad">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="quien-soy.html">¿Quién soy?</a></li>
-            <li><a href="propuestas.html">Propuestas</a></li>
-            <li><a href="fotogaleria.html">Fotogalería</a></li>
-            <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
 
-<section class="contacto-section">
-    <h1>Contacto</h1>
-    <p>Podes comunicarte conmigo a través de este formulario, como también por mis redes sociales y WhatsApp.</p>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
+            </a>
+        </div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quien-soy.html">¿Quién soy?</a></li>
+                <li><a href="propuestas.html">Propuestas</a></li>
+                <li><a href="fotogaleria.html">Fotogalería</a></li>
+                <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+                <li><a href="contacto.html" class="activo">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="datos-contacto">
-        <p>WhatsApp: <a href="https://wa.me/+5493765148121" target="_blank">3765148121</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank">@gabisanchez01.ok</a></p>
-        <p>Facebook: <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank">Gabi Sánchez</a></p>
-        <p>Email: <a href="mailto:mattiasgabriel4@gmail.com">mattiasgabriel4@gmail.com</a></p>
-        <p>Dirección: Manzana 3, Profundidad, 3308</p>
-    </div>
+    <main>
 
-    <form class="contacto-form" action="mailto:mattiasgabriel4@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="nombre" placeholder="Nombre" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="mensaje" placeholder="Mensaje" required></textarea>
-        <button type="submit">Enviar</button>
-    </form>
-</section>
+        <!-- HERO -->
+        <section class="contacto-hero" aria-label="Contacto">
+            <h1>Hablemos</h1>
+            <p>El cambio se construye entre todos. Si tenés una propuesta, un reclamo o simplemente querés saludar, acá estoy.</p>
+        </section>
 
-<footer>
-    <div class="redes">
-        <a href="https://www.tiktok.com/@gabisanchez01.ok?_t=ZM-8zJmsICoqeM&_r=1" target="_blank">
-            <img src="img/tiktok.png" alt="TikTok">
-        </a>
-        <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank">
-            <img src="img/facebook.png" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/gabisanchez01.ok?igsh=Z3F0dnh4emE1b2Zx" target="_blank">
-            <img src="img/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://wa.me/+5493765148121" target="_blank">
-            <img src="img/whatsapp.png" alt="WhatsApp">
-        </a>
-        <a href="mailto:mattiasgabriel4@gmail.com">
-            <img src="img/email.png" alt="Correo Electrónico">
-        </a>
-        <a href="https://x.com/gabi_sanchez01?t=BnusYCcT9e_afHCDydF2iA&s=09" target="_blank">
-            <img src="img/x.png" alt="X / Twitter">
-        </a>
-    </div>
-    <p>© 2025 Gabi Sánchez. Todos los derechos reservados.</p>
-</footer>
+        <div class="contacto-contenido">
+
+            <!-- CANALES DIRECTOS -->
+            <section class="contacto-canales" aria-labelledby="titulo-canales">
+                <h2 id="titulo-canales">Canales directos</h2>
+                <p class="bajada">La forma más rápida de comunicarte es por WhatsApp o Instagram. También podés escribir por cualquiera de estas vías.</p>
+
+                <a class="canal"
+                   href="https://wa.me/+5493765148121"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Contactar por WhatsApp">
+                    <img class="canal-icono" src="img/whatsapp.png" alt="WhatsApp">
+                    <div class="canal-info">
+                        <strong>WhatsApp</strong>
+                        <span>3765 148121 — Respuesta rápida</span>
+                    </div>
+                </a>
+
+                <a class="canal"
+                   href="https://www.instagram.com/gabisanchez01.ok"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Contactar por Instagram">
+                    <img class="canal-icono" src="img/instagram.png" alt="Instagram">
+                    <div class="canal-info">
+                        <strong>Instagram</strong>
+                        <span>@gabisanchez01.ok</span>
+                    </div>
+                </a>
+
+                <a class="canal"
+                   href="https://www.facebook.com/share/19egZWD3cf/"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Contactar por Facebook">
+                    <img class="canal-icono" src="img/facebook.png" alt="Facebook">
+                    <div class="canal-info">
+                        <strong>Facebook</strong>
+                        <span>Gabi Sánchez</span>
+                    </div>
+                </a>
+
+                <a class="canal"
+                   href="https://www.tiktok.com/@gabisanchez01.ok"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Ver TikTok">
+                    <img class="canal-icono" src="img/tiktok.png" alt="TikTok">
+                    <div class="canal-info">
+                        <strong>TikTok</strong>
+                        <span>@gabisanchez01.ok</span>
+                    </div>
+                </a>
+
+                <a class="canal"
+                   href="mailto:mattiasgabriel4@gmail.com"
+                   aria-label="Enviar un email">
+                    <img class="canal-icono" src="img/email.png" alt="Email">
+                    <div class="canal-info">
+                        <strong>Email</strong>
+                        <span>mattiasgabriel4@gmail.com</span>
+                    </div>
+                </a>
+
+                <div class="contacto-direccion">
+                    <span class="dir-icono" aria-hidden="true">📍</span>
+                    <div>
+                        <strong>Dirección</strong>
+                        <span>Manzana 3 · Profundidad, Misiones · CP 3308</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FORMULARIO -->
+            <section class="contacto-formulario" aria-labelledby="titulo-formulario">
+                <h2 id="titulo-formulario">Escribime un mensaje</h2>
+                <p class="bajada">Completá el formulario y te respondo lo antes posible. Todos los mensajes son leídos personalmente.</p>
+
+                <form id="formContacto" novalidate>
+                    <div class="form-grupo">
+                        <label for="nombre">Nombre</label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Tu nombre"
+                            autocomplete="name"
+                            required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="contacto-input">¿Cómo te contacto?</label>
+                        <input
+                            type="text"
+                            id="contacto-input"
+                            name="contacto"
+                            placeholder="WhatsApp, email o Instagram"
+                            required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="asunto">Tema</label>
+                        <select id="asunto" name="asunto">
+                            <option value="" disabled selected>Seleccioná un tema</option>
+                            <option value="propuesta">Tengo una propuesta</option>
+                            <option value="reclamo">Quiero hacer un reclamo</option>
+                            <option value="consulta">Tengo una consulta</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea
+                            id="mensaje"
+                            name="mensaje"
+                            placeholder="Contame qué necesitás..."
+                            required></textarea>
+                    </div>
+                    <p class="form-aviso">
+                        Tu mensaje va directo a Gabi. No se comparte con nadie ni se usa con fines comerciales.
+                    </p>
+                    <button type="submit" class="btn-enviar">Enviar mensaje</button>
+                </form>
+
+                <div class="form-confirmacion" id="formConfirmacion" aria-live="polite">
+                    <span class="check" aria-hidden="true">✅</span>
+                    <h3>¡Mensaje enviado!</h3>
+                    <p>Gracias por escribir. Gabi va a leer tu mensaje y te va a responder a la brevedad por el medio que indicaste.</p>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <nav class="redes" aria-label="Redes sociales">
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok">
+                <img src="img/tiktok.png" alt="TikTok">
+            </a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook">
+                <img src="img/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <img src="img/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Correo electrónico">
+                <img src="img/email.png" alt="Email">
+            </a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X / Twitter">
+                <img src="img/x.png" alt="X">
+            </a>
+        </nav>
+        <p>&copy; 2026 Gabi Sánchez. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Formulario: redirige a WhatsApp con el mensaje armado
+        // GitHub Pages no tiene backend, así que la solución más confiable
+        // para un sitio estático es armar el mensaje y abrir WhatsApp.
+        document.getElementById('formContacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre   = document.getElementById('nombre').value.trim();
+            const contacto = document.getElementById('contacto-input').value.trim();
+            const asunto   = document.getElementById('asunto').value;
+            const mensaje  = document.getElementById('mensaje').value.trim();
+
+            if (!nombre || !contacto || !mensaje) return;
+
+            const asuntoTexto = {
+                propuesta: 'Tengo una propuesta',
+                reclamo:   'Quiero hacer un reclamo',
+                consulta:  'Tengo una consulta',
+                otro:      'Otro tema'
+            }[asunto] || 'Consulta general';
+
+            const texto = `Hola Gabi, te escribo desde tu sitio web.\n\n*Nombre:* ${nombre}\n*Contacto:* ${contacto}\n*Tema:* ${asuntoTexto}\n\n${mensaje}`;
+
+            const url = `https://wa.me/+5493765148121?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
+
+            // Mostrar confirmación y ocultar formulario
+            document.getElementById('formContacto').style.display = 'none';
+            document.getElementById('formConfirmacion').style.display = 'block';
+        });
+    </script>
+
 </body>
 </html>

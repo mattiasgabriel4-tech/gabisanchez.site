@@ -1,339 +1,331 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9871058514165036"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotogalería - Profundidad 2027</title>
+    <meta name="description" content="Fotogalería de Gabi Sánchez, concejal de Profundidad. Recorridas, reuniones y trabajo territorial en el municipio.">
+    <meta property="og:title" content="Fotogalería — Gabi Sánchez">
+    <meta property="og:description" content="El trabajo de todos los días en Profundidad, en imágenes.">
+    <meta property="og:image" content="img/foto1.jpg">
+    <title>Fotogalería — Gabi Sánchez</title>
+    <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/galeria.css">
-    <link rel="stylesheet" href="css/slider.css">
     <style>
-        /* Estilos slider */
-        .slider {
-            width: 80%;
-            max-width: 700px;
-            margin: 40px auto;
-            position: relative;
+
+        /* ---- Hero ---- */
+        .galeria-hero {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            text-align: center;
+            padding: 72px 20px 60px;
+        }
+
+        .galeria-hero h1 {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .galeria-hero p {
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto;
+            opacity: 0.82;
+            line-height: 1.7;
+        }
+
+        /* ---- Contenedor galería ---- */
+        .galeria-contenido {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* ---- Grid de fotos ---- */
+        .galeria-grid {
+            columns: 4 200px;
+            column-gap: 12px;
+        }
+
+        .galeria-item {
+            break-inside: avoid;
+            margin-bottom: 12px;
+            border-radius: var(--radio-sm);
             overflow: hidden;
-            border-radius: 12px;
+            cursor: pointer;
+            position: relative;
         }
 
-        .slide {
+        .galeria-item img {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: none; /* Ocultas al inicio */
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
-        /* Flechas */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0,0,0,0.3);
-            transition: 0.3s;
-            text-decoration: none;
+        .galeria-item:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.88);
         }
 
-        .next { right: 0; border-radius: 3px 0 0 3px; }
-
-        .prev:hover, .next:hover { background-color: rgba(0,0,0,0.6); }
-
-        /* Galería de miniaturas */
-        .galeria {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .galeria img {
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .galeria img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
-        /* Lightbox */
+        /* ---- Lightbox ---- */
         .lightbox {
             display: none;
             position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
+            inset: 0;
+            z-index: 200;
+            background-color: rgba(0, 0, 0, 0.92);
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 12px;
+        .lightbox.activo {
+            display: flex;
         }
 
-        .lightbox .close {
+        .lightbox-img {
+            max-width: 92vw;
+            max-height: 88vh;
+            border-radius: var(--radio-sm);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            object-fit: contain;
+        }
+
+        .lightbox-cerrar {
             position: absolute;
             top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 40px;
+            right: 28px;
+            color: var(--blanco);
+            font-size: 2rem;
             cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            opacity: 0.8;
+            transition: opacity var(--transicion);
+            padding: 8px;
         }
+
+        .lightbox-cerrar:hover {
+            opacity: 1;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--blanco);
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.10);
+            border: none;
+            padding: 14px 18px;
+            border-radius: var(--radio-sm);
+            opacity: 0.8;
+            transition: opacity var(--transicion), background-color var(--transicion);
+            line-height: 1;
+        }
+
+        .lightbox-nav:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .lightbox-prev { left: 16px; }
+        .lightbox-next { right: 16px; }
+
+        .lightbox-contador {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.88rem;
+            font-family: var(--fuente-cuerpo);
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 768px) {
+            .galeria-hero {
+                padding: 52px 20px 44px;
+            }
+
+            .galeria-contenido {
+                padding: 40px 12px;
+            }
+
+            .galeria-grid {
+                columns: 2 140px;
+                column-gap: 8px;
+            }
+
+            .galeria-item {
+                margin-bottom: 8px;
+            }
+
+            .lightbox-nav {
+                padding: 10px 14px;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev { left: 8px; }
+            .lightbox-next { right: 8px; }
+        }
+
     </style>
 </head>
+
 <body>
 
-<header>
-    <div class="logo">
-        <img src="img/logo.png" alt="Logo Profundidad">
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
+            </a>
+        </div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quien-soy.html">¿Quién soy?</a></li>
+                <li><a href="propuestas.html">Propuestas</a></li>
+                <li><a href="fotogaleria.html" class="activo">Fotogalería</a></li>
+                <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="galeria-hero" aria-label="Fotogalería">
+            <h1>Fotogalería</h1>
+            <p>Recorridas, reuniones y presencia en el territorio. El trabajo de todos los días en Profundidad.</p>
+        </section>
+
+        <!-- GALERÍA -->
+        <div class="galeria-contenido">
+            <div class="galeria-grid" id="galeriaGrid" role="list" aria-label="Galería de fotos">
+
+                <!-- Las imágenes se generan con JS para mantener el HTML limpio -->
+                <!-- y aplicar loading="lazy" automáticamente en todas -->
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+        <button class="lightbox-cerrar" id="lightboxCerrar" aria-label="Cerrar">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">&#8249;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Foto ampliada">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">&#8250;</button>
+        <span class="lightbox-contador" id="lightboxContador" aria-live="polite"></span>
     </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="quien-soy.html">¿Quién soy?</a></li>
-            <li><a href="propuestas.html">Propuestas</a></li>
-            <li><a href="fotogaleria.html">Fotogalería</a></li>
-            <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
 
-<!-- Slider principal -->
-<div class="slider">
-    <!-- Imágenes del 01 al 130 -->
-    <img class="slide" src="img/foto1.jpg" alt="Foto 1">
-    <img class="slide" src="img/foto2.jpg" alt="Foto 2">
-    <img class="slide" src="img/foto3.jpg" alt="Foto 3">
-    <img class="slide" src="img/foto4.jpg" alt="Foto 4">
-    <img class="slide" src="img/foto5.jpg" alt="Foto 5">
-    <img class="slide" src="img/foto6.jpg" alt="Foto 6">
-    <img class="slide" src="img/foto7.jpg" alt="Foto 7">
-    <img class="slide" src="img/foto8.jpg" alt="Foto 8">
-    <img class="slide" src="img/foto9.jpg" alt="Foto 9">
-    <img class="slide" src="img/foto10.jpg" alt="Foto 10">
-    <img class="slide" src="img/foto11.jpg" alt="Foto 11">
-    <img class="slide" src="img/foto12.jpg" alt="Foto 12">
-    <img class="slide" src="img/foto13.jpg" alt="Foto 13">
-    <img class="slide" src="img/foto14.jpg" alt="Foto 14">
-    <img class="slide" src="img/foto15.jpg" alt="Foto 15">
-    <img class="slide" src="img/foto16.jpg" alt="Foto 16">
-    <img class="slide" src="img/foto17.jpg" alt="Foto 17">
-    <img class="slide" src="img/foto18.jpg" alt="Foto 18">
-    <img class="slide" src="img/foto19.jpg" alt="Foto 19">
-    <img class="slide" src="img/foto20.jpg" alt="Foto 20">
-    <img class="slide" src="img/foto21.jpg" alt="Foto 21">
-    <img class="slide" src="img/foto22.jpg" alt="Foto 22">
-    <img class="slide" src="img/foto23.jpg" alt="Foto 23">
-    <img class="slide" src="img/foto24.jpg" alt="Foto 24">
-    <img class="slide" src="img/foto25.jpg" alt="Foto 25">
-    <img class="slide" src="img/foto26.jpg" alt="Foto 26">
-    <img class="slide" src="img/foto27.jpg" alt="Foto 27">
-    <img class="slide" src="img/foto28.jpg" alt="Foto 28">
-    <img class="slide" src="img/foto29.jpg" alt="Foto 29">
-    <img class="slide" src="img/foto30.jpg" alt="Foto 30">
-    <img class="slide" src="img/foto31.jpg" alt="Foto 31">
-    <img class="slide" src="img/foto32.jpg" alt="Foto 32">
-    <img class="slide" src="img/foto33.jpg" alt="Foto 33">
-    <img class="slide" src="img/foto34.jpg" alt="Foto 34">
-    <img class="slide" src="img/foto35.jpg" alt="Foto 35">
-    <img class="slide" src="img/foto36.jpg" alt="Foto 36">
-    <img class="slide" src="img/foto37.jpg" alt="Foto 37">
-    <img class="slide" src="img/foto38.jpg" alt="Foto 38">
-    <img class="slide" src="img/foto39.jpg" alt="Foto 39">
-    <img class="slide" src="img/foto40.jpg" alt="Foto 40">
-    <img class="slide" src="img/foto41.jpg" alt="Foto 41">
-    <img class="slide" src="img/foto42.jpg" alt="Foto 42">
-    <img class="slide" src="img/foto43.jpg" alt="Foto 43">
-    <img class="slide" src="img/foto44.jpg" alt="Foto 44">
-    <img class="slide" src="img/foto45.jpg" alt="Foto 45">
-    <img class="slide" src="img/foto46.jpg" alt="Foto 46">
-    <img class="slide" src="img/foto47.jpg" alt="Foto 47">
-    <img class="slide" src="img/foto48.jpg" alt="Foto 48">
-    <img class="slide" src="img/foto49.jpg" alt="Foto 49">
-    <img class="slide" src="img/foto50.jpg" alt="Foto 50">
-    <img class="slide" src="img/foto51.jpg" alt="Foto 51">
-    <img class="slide" src="img/foto52.jpg" alt="Foto 52">
-    <img class="slide" src="img/foto53.jpg" alt="Foto 53">
-    <img class="slide" src="img/foto54.jpg" alt="Foto 54">
-    <img class="slide" src="img/foto55.jpg" alt="Foto 55">
-    <img class="slide" src="img/foto56.jpg" alt="Foto 56">
-    <img class="slide" src="img/foto57.jpg" alt="Foto 57">
-    <img class="slide" src="img/foto58.jpg" alt="Foto 58">
-    <img class="slide" src="img/foto59.jpg" alt="Foto 59">
-    <img class="slide" src="img/foto60.jpg" alt="Foto 60">
-    <img class="slide" src="img/foto61.jpg" alt="Foto 61">
-    <img class="slide" src="img/foto62.jpg" alt="Foto 62">
-    <img class="slide" src="img/foto63.jpg" alt="Foto 63">
-    <img class="slide" src="img/foto64.jpg" alt="Foto 64">
-    <img class="slide" src="img/foto65.jpg" alt="Foto 65">
-    <img class="slide" src="img/foto66.jpg" alt="Foto 66">
-    <img class="slide" src="img/foto67.jpg" alt="Foto 67">
-    <img class="slide" src="img/foto68.jpg" alt="Foto 68">
-    <img class="slide" src="img/foto69.jpg" alt="Foto 69">
-    <img class="slide" src="img/foto70.jpg" alt="Foto 70">
-    <img class="slide" src="img/foto71.jpg" alt="Foto 71">
-    <img class="slide" src="img/foto72.jpg" alt="Foto 72">
-    <img class="slide" src="img/foto73.jpg" alt="Foto 73">
-    <img class="slide" src="img/foto74.jpg" alt="Foto 74">
-    <img class="slide" src="img/foto75.jpg" alt="Foto 75">
-    <img class="slide" src="img/foto76.jpg" alt="Foto 76">
-    <img class="slide" src="img/foto77.jpg" alt="Foto 77">
-    <img class="slide" src="img/foto78.jpg" alt="Foto 78">
-    <img class="slide" src="img/foto79.jpg" alt="Foto 79">
-    <img class="slide" src="img/foto80.jpg" alt="Foto 80">
-    <img class="slide" src="img/foto81.jpg" alt="Foto 81">
-    <img class="slide" src="img/foto82.jpg" alt="Foto 82">
-    <img class="slide" src="img/foto83.jpg" alt="Foto 83">
-    <img class="slide" src="img/foto84.jpg" alt="Foto 84">
-    <img class="slide" src="img/foto85.jpg" alt="Foto 85">
-    <img class="slide" src="img/foto86.jpg" alt="Foto 86">
-    <img class="slide" src="img/foto87.jpg" alt="Foto 87">
-    <img class="slide" src="img/foto88.jpg" alt="Foto 88">
-    <img class="slide" src="img/foto89.jpg" alt="Foto 89">
-    <img class="slide" src="img/foto90.jpg" alt="Foto 90">    
-    <img class="slide" src="img/foto91.jpg" alt="Foto 91">
-    <img class="slide" src="img/foto92.jpg" alt="Foto 92">
-    <img class="slide" src="img/foto93.jpg" alt="Foto 93">
-    <img class="slide" src="img/foto94.jpg" alt="Foto 94">
-    <img class="slide" src="img/foto95.jpg" alt="Foto 95">
-    <img class="slide" src="img/foto96.jpg" alt="Foto 96">
-    <img class="slide" src="img/foto97.jpg" alt="Foto 97">
-    <img class="slide" src="img/foto98.jpg" alt="Foto 98">
-    <img class="slide" src="img/foto99.jpg" alt="Foto 99">
-    <img class="slide" src="img/foto100.jpg" alt="Foto 100">
-        <img class="slide" src="img/foto101.jpg" alt="Foto 101">
-    <img class="slide" src="img/foto102.jpg" alt="Foto 102">
-    <img class="slide" src="img/foto103.jpg" alt="Foto 103">
-    <img class="slide" src="img/foto104.jpg" alt="Foto 104">
-    <img class="slide" src="img/foto105.jpg" alt="Foto 105">
-    <img class="slide" src="img/foto106.jpg" alt="Foto 106">
-    <img class="slide" src="img/foto107.jpg" alt="Foto 107">
-    <img class="slide" src="img/foto108.jpg" alt="Foto 108">
-    <img class="slide" src="img/foto109.jpg" alt="Foto 109">
-    <img class="slide" src="img/foto110.jpg" alt="Foto 110">
-    <img class="slide" src="img/foto111.jpg" alt="Foto 111">
-    <img class="slide" src="img/foto112.jpg" alt="Foto 112">
-    <img class="slide" src="img/foto113.jpg" alt="Foto 113">
-    <img class="slide" src="img/foto114.jpg" alt="Foto 114">
-    <img class="slide" src="img/foto115.jpg" alt="Foto 115">
-    <img class="slide" src="img/foto116.jpg" alt="Foto 116">
-    <img class="slide" src="img/foto117.jpg" alt="Foto 117">
-    <img class="slide" src="img/foto118.jpg" alt="Foto 118">
-    <img class="slide" src="img/foto119.jpg" alt="Foto 119">
-    <img class="slide" src="img/foto120.jpg" alt="Foto 120">
-    <img class="slide" src="img/foto121.jpg" alt="Foto 121">
-    <img class="slide" src="img/foto122.jpg" alt="Foto 122">
-    <img class="slide" src="img/foto123.jpg" alt="Foto 123">
-    <img class="slide" src="img/foto124.jpg" alt="Foto 124">
-    <img class="slide" src="img/foto125.jpg" alt="Foto 125">
-    <img class="slide" src="img/foto126.jpg" alt="Foto 126">
-    <img class="slide" src="img/foto127.jpg" alt="Foto 127">
-    <img class="slide" src="img/foto128.jpg" alt="Foto 128">
-    <img class="slide" src="img/foto129.jpg" alt="Foto 129">
-    <img class="slide" src="img/foto130.jpg" alt="Foto 130">
-    <!-- Flechas manuales -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
+    <footer>
+        <nav class="redes" aria-label="Redes sociales">
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok">
+                <img src="img/tiktok.png" alt="TikTok">
+            </a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook">
+                <img src="img/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <img src="img/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Correo electrónico">
+                <img src="img/email.png" alt="Email">
+            </a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X / Twitter">
+                <img src="img/x.png" alt="X">
+            </a>
+        </nav>
+        <p>&copy; 2025 Gabi Sánchez. Todos los derechos reservados.</p>
+    </footer>
 
-<!-- Galería de miniaturas -->
-<div class="galeria">
-    <img src="img/foto15.jpg" alt="Foto 15" onclick="openLightbox(this.src)">
-    <img src="img/foto20.jpg" alt="Foto 20" onclick="openLightbox(this.src)">
-    <img src="img/foto38.jpg" alt="Foto 38" onclick="openLightbox(this.src)">
-    <img src="img/foto44.jpg" alt="Foto 44" onclick="openLightbox(this.src)">
-    <img src="img/foto59.jpg" alt="Foto 59" onclick="openLightbox(this.src)">
-    <img src="img/foto111.jpg" alt="Foto 111" onclick="openLightbox(this.src)">
-       <img src="img/foto4.jpg" alt="Foto 4" onclick="openLightbox(this.src)">
-    <img src="img/foto75.jpg" alt="Foto 75" onclick="openLightbox(this.src)">
-    <img src="img/foto99.jpg" alt="Foto 99" onclick="openLightbox(this.src)">
-    <img src="img/foto101.jpg" alt="Foto 101" onclick="openLightbox(this.src)">
-    <img src="img/foto67.jpg" alt="Foto 67" onclick="openLightbox(this.src)">
-    <img src="img/foto130.jpg" alt="Foto 130" onclick="openLightbox(this.src)">
-</div>
+    <script>
+        /* ============================================================
+           GALERÍA — generación de items y lightbox
+           ============================================================ */
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img" src="" alt="Foto grande">
-</div>
+        const TOTAL_FOTOS = 131;
+        const grid        = document.getElementById('galeriaGrid');
+        const lightbox    = document.getElementById('lightbox');
+        const lbImg       = document.getElementById('lightboxImg');
+        const lbContador  = document.getElementById('lightboxContador');
+        let   indiceActual = 0;
 
-<footer>
-    <div class="redes">
-        <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank"><img src="img/tiktok.png" alt="TikTok"></a>
-        <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank"><img src="img/facebook.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
-        <a href="https://wa.me/+5493765148121" target="_blank"><img src="img/whatsapp.png" alt="WhatsApp"></a>
-        <a href="mailto:mattiasgabrielssanchez1998@gmail.com"><img src="img/email.png" alt="Correo Electrónico"></a>
-        <a href="https://x.com/gabi_sanchez01" target="_blank"><img src="img/x.png" alt="X / Twitter"></a>
-    </div>
-    <p>© 2025 Gabi Sanchez. Todos los derechos reservados.</p>
-</footer>
+        /* ---- Generar items de la galería ---- */
+        for (let i = 1; i <= TOTAL_FOTOS; i++) {
+            const item = document.createElement('div');
+            item.className = 'galeria-item';
+            item.setAttribute('role', 'listitem');
+            item.dataset.indice = i - 1;
 
-<script>
-/* Slider automático y manual */
-let slideIndex = 0;
-const slides = document.getElementsByClassName("slide");
+            const img = document.createElement('img');
+            img.src     = `img/foto${i}.jpg`;
+            img.alt     = `Foto de gestión ${i}`;
+            img.loading = 'lazy'; /* carga diferida — clave para el rendimiento */
 
-function showSlides() {
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
-    slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 4000); // cambio automático cada 4 segundos
-}
+            item.appendChild(img);
+            item.addEventListener('click', () => abrirLightbox(i - 1));
+            grid.appendChild(item);
+        }
 
-function plusSlides(n) {
-    slideIndex += n - 1;
-    if (slideIndex < 0) { slideIndex = slides.length - 1; }
-    if (slideIndex >= slides.length) { slideIndex = 0; }
-    showCurrentSlide();
-}
+        /* ---- Lightbox: abrir ---- */
+        function abrirLightbox(indice) {
+            indiceActual = indice;
+            actualizarLightbox();
+            lightbox.classList.add('activo');
+            document.body.style.overflow = 'hidden';
+        }
 
-function showCurrentSlide() {
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex].style.display = "block";
-}
+        /* ---- Lightbox: actualizar imagen y contador ---- */
+        function actualizarLightbox() {
+            const n = indiceActual + 1;
+            lbImg.src = `img/foto${n}.jpg`;
+            lbImg.alt = `Foto de gestión ${n}`;
+            lbContador.textContent = `${n} / ${TOTAL_FOTOS}`;
+        }
 
-showSlides();
+        /* ---- Lightbox: cerrar ---- */
+        function cerrarLightbox() {
+            lightbox.classList.remove('activo');
+            document.body.style.overflow = '';
+            lbImg.src = '';
+        }
 
-/* Lightbox */
-function openLightbox(src) {
-    document.getElementById('lightbox').style.display = 'flex';
-    document.getElementById('lightbox-img').src = src;
-}
+        /* ---- Lightbox: navegar ---- */
+        function navegar(direccion) {
+            indiceActual = (indiceActual + direccion + TOTAL_FOTOS) % TOTAL_FOTOS;
+            actualizarLightbox();
+        }
 
-function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-}
-</script>
+        /* ---- Eventos ---- */
+        document.getElementById('lightboxCerrar').addEventListener('click', cerrarLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', () => navegar(-1));
+        document.getElementById('lightboxNext').addEventListener('click', () => navegar(1));
+
+        /* Cerrar al hacer click fuera de la imagen */
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) cerrarLightbox();
+        });
+
+        /* Navegación con teclado */
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('activo')) return;
+            if (e.key === 'ArrowLeft')  navegar(-1);
+            if (e.key === 'ArrowRight') navegar(1);
+            if (e.key === 'Escape')     cerrarLightbox();
+        });
+    </script>
 
 </body>
 </html>

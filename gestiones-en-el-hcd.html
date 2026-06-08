@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gestiones de Gabi Sánchez en el Honorable Concejo Deliberante de Profundidad. Proyectos presentados y ordenanzas vigentes desde 2023.">
-    <meta property="og:title" content="Gestiones en el HCD — Gabi Sánchez">
-    <meta property="og:description" content="Proyectos presentados y ordenanzas vigentes. El trabajo concreto de Gabi Sánchez como concejal de Profundidad.">
+    <meta name="description" content="Gestiones de Gabi Sánchez en el Honorable Concejo Deliberante de Profundidad, Misiones. Proyectos presentados, ordenanzas aprobadas y documentos oficiales desde 2023.">
+    <meta name="keywords" content="Gabi Sánchez, concejal Profundidad, HCD Profundidad, ordenanzas Profundidad, gestión municipal Misiones">
+    <meta property="og:title" content="Gestiones en el HCD — Gabi Sánchez, Concejal de Profundidad">
+    <meta property="og:description" content="Proyectos presentados y ordenanzas vigentes. El trabajo concreto de Gabi Sánchez como concejal de Profundidad, Misiones.">
     <meta property="og:image" content="img/logo.png">
-    <title>Gestiones en el HCD — Gabi Sánchez</title>
+    <title>Gestiones en el HCD — Gabi Sánchez, Concejal de Profundidad</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/estilo.css">
     <script src="burbuja-somos.js" defer></script>
@@ -66,7 +67,7 @@
             text-transform: uppercase;
             letter-spacing: 0.04em;
         }
-        .carpetas-seccion { margin-bottom: 64px; }
+        .carpetas-seccion { margin-bottom: 56px; }
         .carpetas-seccion h2 {
             font-family: var(--fuente-titulo);
             font-size: 1.7rem;
@@ -76,13 +77,8 @@
         .carpetas-seccion .descripcion {
             font-size: 1rem;
             color: var(--gris-texto);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             line-height: 1.7;
-        }
-        .carpetas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
         }
         .carpeta-card {
             display: flex;
@@ -91,22 +87,38 @@
             background-color: var(--blanco);
             border-radius: var(--radio-md);
             box-shadow: var(--sombra-sm);
-            padding: 24px;
+            padding: 22px 24px;
             text-decoration: none;
             color: var(--negro-suave);
             border-left: 4px solid var(--azul-medio);
             transition: transform var(--transicion), box-shadow var(--transicion);
+            margin-bottom: 12px;
         }
         .carpeta-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--sombra-lg);
+            transform: translateX(4px);
+            box-shadow: var(--sombra-md);
             color: var(--negro-suave);
         }
         .carpeta-card.destacado { border-left-color: var(--azul-principal); }
-        .carpeta-icono { font-size: 2.2rem; flex-shrink: 0; line-height: 1; }
-        .carpeta-info h3 { font-size: 1.05rem; font-weight: 600; color: var(--azul-principal); margin-bottom: 4px; }
-        .carpeta-info p { font-size: 0.88rem; color: var(--gris-texto); line-height: 1.5; margin-bottom: 8px; }
-        .carpeta-info .ver-link { font-size: 0.85rem; font-weight: 600; color: var(--azul-medio); }
+        .carpeta-icono { font-size: 2rem; flex-shrink: 0; line-height: 1; }
+        .carpeta-info { flex: 1; }
+        .carpeta-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--azul-principal);
+            margin-bottom: 3px;
+        }
+        .carpeta-info p {
+            font-size: 0.86rem;
+            color: var(--gris-texto);
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+        .carpeta-info .ver-link {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--azul-medio);
+        }
         .badge-nuevo {
             display: inline-block;
             background-color: var(--azul-medio);
@@ -123,26 +135,35 @@
         .separador-seccion {
             border: none;
             border-top: 1px solid var(--gris-medio);
-            margin: 56px 0;
+            margin: 48px 0;
         }
         .nota-transparencia {
             background-color: var(--azul-claro);
             border-radius: var(--radio-md);
-            padding: 28px 32px;
+            padding: 24px 28px;
             display: flex;
             gap: 16px;
             align-items: flex-start;
         }
-        .nota-transparencia .nota-icono { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
-        .nota-transparencia h3 { font-size: 1rem; font-weight: 600; color: var(--azul-principal); margin-bottom: 6px; }
-        .nota-transparencia p { font-size: 0.92rem; color: var(--gris-texto); line-height: 1.7; }
+        .nota-icono { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+        .nota-transparencia h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--azul-principal);
+            margin-bottom: 5px;
+        }
+        .nota-transparencia p {
+            font-size: 0.9rem;
+            color: var(--gris-texto);
+            line-height: 1.7;
+        }
         @media (max-width: 768px) {
             .gestiones-hero { padding: 52px 20px 44px; }
-            .gestiones-contenido { padding: 48px 20px; }
+            .gestiones-contenido { padding: 48px 16px; }
             .estadisticas { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .estadistica { padding: 20px 12px; }
+            .estadistica { padding: 18px 10px; }
             .estadistica .numero { font-size: 1.8rem; }
-            .nota-transparencia { flex-direction: column; gap: 10px; padding: 20px; }
+            .nota-transparencia { flex-direction: column; gap: 8px; padding: 18px; }
         }
     </style>
 </head>
@@ -176,6 +197,7 @@
 
         <div class="gestiones-contenido">
 
+            <!-- ESTADÍSTICAS -->
             <div class="estadisticas" aria-label="Resumen de gestión">
                 <div class="estadistica">
                     <span class="numero">2023</span>
@@ -195,41 +217,25 @@
                 </div>
             </div>
 
-            <!-- PROYECTOS 2026 — NUEVO -->
+            <!-- GESTIONES 2026 -->
             <section class="carpetas-seccion" aria-labelledby="titulo-2026">
                 <h2 id="titulo-2026">
                     Gestiones 2026
                     <span class="badge-nuevo">Nuevo</span>
                 </h2>
-                <p class="descripcion">
-                    Proyectos, ordenanzas y gestiones del período en curso. Esta sección se actualiza a medida que avanzan las sesiones del HCD.
-                </p>
-                <div class="carpetas-grid">
-                    <a class="carpeta-card destacado"
-                       href="https://drive.google.com/drive/folders/1W254XL4VgmfLa32AAiPykSFY8BmHhaOv"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="Ver proyectos 2026 en Google Drive">
-                        <span class="carpeta-icono" aria-hidden="true">📁</span>
-                        <div class="carpeta-info">
-                            <h3>Proyectos 2026</h3>
-                            <p>Todos los proyectos presentados durante el año en curso.</p>
-                            <span class="ver-link">Abrir en Google Drive →</span>
-                        </div>
-                    </a>
-                    <a class="carpeta-card destacado"
-                       href="https://drive.google.com/drive/folders/1W254XL4VgmfLa32AAiPykSFY8BmHhaOv"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="Ver ordenanzas 2026 en Google Drive">
-                        <span class="carpeta-icono" aria-hidden="true">📋</span>
-                        <div class="carpeta-info">
-                            <h3>Ordenanzas 2026</h3>
-                            <p>Ordenanzas, resoluciones y declaraciones aprobadas en 2026.</p>
-                            <span class="ver-link">Abrir en Google Drive →</span>
-                        </div>
-                    </a>
-                </div>
+                <p class="descripcion">Proyectos, ordenanzas y gestiones del período en curso. Se actualiza a medida que avanzan las sesiones del HCD.</p>
+
+                <a class="carpeta-card destacado"
+                   href="https://drive.google.com/drive/folders/1W254XL4VgmfLa32AAiPykSFY8BmHhaOv"
+                   target="_blank" rel="noopener"
+                   aria-label="Ver gestiones 2026 en Google Drive">
+                    <span class="carpeta-icono" aria-hidden="true">📁</span>
+                    <div class="carpeta-info">
+                        <h3>Documentos 2026</h3>
+                        <p>Proyectos, ordenanzas y resoluciones del período en curso.</p>
+                        <span class="ver-link">Abrir en Google Drive →</span>
+                    </div>
+                </a>
             </section>
 
             <hr class="separador-seccion">
@@ -237,44 +243,43 @@
             <!-- PROYECTOS PRESENTADOS -->
             <section class="carpetas-seccion" aria-labelledby="titulo-proyectos">
                 <h2 id="titulo-proyectos">Proyectos presentados por mí</h2>
-                <p class="descripcion">
-                    Proyectos de ordenanza, resolución y comunicación que presenté ante el HCD desde el inicio de mi mandato. Incluyen propuestas sobre transporte, medio ambiente, salud, educación, desarrollo local y transparencia institucional.
-                </p>
-                <div class="carpetas-grid">
-                    <a class="carpeta-card"
-                       href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
-                       target="_blank" rel="noopener"
-                       aria-label="Ver todos los proyectos en Google Drive">
-                        <span class="carpeta-icono" aria-hidden="true">📁</span>
-                        <div class="carpeta-info">
-                            <h3>Todos los proyectos</h3>
-                            <p>2023 · 2024 · 2025</p>
-                            <span class="ver-link">Abrir en Google Drive →</span>
-                        </div>
-                    </a>
-                    <a class="carpeta-card"
-                       href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
-                       target="_blank" rel="noopener"
-                       aria-label="Ver proyectos 2025">
-                        <span class="carpeta-icono" aria-hidden="true">📄</span>
-                        <div class="carpeta-info">
-                            <h3>Proyectos 2025</h3>
-                            <p>Régimen de Inversiones Locales, arbolado urbano, cajas eléctricas en plaza y más.</p>
-                            <span class="ver-link">Ver documentos →</span>
-                        </div>
-                    </a>
-                    <a class="carpeta-card"
-                       href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
-                       target="_blank" rel="noopener"
-                       aria-label="Ver proyectos 2024">
-                        <span class="carpeta-icono" aria-hidden="true">📄</span>
-                        <div class="carpeta-info">
-                            <h3>Proyectos 2024</h3>
-                            <p>Transporte, prevención del suicidio, descacharrización, reglamento interno del HCD y más.</p>
-                            <span class="ver-link">Ver documentos →</span>
-                        </div>
-                    </a>
-                </div>
+                <p class="descripcion">Proyectos de ordenanza, resolución y comunicación presentados ante el HCD desde el inicio del mandato. Transporte, medio ambiente, salud, educación, desarrollo local y transparencia institucional.</p>
+
+                <a class="carpeta-card"
+                   href="https://drive.google.com/drive/folders/1Sd8zNEMqIKZeHZxFIPlXKBo7M4u4pFBY"
+                   target="_blank" rel="noopener"
+                   aria-label="Ver proyectos 2025">
+                    <span class="carpeta-icono" aria-hidden="true">📄</span>
+                    <div class="carpeta-info">
+                        <h3>Proyectos 2025</h3>
+                        <p>Régimen de Inversiones Locales, arbolado urbano, cajas eléctricas en plaza, mantenimiento de calles y más.</p>
+                        <span class="ver-link">Abrir en Google Drive →</span>
+                    </div>
+                </a>
+
+                <a class="carpeta-card"
+                   href="https://drive.google.com/drive/folders/1SJZtb4TYMwgV2n1zQfVoMFpGrczlJ-3I"
+                   target="_blank" rel="noopener"
+                   aria-label="Ver proyectos 2024">
+                    <span class="carpeta-icono" aria-hidden="true">📄</span>
+                    <div class="carpeta-info">
+                        <h3>Proyectos 2024</h3>
+                        <p>Transporte, prevención del suicidio, descacharrización, reglamento interno del HCD, arbolado urbano y más.</p>
+                        <span class="ver-link">Abrir en Google Drive →</span>
+                    </div>
+                </a>
+
+                <a class="carpeta-card"
+                   href="https://drive.google.com/drive/folders/1SJIh93sj8S0--OfhpnhSZdiFm0SGD86j"
+                   target="_blank" rel="noopener"
+                   aria-label="Ver proyectos 2023">
+                    <span class="carpeta-icono" aria-hidden="true">📄</span>
+                    <div class="carpeta-info">
+                        <h3>Proyectos 2023</h3>
+                        <p>Primeros proyectos del mandato. Comunicación sobre servicios de colectivos.</p>
+                        <span class="ver-link">Abrir en Google Drive →</span>
+                    </div>
+                </a>
             </section>
 
             <hr class="separador-seccion">
@@ -282,22 +287,19 @@
             <!-- ORDENANZAS VIGENTES -->
             <section class="carpetas-seccion" aria-labelledby="titulo-ordenanzas">
                 <h2 id="titulo-ordenanzas">Ordenanzas vigentes</h2>
-                <p class="descripcion">
-                    Todas las ordenanzas, resoluciones y declaraciones aprobadas por el HCD de Profundidad desde el inicio del mandato en diciembre de 2023.
-                </p>
-                <div class="carpetas-grid">
-                    <a class="carpeta-card"
-                       href="https://drive.google.com/drive/folders/1QjH-6GlJW694fqUq6sNJtTzLUN1PYF3A"
-                       target="_blank" rel="noopener"
-                       aria-label="Ver ordenanzas vigentes en Google Drive">
-                        <span class="carpeta-icono" aria-hidden="true">📋</span>
-                        <div class="carpeta-info">
-                            <h3>Ordenanzas vigentes desde 10/12/2023</h3>
-                            <p>Ordenanzas 01 a 17 del período 2024, resoluciones y declaraciones de interés municipal.</p>
-                            <span class="ver-link">Abrir en Google Drive →</span>
-                        </div>
-                    </a>
-                </div>
+                <p class="descripcion">Todas las ordenanzas, resoluciones y declaraciones aprobadas por el HCD de Profundidad desde el inicio del mandato en diciembre de 2023. Documentos oficiales en PDF, accesibles para cualquier vecino.</p>
+
+                <a class="carpeta-card"
+                   href="https://drive.google.com/drive/folders/1QjH-6GlJW694fqUq6sNJtTzLUN1PYF3A"
+                   target="_blank" rel="noopener"
+                   aria-label="Ver ordenanzas vigentes">
+                    <span class="carpeta-icono" aria-hidden="true">📋</span>
+                    <div class="carpeta-info">
+                        <h3>Ordenanzas vigentes desde 10/12/2023</h3>
+                        <p>Ordenanzas 01 a 17 del período 2024, resoluciones y declaraciones de interés municipal.</p>
+                        <span class="ver-link">Abrir en Google Drive →</span>
+                    </div>
+                </a>
             </section>
 
             <hr class="separador-seccion">
@@ -316,27 +318,17 @@
 
     <footer>
         <nav class="redes" aria-label="Redes sociales">
-            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok">
-                <img src="img/tiktok.png" alt="TikTok">
-            </a>
-            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook">
-                <img src="img/facebook.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
-                <img src="img/instagram.png" alt="Instagram">
-            </a>
-            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
-                <img src="img/whatsapp.png" alt="WhatsApp">
-            </a>
-            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Correo electrónico">
-                <img src="img/email.png" alt="Email">
-            </a>
-            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X / Twitter">
-                <img src="img/x.png" alt="X">
-            </a>
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok"><img src="img/tiktok.png" alt="TikTok"></a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook"><img src="img/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/instagram.png" alt="Instagram"></a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email"><img src="img/email.png" alt="Email"></a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X"><img src="img/x.png" alt="X"></a>
         </nav>
-        <p>&copy; 2023 - 2026 Gabi Sánchez. Todos los derechos reservados.</p>
+        <p id="footer-copy-gabi"></p>
     </footer>
+
+    <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
 
 </body>
 </html>

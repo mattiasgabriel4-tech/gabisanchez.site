@@ -395,9 +395,15 @@ a:hover { color: var(--somos-oscuro); }
 }
 
 .somos-redes img {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.80;
+}
+
+.somos-redes a:hover img {
+    opacity: 1;
 }
 
 .somos-footer p {

@@ -398,12 +398,10 @@ a:hover { color: var(--somos-oscuro); }
     width: 28px;
     height: 28px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.80;
 }
 
 .somos-redes a:hover img {
-    opacity: 1;
+    opacity: 0.75;
 }
 
 .somos-footer p {

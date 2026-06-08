@@ -107,6 +107,11 @@
                     <span class="somos-logo-sub">Profundidad · Misiones</span>
                 </div>
             </a>
+            <button class="somos-hamburguesa" id="somosHamburguesa" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav class="somos-nav" aria-label="Navegación del partido">
                 <ul>
                     <li><a href="somos-profundidad.html">Inicio</a></li>
@@ -217,7 +222,7 @@
                 <img src="../img/email.png" alt="Email">
             </a>
         </nav>
-        <p>&copy; 2025 - 2026 Somos Más Con Vos · Profundidad, Misiones</p>
+        <p id="footer-copy-somos"></p>
         <a href="../index.html" class="volver-gabi">← Volver al sitio de Gabi Sánchez</a>
     </footer>
 
@@ -242,5 +247,25 @@
         });
     </script>
 
+<script>document.getElementById("footer-copy-somos").innerHTML="&copy; 2025–"+new Date().getFullYear()+" Somos Más Con Vos · Profundidad, Misiones";</script>
+    <script>
+        var btn = document.getElementById('somosHamburguesa');
+        var nav = document.querySelector('.somos-nav');
+        if (btn && nav) {
+            btn.addEventListener('click', function() {
+                var abierto = nav.classList.toggle('abierto');
+                btn.classList.toggle('activo', abierto);
+                btn.setAttribute('aria-expanded', abierto);
+            });
+            // Cerrar al hacer click en un link
+            nav.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    nav.classList.remove('abierto');
+                    btn.classList.remove('activo');
+                    btn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
 </body>
 </html>

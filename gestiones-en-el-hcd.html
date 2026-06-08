@@ -12,15 +12,12 @@
     <link rel="stylesheet" href="css/estilo.css">
     <script src="burbuja-somos.js" defer></script>
     <style>
-
-        /* ---- Hero ---- */
         .gestiones-hero {
             background-color: var(--azul-principal);
             color: var(--blanco);
             text-align: center;
             padding: 72px 20px 60px;
         }
-
         .gestiones-hero h1 {
             font-family: var(--fuente-titulo);
             font-size: clamp(2rem, 4vw, 3rem);
@@ -28,7 +25,6 @@
             margin-bottom: 16px;
             line-height: 1.2;
         }
-
         .gestiones-hero p {
             font-size: 1.05rem;
             max-width: 640px;
@@ -36,22 +32,17 @@
             opacity: 0.82;
             line-height: 1.7;
         }
-
-        /* ---- Contenido principal ---- */
         .gestiones-contenido {
             max-width: 1000px;
             margin: 0 auto;
             padding: 72px 20px;
         }
-
-        /* ---- Bloque de estadísticas ---- */
         .estadisticas {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin-bottom: 64px;
         }
-
         .estadistica {
             background-color: var(--blanco);
             border-radius: var(--radio-md);
@@ -60,7 +51,6 @@
             text-align: center;
             border-top: 4px solid var(--azul-medio);
         }
-
         .estadistica .numero {
             font-family: var(--fuente-titulo);
             font-size: 2.4rem;
@@ -70,39 +60,30 @@
             line-height: 1;
             margin-bottom: 8px;
         }
-
         .estadistica .etiqueta {
             font-size: 0.85rem;
             color: var(--gris-texto);
             text-transform: uppercase;
             letter-spacing: 0.04em;
         }
-
-        /* ---- Sección de carpetas ---- */
-        .carpetas-seccion {
-            margin-bottom: 64px;
-        }
-
+        .carpetas-seccion { margin-bottom: 64px; }
         .carpetas-seccion h2 {
             font-family: var(--fuente-titulo);
             font-size: 1.7rem;
             color: var(--azul-principal);
             margin-bottom: 8px;
         }
-
         .carpetas-seccion .descripcion {
             font-size: 1rem;
             color: var(--gris-texto);
             margin-bottom: 28px;
             line-height: 1.7;
         }
-
         .carpetas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
-
         .carpeta-card {
             display: flex;
             align-items: center;
@@ -116,47 +97,34 @@
             border-left: 4px solid var(--azul-medio);
             transition: transform var(--transicion), box-shadow var(--transicion);
         }
-
         .carpeta-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--sombra-lg);
             color: var(--negro-suave);
         }
-
-        .carpeta-icono {
-            font-size: 2.2rem;
-            flex-shrink: 0;
-            line-height: 1;
+        .carpeta-card.destacado { border-left-color: var(--azul-principal); }
+        .carpeta-icono { font-size: 2.2rem; flex-shrink: 0; line-height: 1; }
+        .carpeta-info h3 { font-size: 1.05rem; font-weight: 600; color: var(--azul-principal); margin-bottom: 4px; }
+        .carpeta-info p { font-size: 0.88rem; color: var(--gris-texto); line-height: 1.5; margin-bottom: 8px; }
+        .carpeta-info .ver-link { font-size: 0.85rem; font-weight: 600; color: var(--azul-medio); }
+        .badge-nuevo {
+            display: inline-block;
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 99px;
+            letter-spacing: 0.04em;
+            margin-left: 8px;
+            vertical-align: middle;
+            text-transform: uppercase;
         }
-
-        .carpeta-info h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--azul-principal);
-            margin-bottom: 4px;
-        }
-
-        .carpeta-info p {
-            font-size: 0.88rem;
-            color: var(--gris-texto);
-            line-height: 1.5;
-            margin-bottom: 8px;
-        }
-
-        .carpeta-info .ver-link {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--azul-medio);
-        }
-
-        /* ---- Separador entre secciones ---- */
         .separador-seccion {
             border: none;
             border-top: 1px solid var(--gris-medio);
             margin: 56px 0;
         }
-
-        /* ---- Nota al pie ---- */
         .nota-transparencia {
             background-color: var(--azul-claro);
             border-radius: var(--radio-md);
@@ -165,57 +133,17 @@
             gap: 16px;
             align-items: flex-start;
         }
-
-        .nota-transparencia .nota-icono {
-            font-size: 1.6rem;
-            flex-shrink: 0;
-            line-height: 1;
-            margin-top: 2px;
-        }
-
-        .nota-transparencia h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--azul-principal);
-            margin-bottom: 6px;
-        }
-
-        .nota-transparencia p {
-            font-size: 0.92rem;
-            color: var(--gris-texto);
-            line-height: 1.7;
-        }
-
-        /* ---- Responsive ---- */
+        .nota-transparencia .nota-icono { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+        .nota-transparencia h3 { font-size: 1rem; font-weight: 600; color: var(--azul-principal); margin-bottom: 6px; }
+        .nota-transparencia p { font-size: 0.92rem; color: var(--gris-texto); line-height: 1.7; }
         @media (max-width: 768px) {
-            .gestiones-hero {
-                padding: 52px 20px 44px;
-            }
-
-            .gestiones-contenido {
-                padding: 48px 20px;
-            }
-
-            .estadisticas {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-            }
-
-            .estadistica {
-                padding: 20px 12px;
-            }
-
-            .estadistica .numero {
-                font-size: 1.8rem;
-            }
-
-            .nota-transparencia {
-                flex-direction: column;
-                gap: 10px;
-                padding: 20px;
-            }
+            .gestiones-hero { padding: 52px 20px 44px; }
+            .gestiones-contenido { padding: 48px 20px; }
+            .estadisticas { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .estadistica { padding: 20px 12px; }
+            .estadistica .numero { font-size: 1.8rem; }
+            .nota-transparencia { flex-direction: column; gap: 10px; padding: 20px; }
         }
-
     </style>
 </head>
 
@@ -241,7 +169,6 @@
 
     <main>
 
-        <!-- HERO -->
         <section class="gestiones-hero" aria-label="Gestiones en el HCD">
             <h1>Mi gestión como concejal</h1>
             <p>Desde diciembre de 2023 represento a los vecinos de Profundidad en el Honorable Concejo Deliberante. Acá podés consultar todo lo que presenté y lo que se aprobó.</p>
@@ -249,7 +176,6 @@
 
         <div class="gestiones-contenido">
 
-            <!-- ESTADÍSTICAS -->
             <div class="estadisticas" aria-label="Resumen de gestión">
                 <div class="estadistica">
                     <span class="numero">2023</span>
@@ -263,7 +189,50 @@
                     <span class="numero">17</span>
                     <span class="etiqueta">Ordenanzas vigentes</span>
                 </div>
+                <div class="estadistica">
+                    <span class="numero">2026</span>
+                    <span class="etiqueta">Período en curso</span>
+                </div>
             </div>
+
+            <!-- PROYECTOS 2026 — NUEVO -->
+            <section class="carpetas-seccion" aria-labelledby="titulo-2026">
+                <h2 id="titulo-2026">
+                    Gestiones 2026
+                    <span class="badge-nuevo">Nuevo</span>
+                </h2>
+                <p class="descripcion">
+                    Proyectos, ordenanzas y gestiones del período en curso. Esta sección se actualiza a medida que avanzan las sesiones del HCD.
+                </p>
+                <div class="carpetas-grid">
+                    <a class="carpeta-card destacado"
+                       href="https://drive.google.com/drive/folders/1W254XL4VgmfLa32AAiPykSFY8BmHhaOv"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Ver proyectos 2026 en Google Drive">
+                        <span class="carpeta-icono" aria-hidden="true">📁</span>
+                        <div class="carpeta-info">
+                            <h3>Proyectos 2026</h3>
+                            <p>Todos los proyectos presentados durante el año en curso.</p>
+                            <span class="ver-link">Abrir en Google Drive →</span>
+                        </div>
+                    </a>
+                    <a class="carpeta-card destacado"
+                       href="https://drive.google.com/drive/folders/1W254XL4VgmfLa32AAiPykSFY8BmHhaOv"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Ver ordenanzas 2026 en Google Drive">
+                        <span class="carpeta-icono" aria-hidden="true">📋</span>
+                        <div class="carpeta-info">
+                            <h3>Ordenanzas 2026</h3>
+                            <p>Ordenanzas, resoluciones y declaraciones aprobadas en 2026.</p>
+                            <span class="ver-link">Abrir en Google Drive →</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <hr class="separador-seccion">
 
             <!-- PROYECTOS PRESENTADOS -->
             <section class="carpetas-seccion" aria-labelledby="titulo-proyectos">
@@ -274,9 +243,8 @@
                 <div class="carpetas-grid">
                     <a class="carpeta-card"
                        href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="Ver todos los proyectos presentados en Google Drive">
+                       target="_blank" rel="noopener"
+                       aria-label="Ver todos los proyectos en Google Drive">
                         <span class="carpeta-icono" aria-hidden="true">📁</span>
                         <div class="carpeta-info">
                             <h3>Todos los proyectos</h3>
@@ -286,9 +254,8 @@
                     </a>
                     <a class="carpeta-card"
                        href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="Ver proyectos del año 2025">
+                       target="_blank" rel="noopener"
+                       aria-label="Ver proyectos 2025">
                         <span class="carpeta-icono" aria-hidden="true">📄</span>
                         <div class="carpeta-info">
                             <h3>Proyectos 2025</h3>
@@ -298,9 +265,8 @@
                     </a>
                     <a class="carpeta-card"
                        href="https://drive.google.com/drive/folders/1Qbz20jvn6X2oeaeHe-6KaH5Cb1Jw2TyC"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="Ver proyectos del año 2024">
+                       target="_blank" rel="noopener"
+                       aria-label="Ver proyectos 2024">
                         <span class="carpeta-icono" aria-hidden="true">📄</span>
                         <div class="carpeta-info">
                             <h3>Proyectos 2024</h3>
@@ -317,14 +283,13 @@
             <section class="carpetas-seccion" aria-labelledby="titulo-ordenanzas">
                 <h2 id="titulo-ordenanzas">Ordenanzas vigentes</h2>
                 <p class="descripcion">
-                    Todas las ordenanzas, resoluciones y declaraciones aprobadas por el HCD de Profundidad desde el inicio del mandato en diciembre de 2023. Documentos oficiales en formato PDF, accesibles para cualquier vecino.
+                    Todas las ordenanzas, resoluciones y declaraciones aprobadas por el HCD de Profundidad desde el inicio del mandato en diciembre de 2023.
                 </p>
                 <div class="carpetas-grid">
                     <a class="carpeta-card"
                        href="https://drive.google.com/drive/folders/1QjH-6GlJW694fqUq6sNJtTzLUN1PYF3A"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="Ver todas las ordenanzas vigentes en Google Drive">
+                       target="_blank" rel="noopener"
+                       aria-label="Ver ordenanzas vigentes en Google Drive">
                         <span class="carpeta-icono" aria-hidden="true">📋</span>
                         <div class="carpeta-info">
                             <h3>Ordenanzas vigentes desde 10/12/2023</h3>
@@ -337,7 +302,6 @@
 
             <hr class="separador-seccion">
 
-            <!-- NOTA DE TRANSPARENCIA -->
             <div class="nota-transparencia" role="note">
                 <span class="nota-icono" aria-hidden="true">🔓</span>
                 <div>
@@ -371,7 +335,7 @@
                 <img src="img/x.png" alt="X">
             </a>
         </nav>
-        <p>&copy; 2026 Gabi Sánchez. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Gabi Sánchez. Todos los derechos reservados.</p>
     </footer>
 
 </body>

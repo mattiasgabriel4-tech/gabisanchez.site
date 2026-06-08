@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galería de fotos de Somos Más Con Vos — Actividades, reuniones y presencia territorial en Profundidad.">
+    <title>Galería — Somos Más Con Vos</title>
+    <link rel="icon" href="../img/logo-somos.png">
+    <link rel="stylesheet" href="somos-estilo.css">
+    <style>
+        .galeria-placeholder {
+            background-color: var(--blanco);
+            border-radius: var(--radio-lg);
+            box-shadow: var(--sombra-sm);
+            padding: 64px 20px;
+            text-align: center;
+            border: 2px dashed var(--somos-gris-claro);
+        }
+
+        .galeria-placeholder .icono {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .galeria-placeholder h3 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.4rem;
+            color: var(--somos-verde);
+            margin-bottom: 10px;
+        }
+
+        .galeria-placeholder p {
+            font-size: 0.95rem;
+            color: var(--somos-gris);
+            max-width: 440px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Grid para cuando haya fotos */
+        .galeria-grid {
+            columns: 4 200px;
+            column-gap: 12px;
+        }
+
+        .galeria-item {
+            break-inside: avoid;
+            margin-bottom: 12px;
+            border-radius: var(--radio-sm);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.88);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background-color: rgba(0,0,0,0.92);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .lightbox.activo { display: flex; }
+        .lightbox-img { max-width: 92vw; max-height: 88vh; border-radius: var(--radio-sm); object-fit: contain; }
+        .lightbox-cerrar { position: absolute; top: 20px; right: 28px; color: var(--blanco); font-size: 2rem; cursor: pointer; background: none; border: none; opacity: 0.8; transition: opacity var(--transicion); padding: 8px; }
+        .lightbox-cerrar:hover { opacity: 1; }
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: var(--blanco); font-size: 2rem; cursor: pointer; background: rgba(255,255,255,0.10); border: none; padding: 14px 18px; border-radius: var(--radio-sm); opacity: 0.8; transition: opacity var(--transicion), background-color var(--transicion); }
+        .lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,0.22); }
+        .lightbox-prev { left: 16px; }
+        .lightbox-next { right: 16px; }
+        .lightbox-contador { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.65); font-size: 0.88rem; }
+    </style>
+</head>
+<body>
+
+    <header class="somos-header">
+        <div class="somos-header-inner">
+            <a href="somos-profundidad.html" class="somos-logo">
+                <img src="../img/logo-somos.png" alt="Somos Más Con Vos">
+                <div class="somos-logo-texto">
+                    <span class="somos-logo-nombre">Somos Más Con Vos</span>
+                    <span class="somos-logo-sub">Profundidad · Misiones</span>
+                </div>
+            </a>
+            <nav class="somos-nav" aria-label="Navegación del partido">
+                <ul>
+                    <li><a href="somos-profundidad.html">Inicio</a></li>
+                    <li><a href="propuestas.html">Propuestas</a></li>
+                    <li><a href="autoridades.html">Autoridades</a></li>
+                    <li><a href="documentos.html">Documentos</a></li>
+                    <li><a href="galeria.html" class="activo">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="../index.html" class="btn-volver-gabi">← Sitio de Gabi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section style="background-color:var(--somos-verde); color:var(--blanco); text-align:center; padding:64px 20px 52px;">
+            <h1 style="font-family:var(--fuente-titulo); font-size:clamp(2rem,4vw,3rem); margin-bottom:12px;">Galería</h1>
+            <p style="font-size:1rem; opacity:0.82; max-width:500px; margin:0 auto; line-height:1.7;">Actividades, reuniones y presencia territorial de Somos Más Con Vos en Profundidad.</p>
+        </section>
+
+        <section class="somos-seccion fondo-claro">
+            <div class="somos-contenedor">
+
+                <!-- Placeholder visible cuando no hay fotos -->
+                <div class="galeria-placeholder" id="placeholderVacio">
+                    <span class="icono" aria-hidden="true">📸</span>
+                    <h3>Las fotos se van a ir agregando pronto</h3>
+                    <p>Estamos organizando el material fotográfico de nuestras actividades. Volvé a visitar esta sección en los próximos días.</p>
+                </div>
+
+                <!-- Grid de fotos (se activa cuando haya imágenes) -->
+                <div class="galeria-grid" id="galeriaGrid" style="display:none;" role="list" aria-label="Galería de fotos del partido"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+        <button class="lightbox-cerrar" id="lightboxCerrar" aria-label="Cerrar">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Anterior">&#8249;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Foto ampliada">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Siguiente">&#8250;</button>
+        <span class="lightbox-contador" id="lightboxContador" aria-live="polite"></span>
+    </div>
+
+    <footer class="somos-footer">
+        <img class="somos-footer-logo" src="../img/logo-somos.png" alt="Somos Más Con Vos">
+        <nav class="somos-redes" aria-label="Redes sociales">
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="../img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <img src="../img/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email">
+                <img src="../img/email.png" alt="Email">
+            </a>
+        </nav>
+        <p>&copy; 2026 Somos Más Con Vos · Profundidad, Misiones</p>
+        <a href="../index.html" class="volver-gabi">← Volver al sitio de Gabi Sánchez</a>
+    </footer>
+
+    <script>
+        // Para agregar fotos en el futuro, completá este array con los nombres de archivo:
+        // Ejemplo: const fotos = ['somos1.jpg', 'somos2.jpg', 'somos3.jpg'];
+        const fotos = [];
+
+        const grid        = document.getElementById('galeriaGrid');
+        const placeholder = document.getElementById('placeholderVacio');
+        const lightbox    = document.getElementById('lightbox');
+        const lbImg       = document.getElementById('lightboxImg');
+        const lbContador  = document.getElementById('lightboxContador');
+        let   indiceActual = 0;
+
+        if (fotos.length > 0) {
+            placeholder.style.display = 'none';
+            grid.style.display = 'block';
+
+            fotos.forEach((nombre, i) => {
+                const item = document.createElement('div');
+                item.className = 'galeria-item';
+                item.setAttribute('role', 'listitem');
+                const img = document.createElement('img');
+                img.src     = `../img/${nombre}`;
+                img.alt     = `Actividad del partido ${i + 1}`;
+                img.loading = 'lazy';
+                item.appendChild(img);
+                item.addEventListener('click', () => abrirLightbox(i));
+                grid.appendChild(item);
+            });
+        }
+
+        function abrirLightbox(i) {
+            indiceActual = i;
+            actualizarLightbox();
+            lightbox.classList.add('activo');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function actualizarLightbox() {
+            lbImg.src = `../img/${fotos[indiceActual]}`;
+            lbContador.textContent = `${indiceActual + 1} / ${fotos.length}`;
+        }
+
+        function cerrarLightbox() {
+            lightbox.classList.remove('activo');
+            document.body.style.overflow = '';
+        }
+
+        function navegar(d) {
+            indiceActual = (indiceActual + d + fotos.length) % fotos.length;
+            actualizarLightbox();
+        }
+
+        document.getElementById('lightboxCerrar').addEventListener('click', cerrarLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', () => navegar(-1));
+        document.getElementById('lightboxNext').addEventListener('click', () => navegar(1));
+        lightbox.addEventListener('click', e => { if (e.target === lightbox) cerrarLightbox(); });
+        document.addEventListener('keydown', e => {
+            if (!lightbox.classList.contains('activo')) return;
+            if (e.key === 'ArrowLeft')  navegar(-1);
+            if (e.key === 'ArrowRight') navegar(1);
+            if (e.key === 'Escape')     cerrarLightbox();
+        });
+    </script>
+
+</body>
+</html>

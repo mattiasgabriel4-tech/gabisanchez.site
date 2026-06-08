@@ -37,14 +37,59 @@
             line-height: 1.7;
         }
 
-        /* ---- Contenedor galería ---- */
+        /* ---- Contenedor general ---- */
         .galeria-contenido {
             max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
         }
 
-        /* ---- Grid de fotos ---- */
+        /* ---- Título de sección ---- */
+        .galeria-seccion-titulo {
+            font-family: var(--fuente-titulo);
+            font-size: 1.6rem;
+            color: var(--azul-principal);
+            margin-bottom: 6px;
+        }
+
+        .galeria-seccion-bajada {
+            font-size: 0.95rem;
+            color: var(--gris-texto);
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .galeria-separador {
+            border: none;
+            border-top: 1px solid var(--gris-medio);
+            margin: 56px 0;
+        }
+
+        /* ---- Feed de Instagram (Behold) ---- */
+        .instagram-feed-wrapper {
+            margin-bottom: 8px;
+        }
+
+        .instagram-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .instagram-header img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .instagram-header a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--azul-medio);
+        }
+
+        /* ---- Grid de fotos del repo ---- */
         .galeria-grid {
             columns: 4 200px;
             column-gap: 12px;
@@ -83,9 +128,7 @@
             padding: 20px;
         }
 
-        .lightbox.activo {
-            display: flex;
-        }
+        .lightbox.activo { display: flex; }
 
         .lightbox-img {
             max-width: 92vw;
@@ -104,15 +147,12 @@
             cursor: pointer;
             background: none;
             border: none;
-            line-height: 1;
             opacity: 0.8;
             transition: opacity var(--transicion);
             padding: 8px;
         }
 
-        .lightbox-cerrar:hover {
-            opacity: 1;
-        }
+        .lightbox-cerrar:hover { opacity: 1; }
 
         .lightbox-nav {
             position: absolute;
@@ -127,7 +167,6 @@
             border-radius: var(--radio-sm);
             opacity: 0.8;
             transition: opacity var(--transicion), background-color var(--transicion);
-            line-height: 1;
         }
 
         .lightbox-nav:hover {
@@ -145,33 +184,15 @@
             transform: translateX(-50%);
             color: rgba(255, 255, 255, 0.65);
             font-size: 0.88rem;
-            font-family: var(--fuente-cuerpo);
         }
 
         /* ---- Responsive ---- */
         @media (max-width: 768px) {
-            .galeria-hero {
-                padding: 52px 20px 44px;
-            }
-
-            .galeria-contenido {
-                padding: 40px 12px;
-            }
-
-            .galeria-grid {
-                columns: 2 140px;
-                column-gap: 8px;
-            }
-
-            .galeria-item {
-                margin-bottom: 8px;
-            }
-
-            .lightbox-nav {
-                padding: 10px 14px;
-                font-size: 1.5rem;
-            }
-
+            .galeria-hero { padding: 52px 20px 44px; }
+            .galeria-contenido { padding: 40px 12px; }
+            .galeria-grid { columns: 2 140px; column-gap: 8px; }
+            .galeria-item { margin-bottom: 8px; }
+            .lightbox-nav { padding: 10px 14px; font-size: 1.5rem; }
             .lightbox-prev { left: 8px; }
             .lightbox-next { right: 8px; }
         }
@@ -207,14 +228,32 @@
             <p>Recorridas, reuniones y presencia en el territorio. El trabajo de todos los días en Profundidad.</p>
         </section>
 
-        <!-- GALERÍA -->
         <div class="galeria-contenido">
-            <div class="galeria-grid" id="galeriaGrid" role="list" aria-label="Galería de fotos">
 
-                <!-- Las imágenes se generan con JS para mantener el HTML limpio -->
-                <!-- y aplicar loading="lazy" automáticamente en todas -->
+            <!-- SECCIÓN INSTAGRAM -->
+            <section aria-labelledby="titulo-instagram">
+                <div class="instagram-header">
+                    <img src="img/instagram.png" alt="Instagram">
+                    <div>
+                        <h2 class="galeria-seccion-titulo" id="titulo-instagram">Últimas fotos del Instagram</h2>
+                        <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener">@gabisanchez01.ok</a>
+                    </div>
+                </div>
+                <div class="instagram-feed-wrapper">
+                    <!-- Feed de Behold.so — se actualiza automáticamente con cada post de Instagram -->
+                    <div id="behold-feed"></div>
+                </div>
+            </section>
 
-            </div>
+            <hr class="galeria-separador">
+
+            <!-- SECCIÓN GALERÍA DEL REPO -->
+            <section aria-labelledby="titulo-galeria">
+                <h2 class="galeria-seccion-titulo" id="titulo-galeria">Archivo de fotos</h2>
+                <p class="galeria-seccion-bajada">Registro fotográfico de actividades, recorridas y gestiones desde el inicio del mandato en 2023.</p>
+                <div class="galeria-grid" id="galeriaGrid" role="list" aria-label="Galería de fotos"></div>
+            </section>
+
         </div>
 
     </main>
@@ -252,11 +291,17 @@
         <p id="footer-copy-gabi"></p>
     </footer>
 
+    <!-- Behold.so — Feed de Instagram -->
     <script>
-        /* ============================================================
-           GALERÍA — generación de items y lightbox
-           ============================================================ */
+        window.beholdSettings = {
+            feedId: 'Zoxmcs98gOgLMFiBTkLW',
+            targetSelector: '#behold-feed'
+        };
+    </script>
+    <script src="https://w.behold.so/widget.js" type="module"></script>
 
+    <script>
+        /* ---- Galería del repo ---- */
         const TOTAL_FOTOS = 131;
         const grid        = document.getElementById('galeriaGrid');
         const lightbox    = document.getElementById('lightbox');
@@ -264,24 +309,19 @@
         const lbContador  = document.getElementById('lightboxContador');
         let   indiceActual = 0;
 
-        /* ---- Generar items de la galería ---- */
         for (let i = 1; i <= TOTAL_FOTOS; i++) {
             const item = document.createElement('div');
             item.className = 'galeria-item';
             item.setAttribute('role', 'listitem');
-            item.dataset.indice = i - 1;
-
             const img = document.createElement('img');
             img.src     = `img/foto${i}.jpg`;
             img.alt     = `Foto de gestión ${i}`;
-            img.loading = 'lazy'; /* carga diferida — clave para el rendimiento */
-
+            img.loading = 'lazy';
             item.appendChild(img);
             item.addEventListener('click', () => abrirLightbox(i - 1));
             grid.appendChild(item);
         }
 
-        /* ---- Lightbox: abrir ---- */
         function abrirLightbox(indice) {
             indiceActual = indice;
             actualizarLightbox();
@@ -289,7 +329,6 @@
             document.body.style.overflow = 'hidden';
         }
 
-        /* ---- Lightbox: actualizar imagen y contador ---- */
         function actualizarLightbox() {
             const n = indiceActual + 1;
             lbImg.src = `img/foto${n}.jpg`;
@@ -297,30 +336,21 @@
             lbContador.textContent = `${n} / ${TOTAL_FOTOS}`;
         }
 
-        /* ---- Lightbox: cerrar ---- */
         function cerrarLightbox() {
             lightbox.classList.remove('activo');
             document.body.style.overflow = '';
             lbImg.src = '';
         }
 
-        /* ---- Lightbox: navegar ---- */
         function navegar(direccion) {
             indiceActual = (indiceActual + direccion + TOTAL_FOTOS) % TOTAL_FOTOS;
             actualizarLightbox();
         }
 
-        /* ---- Eventos ---- */
         document.getElementById('lightboxCerrar').addEventListener('click', cerrarLightbox);
         document.getElementById('lightboxPrev').addEventListener('click', () => navegar(-1));
         document.getElementById('lightboxNext').addEventListener('click', () => navegar(1));
-
-        /* Cerrar al hacer click fuera de la imagen */
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) cerrarLightbox();
-        });
-
-        /* Navegación con teclado */
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) cerrarLightbox(); });
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('activo')) return;
             if (e.key === 'ArrowLeft')  navegar(-1);
@@ -329,6 +359,7 @@
         });
     </script>
 
-<script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023–"+new Date().getFullYear()+" Gabi Sánchez. Todos los derechos reservados.";</script>
+    <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
+
 </body>
 </html>

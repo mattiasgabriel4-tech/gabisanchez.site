@@ -109,6 +109,11 @@
                     <span class="somos-logo-sub">Profundidad · Misiones</span>
                 </div>
             </a>
+            <button class="somos-hamburguesa" id="somosHamburguesa" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav class="somos-nav" aria-label="Navegación del partido">
                 <ul>
                     <li><a href="somos-profundidad.html">Inicio</a></li>
@@ -117,6 +122,7 @@
                     <li><a href="documentos.html">Documentos</a></li>
                     <li><a href="galeria.html">Galería</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="afiliacion.html" style="background-color:rgba(245,200,0,0.20); color:var(--somos-amarillo);">Afiliarme</a></li>
                     <li><a href="../index.html" class="btn-volver-gabi">← Sitio de Gabi</a></li>
                 </ul>
             </nav>
@@ -220,19 +226,39 @@
     <footer class="somos-footer">
         <img class="somos-footer-logo" src="../img/logo-somos.png" alt="Somos Más Con Vos">
         <nav class="somos-redes" aria-label="Redes sociales">
-            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
-                <img src="../img/instagram.png" alt="Instagram">
+            <a href="https://www.instagram.com/somos.mas.con.vos" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="../img/instagram.png" alt="Instagram Somos Más Con Vos">
             </a>
             <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
                 <img src="../img/whatsapp.png" alt="WhatsApp">
             </a>
-            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email">
+            <a href="mailto:contacto.somosmasconvos@gmail.com" aria-label="Email">
                 <img src="../img/email.png" alt="Email">
             </a>
         </nav>
-        <p>&copy; 2025 - 2026 Somos Más Con Vos · Profundidad, Misiones</p>
+        <p id="footer-copy-somos"></p>
         <a href="../index.html" class="volver-gabi">← Volver al sitio de Gabi Sánchez</a>
     </footer>
 
+<script>document.getElementById("footer-copy-somos").innerHTML="&copy; 2025–"+new Date().getFullYear()+" Somos Más Con Vos · Profundidad, Misiones";</script>
+    <script>
+        var btn = document.getElementById('somosHamburguesa');
+        var nav = document.querySelector('.somos-nav');
+        if (btn && nav) {
+            btn.addEventListener('click', function() {
+                var abierto = nav.classList.toggle('abierto');
+                btn.classList.toggle('activo', abierto);
+                btn.setAttribute('aria-expanded', abierto);
+            });
+            // Cerrar al hacer click en un link
+            nav.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    nav.classList.remove('abierto');
+                    btn.classList.remove('activo');
+                    btn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
 </body>
 </html>

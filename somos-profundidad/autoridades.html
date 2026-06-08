@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Autoridades de Somos Más Con Vos — Conducción del partido político municipal de Profundidad, Misiones.">
+    <title>Autoridades — Somos Más Con Vos</title>
+    <link rel="icon" href="../img/logo-somos.png">
+    <link rel="stylesheet" href="somos-estilo.css">
+    <style>
+        .organigrama {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            margin-top: var(--espacio-md);
+        }
+
+        .org-fila {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .org-card {
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 24px 20px;
+            text-align: center;
+            min-width: 200px;
+            transition: transform var(--transicion), box-shadow var(--transicion);
+        }
+
+        .org-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-lg);
+        }
+
+        .org-card.principal {
+            border-top: 5px solid var(--somos-amarillo);
+            min-width: 240px;
+        }
+
+        .org-card.secundario {
+            border-top: 4px solid var(--somos-celeste);
+        }
+
+        .org-card.vocal {
+            border-top: 4px solid var(--somos-verde);
+        }
+
+        .org-card.apoderado {
+            border-top: 4px solid var(--somos-marron);
+        }
+
+        .org-icono {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .org-cargo {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--somos-gris);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .org-nombre {
+            font-family: var(--fuente-titulo);
+            font-size: 1.05rem;
+            color: var(--somos-verde);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .org-linea {
+            width: 2px;
+            height: 24px;
+            background-color: var(--somos-gris-claro);
+            margin: 0 auto;
+        }
+
+        .org-titulo-grupo {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--somos-gris);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 12px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="somos-header">
+        <div class="somos-header-inner">
+            <a href="somos-profundidad.html" class="somos-logo">
+                <img src="../img/logo-somos.png" alt="Somos Más Con Vos">
+                <div class="somos-logo-texto">
+                    <span class="somos-logo-nombre">Somos Más Con Vos</span>
+                    <span class="somos-logo-sub">Profundidad · Misiones</span>
+                </div>
+            </a>
+            <nav class="somos-nav" aria-label="Navegación del partido">
+                <ul>
+                    <li><a href="somos-profundidad.html">Inicio</a></li>
+                    <li><a href="propuestas.html">Propuestas</a></li>
+                    <li><a href="autoridades.html" class="activo">Autoridades</a></li>
+                    <li><a href="documentos.html">Documentos</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="../index.html" class="btn-volver-gabi">← Sitio de Gabi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section style="background-color:var(--somos-verde); color:var(--blanco); text-align:center; padding:64px 20px 52px;">
+            <h1 style="font-family:var(--fuente-titulo); font-size:clamp(2rem,4vw,3rem); margin-bottom:12px;">Autoridades del partido</h1>
+            <p style="font-size:1rem; opacity:0.82; max-width:540px; margin:0 auto; line-height:1.7;">Las personas que conducen Somos Más Con Vos desde su fundación el 17 de julio de 2025.</p>
+        </section>
+
+        <section class="somos-seccion fondo-claro">
+            <div class="somos-contenedor">
+
+                <div class="organigrama" role="list" aria-label="Organigrama de autoridades">
+
+                    <!-- Presidenta -->
+                    <div class="org-fila">
+                        <div class="org-card principal" role="listitem">
+                            <span class="org-icono" aria-hidden="true">👑</span>
+                            <p class="org-cargo">Presidenta</p>
+                            <p class="org-nombre">Galeano, Norma</p>
+                        </div>
+                    </div>
+
+                    <div class="org-linea"></div>
+
+                    <!-- Vicepresidente -->
+                    <div class="org-fila">
+                        <div class="org-card principal" role="listitem">
+                            <span class="org-icono" aria-hidden="true">🏛️</span>
+                            <p class="org-cargo">Vicepresidente</p>
+                            <p class="org-nombre">Rodríguez, Héctor</p>
+                        </div>
+                    </div>
+
+                    <div class="org-linea"></div>
+
+                    <!-- Secretaria y Tesorero -->
+                    <div class="org-fila">
+                        <div class="org-card secundario" role="listitem">
+                            <span class="org-icono" aria-hidden="true">📋</span>
+                            <p class="org-cargo">Secretaria</p>
+                            <p class="org-nombre">Quintana Cura, Zuleika</p>
+                        </div>
+                        <div class="org-card secundario" role="listitem">
+                            <span class="org-icono" aria-hidden="true">💼</span>
+                            <p class="org-cargo">Tesorero</p>
+                            <p class="org-nombre">Gómez, Cristian</p>
+                        </div>
+                    </div>
+
+                    <div class="org-linea"></div>
+
+                    <!-- Vocales -->
+                    <p class="org-titulo-grupo">Vocales</p>
+                    <div class="org-fila">
+                        <div class="org-card vocal" role="listitem">
+                            <span class="org-icono" aria-hidden="true">🗣️</span>
+                            <p class="org-cargo">Vocal</p>
+                            <p class="org-nombre">Gómez de Olivera, Ricardo</p>
+                        </div>
+                        <div class="org-card vocal" role="listitem">
+                            <span class="org-icono" aria-hidden="true">🗣️</span>
+                            <p class="org-cargo">Vocal</p>
+                            <p class="org-nombre">Castillo, Nicolás</p>
+                        </div>
+                        <div class="org-card vocal" role="listitem">
+                            <span class="org-icono" aria-hidden="true">🗣️</span>
+                            <p class="org-cargo">Vocal</p>
+                            <p class="org-nombre">Ruiz Díaz, Mariela</p>
+                        </div>
+                    </div>
+
+                    <div class="org-linea"></div>
+
+                    <!-- Apoderados -->
+                    <p class="org-titulo-grupo">Apoderados Partidarios</p>
+                    <div class="org-fila">
+                        <div class="org-card apoderado" role="listitem">
+                            <span class="org-icono" aria-hidden="true">⚖️</span>
+                            <p class="org-cargo">Apoderado</p>
+                            <p class="org-nombre">Leffler, José Luis</p>
+                        </div>
+                        <div class="org-card apoderado" role="listitem">
+                            <span class="org-icono" aria-hidden="true">⚖️</span>
+                            <p class="org-cargo">Apoderada</p>
+                            <p class="org-nombre">González, Lida</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="somos-footer">
+        <img class="somos-footer-logo" src="../img/logo-somos.png" alt="Somos Más Con Vos">
+        <nav class="somos-redes" aria-label="Redes sociales">
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="../img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <img src="../img/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email">
+                <img src="../img/email.png" alt="Email">
+            </a>
+        </nav>
+        <p>&copy; 2025 Somos Más Con Vos · Profundidad, Misiones</p>
+        <a href="../index.html" class="volver-gabi">← Volver al sitio de Gabi Sánchez</a>
+    </footer>
+
+</body>
+</html>

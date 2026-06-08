@@ -1,0 +1,457 @@
+/* ============================================================
+   somos-estilo.css — Hoja de estilos de Somos Más Con Vos
+   Identidad visual propia basada en los colores del logo
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+:root {
+    /* Paleta del partido */
+    --somos-amarillo:     #f5c800;
+    --somos-celeste:      #5bb8e8;
+    --somos-verde:        #1e6b3c;
+    --somos-marron:       #8b5e3c;
+    --somos-oscuro:       #1a2a1a;
+    --somos-claro:        #f7f9f4;
+    --somos-gris:         #4a5568;
+    --somos-gris-claro:   #e8ede8;
+    --blanco:             #ffffff;
+
+    /* Tipografías */
+    --fuente-titulo: 'Lora', Georgia, serif;
+    --fuente-cuerpo: 'Inter', 'Segoe UI', sans-serif;
+
+    /* Espaciados */
+    --espacio-xs:  0.5rem;
+    --espacio-sm:  1rem;
+    --espacio-md:  2rem;
+    --espacio-lg:  4rem;
+
+    /* Bordes y sombras */
+    --radio-sm:   6px;
+    --radio-md:   12px;
+    --radio-lg:   20px;
+    --sombra-sm:  0 2px 8px rgba(30, 107, 60, 0.10);
+    --sombra-md:  0 4px 20px rgba(30, 107, 60, 0.15);
+    --sombra-lg:  0 8px 40px rgba(30, 107, 60, 0.20);
+
+    --transicion: 0.25s ease;
+}
+
+/* ============================================================
+   RESET Y BASE
+   ============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+    font-family: var(--fuente-cuerpo);
+    background-color: var(--blanco);
+    color: var(--somos-oscuro);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img  { max-width: 100%; height: auto; display: block; }
+ul   { list-style: none; }
+
+a {
+    color: var(--somos-verde);
+    text-decoration: none;
+    transition: color var(--transicion);
+}
+a:hover { color: var(--somos-oscuro); }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.somos-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--somos-verde);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.20);
+}
+
+.somos-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 72px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.somos-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.somos-logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.20));
+}
+
+.somos-logo-texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.somos-logo-nombre {
+    font-family: var(--fuente-titulo);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blanco);
+}
+
+.somos-logo-sub {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.70);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ---- Navegación ---- */
+.somos-nav ul {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.somos-nav ul li a {
+    display: block;
+    padding: 8px 13px;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: var(--radio-sm);
+    transition: background-color var(--transicion), color var(--transicion);
+}
+
+.somos-nav ul li a:hover,
+.somos-nav ul li a.activo {
+    background-color: rgba(255,255,255,0.15);
+    color: var(--blanco);
+}
+
+/* Botón "Volver al sitio de Gabi" */
+.somos-nav .btn-volver-gabi {
+    margin-left: 8px;
+    padding: 7px 14px;
+    background-color: var(--somos-amarillo);
+    color: var(--somos-oscuro) !important;
+    font-weight: 600;
+    border-radius: var(--radio-md);
+    font-size: 0.82rem;
+}
+
+.somos-nav .btn-volver-gabi:hover {
+    background-color: #ffd700;
+    background-color: var(--blanco);
+    color: var(--somos-verde) !important;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.somos-hero {
+    background: linear-gradient(135deg, var(--somos-verde) 0%, #2d8a52 60%, #1a5c32 100%);
+    color: var(--blanco);
+    text-align: center;
+    padding: 80px 20px 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.somos-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(245,200,0,0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.somos-hero-logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin: 0 auto 24px;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.30));
+}
+
+.somos-hero h1 {
+    font-family: var(--fuente-titulo);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.somos-hero .frase {
+    font-family: var(--fuente-titulo);
+    font-style: italic;
+    font-size: 1.15rem;
+    opacity: 0.88;
+    margin-bottom: 20px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.somos-hero p {
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 32px;
+    opacity: 0.80;
+    line-height: 1.7;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.btn-somos-primario {
+    display: inline-block;
+    padding: 13px 30px;
+    background-color: var(--somos-amarillo);
+    color: var(--somos-oscuro);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: var(--radio-md);
+    transition: background-color var(--transicion), transform var(--transicion);
+    box-shadow: 0 4px 16px rgba(245,200,0,0.35);
+}
+
+.btn-somos-primario:hover {
+    background-color: #ffd700;
+    color: var(--somos-oscuro);
+    transform: translateY(-2px);
+}
+
+.btn-somos-secundario {
+    display: inline-block;
+    padding: 13px 30px;
+    background-color: transparent;
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid rgba(255,255,255,0.65);
+    border-radius: var(--radio-md);
+    transition: background-color var(--transicion), border-color var(--transicion), transform var(--transicion);
+}
+
+.btn-somos-secundario:hover {
+    background-color: rgba(255,255,255,0.12);
+    border-color: var(--blanco);
+    color: var(--blanco);
+    transform: translateY(-2px);
+}
+
+.btn-somos-accion {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: var(--somos-verde);
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: var(--radio-sm);
+    transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.btn-somos-accion:hover {
+    background-color: var(--somos-oscuro);
+    color: var(--blanco);
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   SECCIÓN GENÉRICA
+   ============================================================ */
+.somos-seccion {
+    padding: var(--espacio-lg) 20px;
+}
+
+.somos-seccion.fondo-claro {
+    background-color: var(--somos-claro);
+}
+
+.somos-seccion.fondo-verde {
+    background-color: var(--somos-verde);
+    color: var(--blanco);
+}
+
+.somos-contenedor {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.somos-seccion-titulo {
+    font-family: var(--fuente-titulo);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--somos-verde);
+    margin-bottom: 8px;
+}
+
+.somos-seccion.fondo-verde .somos-seccion-titulo {
+    color: var(--somos-amarillo);
+}
+
+.somos-separador {
+    width: 50px;
+    height: 4px;
+    background-color: var(--somos-amarillo);
+    border-radius: 2px;
+    margin-bottom: var(--espacio-md);
+}
+
+/* ============================================================
+   CARDS GENÉRICAS
+   ============================================================ */
+.somos-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: var(--espacio-md);
+}
+
+.somos-card {
+    background-color: var(--blanco);
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-sm);
+    padding: var(--espacio-md);
+    border-top: 4px solid var(--somos-amarillo);
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.somos-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-lg);
+}
+
+.somos-card h3 {
+    font-family: var(--fuente-titulo);
+    font-size: 1.1rem;
+    color: var(--somos-verde);
+    margin-bottom: 8px;
+}
+
+.somos-card p {
+    font-size: 0.93rem;
+    color: var(--somos-gris);
+    line-height: 1.7;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.somos-footer {
+    background-color: var(--somos-oscuro);
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    padding: var(--espacio-md) 20px var(--espacio-sm);
+}
+
+.somos-footer-logo {
+    width: 56px;
+    margin: 0 auto var(--espacio-sm);
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.30));
+}
+
+.somos-redes {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: var(--espacio-sm);
+    flex-wrap: wrap;
+}
+
+.somos-redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.08);
+    transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.somos-redes a:hover {
+    background-color: rgba(255,255,255,0.18);
+    transform: translateY(-3px);
+}
+
+.somos-redes img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.somos-footer p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: var(--espacio-sm);
+}
+
+.somos-footer .volver-gabi {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.82rem;
+    color: var(--somos-amarillo);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transicion);
+}
+
+.somos-footer .volver-gabi:hover {
+    border-bottom-color: var(--somos-amarillo);
+    color: var(--somos-amarillo);
+}
+
+/* ============================================================
+   MEDIA QUERIES
+   ============================================================ */
+@media (max-width: 768px) {
+    .somos-header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 12px 16px;
+        gap: 8px;
+    }
+
+    .somos-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .somos-nav ul li a {
+        font-size: 0.78rem;
+        padding: 6px 9px;
+    }
+
+    .somos-hero {
+        padding: 56px 20px 48px;
+    }
+
+    .somos-hero-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .somos-seccion {
+        padding: var(--espacio-md) 16px;
+    }
+}

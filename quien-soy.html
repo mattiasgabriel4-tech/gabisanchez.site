@@ -5,156 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Gabi Sánchez, concejal Profundidad, Profundidad Misiones, gestión municipal, política local Misiones">
     <meta name="description" content="Conocé a Gabi Sánchez, concejal de Profundidad, Misiones desde 2023. Su historia, su compromiso y su proyecto político para el municipio.">
-    <meta property="og:title" content="¿Quién es Gabi Sánchez?">
+    <meta property="og:title" content="¿Quién es Gabi Sánchez? — Concejal de Profundidad, Misiones">
     <meta property="og:description" content="Vecino de toda la vida, concejal desde 2023, y candidato a intendente en 2027.">
     <meta property="og:image" content="img/logo.png">
-    <title>¿Quién es Gabi Sánchez? — Concejal de Profundidad, Misiones</title>
+    <title>¿Quién soy? — Gabi Sánchez, Concejal de Profundidad</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/estilo.css">
     <script src="burbuja-somos.js" defer></script>
     <style>
-        /* ---- Sección principal ---- */
-        .quien-soy {
-            padding: 80px 20px;
-            background-color: var(--gris-claro);
+
+        /* ---- Hero ---- */
+        .qs-hero {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            text-align: center;
+            padding: 72px 20px 60px;
         }
 
-        .quien-soy-inner {
+        .qs-hero h1 {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .qs-hero p {
+            font-size: 1.1rem;
+            font-family: var(--fuente-titulo);
+            font-style: italic;
+            opacity: 0.85;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ---- Layout principal ---- */
+        .qs-contenido {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 72px 20px;
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
+            grid-template-columns: 280px 1fr;
+            gap: 64px;
             align-items: start;
         }
 
-        /* ---- Columna izquierda: foto y datos ---- */
-        .quien-soy-perfil {
+        /* ---- Perfil lateral ---- */
+        .qs-perfil {
             position: sticky;
             top: 92px;
             text-align: center;
         }
 
-        .quien-soy-perfil img {
+        .qs-perfil img {
             width: 100%;
-            max-width: 280px;
+            max-width: 260px;
             border-radius: var(--radio-lg);
             box-shadow: var(--sombra-lg);
-            margin: 0 auto 24px;
+            margin: 0 auto 20px;
             object-fit: cover;
-            aspect-ratio: 3 / 4;
+            aspect-ratio: 3/4;
         }
 
-        .quien-soy-perfil h2 {
+        .qs-perfil h2 {
             font-family: var(--fuente-titulo);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--azul-principal);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
-        .quien-soy-perfil .cargo {
-            font-size: 0.9rem;
+        .qs-perfil .cargo {
+            font-size: 0.82rem;
             color: var(--gris-texto);
-            font-weight: 500;
-            letter-spacing: 0.04em;
+            font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
         }
 
-        .quien-soy-perfil .btn-accion {
+        .qs-datos {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .qs-dato {
+            background-color: var(--gris-claro);
+            border-radius: var(--radio-sm);
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        .qs-dato strong {
             display: block;
-            width: 100%;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--gris-texto);
+            margin-bottom: 2px;
         }
 
-        /* ---- Columna derecha: texto ---- */
-        .quien-soy-texto h1 {
-            font-family: var(--fuente-titulo);
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
+        .qs-dato span {
+            font-size: 0.92rem;
             color: var(--azul-principal);
-            margin-bottom: 8px;
-            line-height: 1.2;
+            font-weight: 600;
         }
 
-        .quien-soy-texto .frase {
+        /* ---- Narrativa ---- */
+        .qs-narrativa {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .qs-bloque h2 {
             font-family: var(--fuente-titulo);
-            font-style: italic;
-            font-size: 1.15rem;
-            color: var(--azul-medio);
-            margin-bottom: 32px;
-            padding-left: 16px;
-            border-left: 3px solid var(--azul-medio);
+            font-size: 1.35rem;
+            color: var(--azul-principal);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--azul-claro);
         }
 
-        .quien-soy-texto p {
+        .qs-bloque p {
             font-size: 1.05rem;
             color: var(--gris-texto);
-            margin-bottom: 20px;
-            line-height: 1.8;
+            line-height: 1.85;
+            margin-bottom: 16px;
         }
 
-        .quien-soy-texto p:last-child {
+        .qs-bloque p:last-child {
             margin-bottom: 0;
         }
 
-        /* ---- Datos clave ---- */
-        .datos-clave {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin: 40px 0;
-            padding: 28px;
-            background-color: var(--blanco);
-            border-radius: var(--radio-md);
-            box-shadow: var(--sombra-sm);
+        /* ---- Cita destacada ---- */
+        .qs-cita {
+            background-color: var(--azul-claro);
+            border-left: 4px solid var(--azul-medio);
+            border-radius: 0 var(--radio-md) var(--radio-md) 0;
+            padding: 20px 24px;
+            margin: 8px 0;
         }
 
-        .dato {
-            text-align: center;
-        }
-
-        .dato .numero {
+        .qs-cita p {
             font-family: var(--fuente-titulo);
-            font-size: 2rem;
-            font-weight: 700;
+            font-style: italic;
+            font-size: 1.1rem;
             color: var(--azul-principal);
-            line-height: 1;
-            display: block;
-        }
-
-        .dato .etiqueta {
-            font-size: 0.82rem;
-            color: var(--gris-texto);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-top: 4px;
-            display: block;
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* ---- Responsive ---- */
         @media (max-width: 768px) {
-            .quien-soy-inner {
+            .qs-hero { padding: 52px 20px 44px; }
+
+            .qs-contenido {
                 grid-template-columns: 1fr;
                 gap: 40px;
+                padding: 48px 16px;
             }
 
-            .quien-soy-perfil {
+            .qs-perfil {
                 position: static;
             }
 
-            .quien-soy-perfil img {
-                max-width: 200px;
-            }
-
-            .datos-clave {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-                padding: 20px 12px;
-            }
-
-            .dato .numero {
-                font-size: 1.5rem;
+            .qs-perfil img {
+                max-width: 180px;
             }
         }
+
     </style>
 </head>
 
@@ -179,78 +200,95 @@
     </header>
 
     <main>
-        <section class="quien-soy" aria-label="¿Quién soy?">
-            <div class="quien-soy-inner">
 
-                <!-- Columna izquierda -->
-                <aside class="quien-soy-perfil">
-                    <img src="img/gabi.jpg" alt="Foto de Gabi Sánchez">
-                    <h2>Gabi Sánchez</h2>
-                    <p class="cargo">Concejal · Profundidad, Misiones</p>
-                    <a href="contacto.html" class="btn-accion">Escribime</a>
-                </aside>
+        <section class="qs-hero" aria-label="Presentación">
+            <h1>¿Quién soy?</h1>
+            <p>"Quiero ser una voz distinta a lo de siempre."</p>
+        </section>
 
-                <!-- Columna derecha -->
-                <div class="quien-soy-texto">
-                    <h1>¿Quién soy?</h1>
-                    <p class="frase">"No estoy en política por poder, sino por amor a mi pueblo."</p>
+        <div class="qs-contenido">
 
-                    <div class="datos-clave" aria-label="Datos clave">
-                        <div class="dato">
-                            <span class="numero">27</span>
-                            <span class="etiqueta">años</span>
-                        </div>
-                        <div class="dato">
-                            <span class="numero">2023</span>
-                            <span class="etiqueta">elegido concejal</span>
-                        </div>
-                        <div class="dato">
-                            <span class="numero">2027</span>
-                            <span class="etiqueta">candidato a intendente</span>
-                        </div>
+            <!-- Perfil lateral -->
+            <aside class="qs-perfil">
+                <img src="img/gabi.jpg" alt="Foto de Gabi Sánchez">
+                <h2>Gabi Sánchez</h2>
+                <p class="cargo">Concejal · Profundidad, Misiones</p>
+                <div class="qs-datos">
+                    <div class="qs-dato">
+                        <strong>Edad</strong>
+                        <span>27 años</span>
                     </div>
+                    <div class="qs-dato">
+                        <strong>Mandato</strong>
+                        <span>Concejal desde 2023</span>
+                    </div>
+                    <div class="qs-dato">
+                        <strong>Próximo objetivo</strong>
+                        <span>Candidato a intendente 2027</span>
+                    </div>
+                    <div class="qs-dato">
+                        <strong></strong>
+                        <span></span>
+                    </div>
+                </div>
+                <a href="contacto.html" class="btn-accion" style="display:block; text-align:center;">Escribime</a>
+            </aside>
 
-                    <p>Soy Gabi Sánchez, vecino de toda la vida de Profundidad. Crecí en este lugar, conozco sus calles, sus barrios y, sobre todo, su gente. No vengo de una familia política ni de estructuras poderosas. Vengo del esfuerzo y del compromiso con los demás.</p>
+            <!-- Narrativa -->
+            <div class="qs-narrativa">
 
-                    <p>En 2023 fui elegido concejal por la voluntad de muchos vecinos que también querían un cambio. Desde ese momento, mi objetivo fue claro: defender la voz de la gente, proponer soluciones reales y enfrentar con firmeza todo lo que atrasa a nuestro pueblo.</p>
+                <div class="qs-bloque">
+                    <h2>Mis raíces</h2>
+                    <p>Nací y crecí en Profundidad. Un pueblo pequeño, de no más de mil habitantes, donde todos se conocen, donde las calles no tienen secretos y donde la historia de cada familia se entrelaza con la de las demás. No vengo de ningún lado en particular porque Profundidad entera es mi lugar: me crié en todo el pueblo, me formé acá, y acá decidí quedarme y apostar.</p>
+                    <p>Siempre trabajé de lo que había. Estudié, trabajé de lo que se podía, aprendí de todo un poco. Esa realidad — la de tener que rebuscársela, la de saber lo que es no tener nada garantizado — es la misma que viven muchos vecinos de Profundidad. Y eso es algo que no se olvida.</p>
+                </div>
 
-                    <p>Durante mi gestión presenté proyectos concretos para mejorar la vida de los profundidenses: desde el cuidado del ambiente y el acompañamiento a los estudiantes, hasta propuestas para una administración más justa, participativa y transparente. Muchos de esos proyectos fueron rechazados por una mayoría que lleva más de 16 años en el poder. Pero eso no me frena, al contrario: me confirma que estamos por el camino correcto.</p>
+                <div class="qs-bloque">
+                    <h2>Por qué me metí en política</h2>
+                    <p>No fue una decisión fácil ni cómoda. Me metí porque no podía quedarme mirando. Porque veía injusticias todos los días. Porque había gente que usaba el poder para beneficiarse a sí misma y a los suyos, mientras los que menos tenían — los más vulnerables, los más complicados — seguían esperando que alguien los escuchara.</p>
+                    <div class="qs-cita">
+                        <p>"Siempre hubo el amiguismo del poder: los que estaban cerca de quien mandaba eran los beneficiados. Yo quería ser una voz diferente."</p>
+                    </div>
+                    <p>Me involucré porque creí — y sigo creyendo — que Profundidad merece más. Que tiene que haber oportunidades para todos, no solo para los de siempre. Me involucré porque alguien tenía que decir en voz alta lo que muchos pensaban en silencio.</p>
+                </div>
 
-                    <p>Sigo caminando, escuchando, hablando con los vecinos. Porque el verdadero cambio no nace en los escritorios, nace en la calle, con vos.</p>
+                <div class="qs-bloque">
+                    <h2>Lo que aprendí durante la gestión</h2>
+                    <p>Desde el primer día como concejal aprendí que el cambio no viene solo con buenas intenciones. Aprendí que hay resistencias, que hay intereses que no quieren moverse, que hay quienes prefieren que todo siga igual porque el status quo los beneficia.</p>
+                    <p>Me rechazaron proyectos. Me sabotearon iniciativas. Me trataron como "el pendejito que no sabe nada", como si tener 27 años fuera una razón para no ser escuchado. Desde el primer día en el HCD hubo quienes subestimaron mi capacidad por ser joven, quienes ignoraron mis propuestas antes de leerlas, quienes prefirieron ver mi edad antes que mis argumentos.</p>
+                    <div class="qs-cita">
+                        <p>"Cada proyecto rechazado me confirmó que estábamos por el camino correcto. Porque si molestamos, es porque algo estamos moviendo."</p>
+                    </div>
+                    <p>También recibí ataques por hacer visible lo que pasa adentro del Concejo. Por decir lo que otros callan. Eso tiene un costo, y lo pagué. Pero no me arrepiento de ninguna de las veces que hablé.</p>
+                </div>
 
-                    <p>Estoy convencido de que Profundidad merece más. Y por eso me estoy preparando, con seriedad y compromiso, para asumir un nuevo desafío: gobernar nuestro municipio desde 2027.</p>
-
-                    <p>Porque el cambio es posible, y empieza cuando nos animamos a hacerlo juntos.</p>
+                <div class="qs-bloque">
+                    <h2>Mi visión para Profundidad</h2>
+                    <p>Quiero un Profundidad donde ningún vecino tenga que conocer al intendente para que le arreglen la calle. Donde los recursos del municipio se usen con criterio y se rindan con transparencia. Donde los jóvenes tengan razones para quedarse y crecer acá, en lugar de tener que irse a buscar lo que acá se les niega.</p>
+                    <p>Estoy convencido de que ese Profundidad es posible. No es una utopía — es una decisión. Y por eso me estoy preparando, con seriedad y con trabajo, para ser intendente en 2027.</p>
+                    <p>Porque el cambio empieza cuando alguien decide que ya es suficiente. Y yo ya lo decidí.</p>
+                    <a href="propuestas.html" class="btn-accion" style="display:inline-block; margin-top:8px;">Ver el plan de gobierno</a>
                 </div>
 
             </div>
-        </section>
+
+        </div>
+
     </main>
 
     <footer>
         <nav class="redes" aria-label="Redes sociales">
-            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok">
-                <img src="img/tiktok.png" alt="TikTok">
-            </a>
-            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook">
-                <img src="img/facebook.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
-                <img src="img/instagram.png" alt="Instagram">
-            </a>
-            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
-                <img src="img/whatsapp.png" alt="WhatsApp">
-            </a>
-            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Correo electrónico">
-                <img src="img/email.png" alt="Email">
-            </a>
-            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X / Twitter">
-                <img src="img/x.png" alt="X">
-            </a>
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok"><img src="img/tiktok.png" alt="TikTok"></a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook"><img src="img/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/instagram.png" alt="Instagram"></a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email"><img src="img/email.png" alt="Email"></a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X"><img src="img/x.png" alt="X"></a>
         </nav>
         <p id="footer-copy-gabi"></p>
     </footer>
 
-<script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023–"+new Date().getFullYear()+" Gabi Sánchez. Todos los derechos reservados.";</script>
+    <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
+
 </body>
 </html>

@@ -425,25 +425,96 @@ a:hover { color: var(--somos-oscuro); }
 }
 
 /* ============================================================
+   MENÚ HAMBURGUESA
+   ============================================================ */
+.somos-hamburguesa {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--radio-sm);
+    transition: background-color var(--transicion);
+}
+
+.somos-hamburguesa:hover {
+    background-color: rgba(255,255,255,0.10);
+}
+
+.somos-hamburguesa span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--blanco);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.somos-hamburguesa.activo span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.somos-hamburguesa.activo span:nth-child(2) {
+    opacity: 0;
+}
+.somos-hamburguesa.activo span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
    MEDIA QUERIES
    ============================================================ */
 @media (max-width: 768px) {
     .somos-header-inner {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         height: auto;
         padding: 12px 16px;
-        gap: 8px;
+        flex-wrap: nowrap;
+    }
+
+    .somos-header { position: relative; }
+
+    .somos-hamburguesa {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    .somos-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--somos-verde);
+        padding: 12px 16px 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.20);
+        z-index: 99;
+    }
+
+    .somos-nav.abierto {
+        display: block;
     }
 
     .somos-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 3px;
+        flex-direction: column;
+        gap: 4px;
+        align-items: stretch;
     }
 
     .somos-nav ul li a {
-        font-size: 0.78rem;
-        padding: 6px 9px;
+        font-size: 0.95rem;
+        padding: 10px 14px;
+        display: block;
+        border-radius: var(--radio-sm);
+    }
+
+    .somos-nav .btn-volver-gabi {
+        margin-left: 0;
+        margin-top: 8px;
+        text-align: center;
     }
 
     .somos-hero {

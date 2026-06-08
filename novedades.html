@@ -3,20 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Gabi Sánchez, concejal Profundidad, Profundidad Misiones, gestión municipal, política local Misiones">
-    <meta name="description" content="Gabi Sánchez, concejal de Profundidad, Misiones. Propuestas, gestiones en el HCD y contacto directo con los vecinos.">
-    <meta property="og:title" content="Gabi Sánchez — Concejal de Profundidad">
-    <meta property="og:description" content="Propuestas, gestiones y contacto directo con los vecinos de Profundidad.">
+    <meta name="keywords" content="Gabi Sánchez, concejal Profundidad, noticias Profundidad, gestión municipal Misiones">
+    <meta name="description" content="Novedades y actualidad de Gabi Sánchez, concejal de Profundidad, Misiones. Actividades, gestiones y noticias del municipio.">
+    <meta property="og:title" content="Novedades — Gabi Sánchez">
+    <meta property="og:description" content="Actividades, gestiones y noticias del municipio de Profundidad.">
     <meta property="og:image" content="img/logo.png">
-    <title>Gabi Sánchez — Concejal de Profundidad, Misiones</title>
+    <title>Novedades — Gabi Sánchez, Concejal de Profundidad</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/estilo.css">
     <script src="burbuja-somos.js" defer></script>
+    <style>
+        .novedades-hero {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            text-align: center;
+            padding: 72px 20px 60px;
+        }
+
+        .novedades-hero h1 {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .novedades-hero p {
+            font-size: 1.05rem;
+            opacity: 0.82;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .novedades-contenido {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 72px 20px;
+        }
+
+        /* ---- Card de novedad ---- */
+        .novedad {
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--azul-medio);
+            transition: transform var(--transicion), box-shadow var(--transicion);
+        }
+
+        .novedad:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-md);
+        }
+
+        .novedad-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .novedad-fecha {
+            font-size: 0.82rem;
+            color: var(--gris-texto);
+            font-weight: 500;
+        }
+
+        .novedad-categoria {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .cat-gestion { background-color: var(--azul-claro); color: var(--azul-principal); }
+        .cat-propuesta { background-color: #dcfce7; color: #166534; }
+        .cat-actividad { background-color: #fef9c3; color: #854d0e; }
+        .cat-hcd { background-color: #fce7f3; color: #9d174d; }
+
+        .novedad h2 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.25rem;
+            color: var(--azul-principal);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .novedad p {
+            font-size: 0.97rem;
+            color: var(--gris-texto);
+            line-height: 1.75;
+        }
+
+        .novedad img {
+            width: 100%;
+            border-radius: var(--radio-sm);
+            margin-top: 16px;
+            object-fit: cover;
+            max-height: 320px;
+        }
+
+        /* ---- Placeholder cuando no hay novedades ---- */
+        .novedades-vacio {
+            text-align: center;
+            padding: 48px 20px;
+            background-color: var(--gris-claro);
+            border-radius: var(--radio-lg);
+        }
+
+        .novedades-vacio .icono {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .novedades-vacio h3 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.3rem;
+            color: var(--azul-principal);
+            margin-bottom: 8px;
+        }
+
+        .novedades-vacio p {
+            font-size: 0.93rem;
+            color: var(--gris-texto);
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ---- CTA suscripción ---- */
+        .novedades-suscripcion {
+            margin-top: 56px;
+            background-color: var(--azul-principal);
+            border-radius: var(--radio-lg);
+            padding: 36px 32px;
+            text-align: center;
+            color: var(--blanco);
+        }
+
+        .novedades-suscripcion h3 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .novedades-suscripcion p {
+            font-size: 0.95rem;
+            opacity: 0.82;
+            max-width: 440px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .novedades-hero { padding: 52px 20px 44px; }
+            .novedades-contenido { padding: 48px 16px; }
+            .novedad { padding: 20px 18px; }
+            .novedades-suscripcion { padding: 28px 20px; }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="logo">
             <a href="index.html">
@@ -25,12 +180,12 @@
         </div>
         <nav aria-label="Navegación principal">
             <ul>
-                <li><a href="index.html" class="activo">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="quien-soy.html">¿Quién soy?</a></li>
                 <li><a href="propuestas.html">Propuestas</a></li>
                 <li><a href="fotogaleria.html">Fotogalería</a></li>
                 <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
-                <li><a href="novedades.html">Novedades</a></li>
+                <li><a href="novedades.html" class="activo">Novedades</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
@@ -38,142 +193,59 @@
 
     <main>
 
-        <!-- HERO -->
-        <section class="bienvenida" aria-label="Bienvenida">
-            <h1>El cambio es posible y necesario</h1>
-            <p>Soy Gabi Sánchez, concejal de Profundidad. Acá vas a encontrar mis propuestas, mis gestiones y la forma de contactarme directo.</p>
-            <div class="bienvenida-cta">
-                <a href="propuestas.html" class="btn-primario">Ver propuestas</a>
-                <a href="quien-soy.html" class="btn-secundario">Conocerme</a>
-            </div>
+        <section class="novedades-hero" aria-label="Novedades">
+            <h1>Novedades</h1>
+            <p>Actividades, gestiones, recorridas y todo lo que pasa en Profundidad. Actualizado regularmente.</p>
         </section>
 
-        <!-- SECCIONES DESTACADAS -->
-        <section class="destacados" aria-label="Secciones destacadas">
-            <h2>¿Qué encontrás acá?</h2>
-            <div class="tarjetas">
+        <div class="novedades-contenido">
 
-                <article class="tarjeta">
-                    <h3>Propuestas 2027</h3>
-                    <p>Un plan de gobierno concreto para Profundidad. Servicios, educación, trabajo, transparencia y mucho más.</p>
-                    <a href="propuestas.html">Ver propuestas →</a>
-                </article>
+            <!-- NOVEDADES — agregá bloques .novedad acá arriba cuando tengas contenido -->
 
-                <article class="tarjeta">
-                    <h3>Gestiones en el HCD</h3>
-                    <p>Proyectos presentados, ordenanzas aprobadas y documentos de mi trabajo como concejal desde 2023.</p>
-                    <a href="gestiones-en-el-hcd.html">Ver gestiones →</a>
-                </article>
+            <!-- EJEMPLO DE NOVEDAD (descomentá y completá cuando quieras publicar):
 
-                <article class="tarjeta">
-                    <h3>Fotogalería</h3>
-                    <p>Recorridas, reuniones y presencia en el territorio. El trabajo de todos los días en Profundidad.</p>
-                    <a href="fotogaleria.html">Ver fotos →</a>
-                </article>
-
-            </div>
-        </section>
-
-
-        <!-- GESTIÓN EN NÚMEROS -->
-        <section class="seccion-numeros" aria-label="Gestión en números">
-            <div class="contenedor texto-centrado">
-                <h2 class="seccion-titulo">Mi gestión en números</h2>
-                <div class="separador"></div>
-                <div class="numeros-grid">
-                    <div class="numero-item">
-                        <span class="numero-grande">+15</span>
-                        <span class="numero-label">Proyectos presentados</span>
-                    </div>
-                    <div class="numero-item">
-                        <span class="numero-grande">17</span>
-                        <span class="numero-label">Ordenanzas vigentes</span>
-                    </div>
-                    <div class="numero-item">
-                        <span class="numero-grande">3</span>
-                        <span class="numero-label">Años de mandato</span>
-                    </div>
-                    <div class="numero-item">
-                        <span class="numero-grande">2027</span>
-                        <span class="numero-label">Candidato a intendente</span>
-                    </div>
+            <article class="novedad">
+                <div class="novedad-meta">
+                    <span class="novedad-fecha">8 de junio de 2026</span>
+                    <span class="novedad-categoria cat-hcd">HCD</span>
                 </div>
-                <a href="gestiones-en-el-hcd.html" class="btn-accion" style="margin-top:2rem; display:inline-block;">Ver todas las gestiones</a>
-            </div>
-        </section>
+                <h2>Título de la novedad</h2>
+                <p>Descripción de lo que pasó. Puede ser corta, no hace falta que sea un artículo largo.</p>
+            </article>
 
-        <!-- LA PROFUNDIDAD QUE QUEREMOS -->
-        <section class="seccion-vision" aria-label="La Profundidad que queremos">
-            <div class="contenedor">
-                <div class="vision-inner">
-                    <div class="vision-texto">
-                        <h2 class="seccion-titulo">La Profundidad que queremos</h2>
-                        <div class="separador" style="margin-left:0;"></div>
-                        <p>Queremos un municipio que funcione de verdad. Que cuide a sus vecinos, que escuche a los jóvenes, que use bien cada peso del presupuesto y que rinda cuentas sin que nadie tenga que pedirlo.</p>
-                        <p style="margin-top:1rem;">Un Profundidad con más oportunidades, con servicios que lleguen a todos los barrios, con una gestión moderna y transparente que esté a la altura de lo que nos merecemos.</p>
-                        <a href="propuestas.html" class="btn-accion" style="margin-top:1.5rem; display:inline-block;">Ver el plan de gobierno</a>
-                    </div>
-                    <div class="vision-valores">
-                        <div class="vision-valor">
-                            <span class="vision-icono" aria-hidden="true">🔓</span>
-                            <div>
-                                <strong>Transparencia</strong>
-                                <p>Cuentas claras y gestión a la vista de todos.</p>
-                            </div>
-                        </div>
-                        <div class="vision-valor">
-                            <span class="vision-icono" aria-hidden="true">🤝</span>
-                            <div>
-                                <strong>Participación</strong>
-                                <p>Las decisiones se toman con los vecinos.</p>
-                            </div>
-                        </div>
-                        <div class="vision-valor">
-                            <span class="vision-icono" aria-hidden="true">🌱</span>
-                            <div>
-                                <strong>Desarrollo local</strong>
-                                <p>Trabajo genuino, emprendimientos y oportunidades.</p>
-                            </div>
-                        </div>
-                        <div class="vision-valor">
-                            <span class="vision-icono" aria-hidden="true">📋</span>
-                            <div>
-                                <strong>Gestión responsable</strong>
-                                <p>Propuestas concretas con resultados medibles.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            -->
+
+            <!-- Placeholder visible hasta que haya contenido -->
+            <div class="novedades-vacio" id="sinNovedades">
+                <span class="icono" aria-hidden="true">📰</span>
+                <h3>Las novedades se publican pronto</h3>
+                <p>Acá vas a encontrar actualizaciones sobre gestiones, actividades y todo lo que pasa en Profundidad. Volvé a visitar esta sección pronto.</p>
             </div>
-        </section>
+
+            <!-- CTA para recibir novedades -->
+            <div class="novedades-suscripcion">
+                <h3>¿Querés enterarte primero?</h3>
+                <p>Dejá tu nombre y WhatsApp y te avisamos cuando haya novedades importantes.</p>
+                <a href="contacto.html#sumate" class="btn-primario">Quiero recibir novedades</a>
+            </div>
+
+        </div>
 
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <nav class="redes" aria-label="Redes sociales">
-            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok">
-                <img src="img/tiktok.png" alt="TikTok">
-            </a>
-            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook">
-                <img src="img/facebook.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
-                <img src="img/instagram.png" alt="Instagram">
-            </a>
-            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
-                <img src="img/whatsapp.png" alt="WhatsApp">
-            </a>
-            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Correo electrónico">
-                <img src="img/email.png" alt="Email">
-            </a>
-            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X / Twitter">
-                <img src="img/x.png" alt="X">
-            </a>
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok"><img src="img/tiktok.png" alt="TikTok"></a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook"><img src="img/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/instagram.png" alt="Instagram"></a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email"><img src="img/email.png" alt="Email"></a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X"><img src="img/x.png" alt="X"></a>
         </nav>
         <p id="footer-copy-gabi"></p>
     </footer>
 
-<script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023–"+new Date().getFullYear()+" Gabi Sánchez. Todos los derechos reservados.";</script>
+    <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
+
 </body>
 </html>

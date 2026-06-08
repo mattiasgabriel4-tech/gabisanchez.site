@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacto con Somos Más Con Vos — Partido político municipal de Profundidad, Misiones.">
+    <title>Contacto — Somos Más Con Vos</title>
+    <link rel="icon" href="../img/logo-somos.png">
+    <link rel="stylesheet" href="somos-estilo.css">
+    <style>
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .canal {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            text-decoration: none;
+            color: var(--somos-oscuro);
+            margin-bottom: 12px;
+            border-left: 4px solid var(--somos-amarillo);
+            transition: transform var(--transicion), box-shadow var(--transicion);
+        }
+
+        .canal:hover {
+            transform: translateX(4px);
+            box-shadow: var(--sombra-md);
+            color: var(--somos-oscuro);
+        }
+
+        .canal-icono { width: 38px; height: 38px; flex-shrink: 0; object-fit: contain; }
+        .canal-info strong { display: block; font-size: 0.93rem; color: var(--somos-verde); font-weight: 600; margin-bottom: 2px; }
+        .canal-info span { font-size: 0.85rem; color: var(--somos-gris); }
+
+        .form-grupo { margin-bottom: 14px; }
+        .form-grupo label { display: block; font-size: 0.86rem; font-weight: 600; color: var(--somos-verde); margin-bottom: 5px; }
+        .form-grupo input,
+        .form-grupo textarea,
+        .form-grupo select {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid var(--somos-gris-claro);
+            border-radius: var(--radio-sm);
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.93rem;
+            color: var(--somos-oscuro);
+            background-color: var(--blanco);
+            transition: border-color var(--transicion), box-shadow var(--transicion);
+            appearance: none;
+        }
+        .form-grupo input:focus,
+        .form-grupo textarea:focus,
+        .form-grupo select:focus {
+            outline: none;
+            border-color: var(--somos-verde);
+            box-shadow: 0 0 0 3px rgba(30,107,60,0.12);
+        }
+        .form-grupo textarea { resize: vertical; min-height: 120px; }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 13px;
+            background-color: var(--somos-verde);
+            color: var(--blanco);
+            font-family: var(--fuente-cuerpo);
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radio-md);
+            cursor: pointer;
+            transition: background-color var(--transicion), transform var(--transicion);
+        }
+        .btn-enviar:hover { background-color: var(--somos-oscuro); transform: translateY(-2px); }
+
+        .form-confirmacion {
+            display: none;
+            text-align: center;
+            padding: 28px 20px;
+            background-color: #dcfce7;
+            border-radius: var(--radio-md);
+            margin-top: 16px;
+        }
+        .form-confirmacion h3 { font-family: var(--fuente-titulo); color: var(--somos-verde); margin: 12px 0 8px; }
+        .form-confirmacion p { font-size: 0.9rem; color: var(--somos-gris); }
+
+        @media (max-width: 768px) {
+            .contacto-grid { grid-template-columns: 1fr; gap: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="somos-header">
+        <div class="somos-header-inner">
+            <a href="somos-profundidad.html" class="somos-logo">
+                <img src="../img/logo-somos.png" alt="Somos Más Con Vos">
+                <div class="somos-logo-texto">
+                    <span class="somos-logo-nombre">Somos Más Con Vos</span>
+                    <span class="somos-logo-sub">Profundidad · Misiones</span>
+                </div>
+            </a>
+            <nav class="somos-nav" aria-label="Navegación del partido">
+                <ul>
+                    <li><a href="somos-profundidad.html">Inicio</a></li>
+                    <li><a href="propuestas.html">Propuestas</a></li>
+                    <li><a href="autoridades.html">Autoridades</a></li>
+                    <li><a href="documentos.html">Documentos</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html" class="activo">Contacto</a></li>
+                    <li><a href="../index.html" class="btn-volver-gabi">← Sitio de Gabi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section style="background-color:var(--somos-verde); color:var(--blanco); text-align:center; padding:64px 20px 52px;">
+            <h1 style="font-family:var(--fuente-titulo); font-size:clamp(2rem,4vw,3rem); margin-bottom:12px;">Contacto</h1>
+            <p style="font-size:1rem; opacity:0.82; max-width:500px; margin:0 auto; line-height:1.7;">Escribinos, preguntanos, sumate. Siempre hay alguien disponible para escucharte.</p>
+        </section>
+
+        <section class="somos-seccion fondo-claro">
+            <div class="somos-contenedor">
+                <div class="contacto-grid">
+
+                    <!-- Canales -->
+                    <section aria-labelledby="titulo-canales">
+                        <h2 class="somos-seccion-titulo" id="titulo-canales" style="margin-bottom:8px;">Canales directos</h2>
+                        <div class="somos-separador"></div>
+                        <p style="font-size:0.93rem; color:var(--somos-gris); margin-bottom:24px; line-height:1.6;">La forma más rápida es por WhatsApp o Instagram.</p>
+
+                        <a class="canal" href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <img class="canal-icono" src="../img/whatsapp.png" alt="WhatsApp">
+                            <div class="canal-info"><strong>WhatsApp</strong><span>3765 148121 — Respuesta rápida</span></div>
+                        </a>
+
+                        <a class="canal" href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
+                            <img class="canal-icono" src="../img/instagram.png" alt="Instagram">
+                            <div class="canal-info"><strong>Instagram</strong><span>@gabisanchez01.ok</span></div>
+                        </a>
+
+                        <a class="canal" href="mailto:mattiasgabriel4@gmail.com" aria-label="Email">
+                            <img class="canal-icono" src="../img/email.png" alt="Email">
+                            <div class="canal-info"><strong>Email</strong><span>mattiasgabriel4@gmail.com</span></div>
+                        </a>
+
+                        <div style="margin-top:20px; padding:16px 18px; background-color:var(--blanco); border-radius:var(--radio-md); box-shadow:var(--sombra-sm);">
+                            <strong style="display:block; font-size:0.85rem; color:var(--somos-verde); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px;">📍 Municipio</strong>
+                            <span style="font-size:0.88rem; color:var(--somos-gris);">Profundidad · Misiones · CP 3308</span>
+                        </div>
+                    </section>
+
+                    <!-- Formulario -->
+                    <section aria-labelledby="titulo-form">
+                        <h2 class="somos-seccion-titulo" id="titulo-form" style="margin-bottom:8px;">Envianos un mensaje</h2>
+                        <div class="somos-separador"></div>
+                        <p style="font-size:0.93rem; color:var(--somos-gris); margin-bottom:24px; line-height:1.6;">Todos los mensajes son leídos por las autoridades del partido.</p>
+
+                        <form id="formContacto" novalidate>
+                            <div class="form-grupo">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required>
+                            </div>
+                            <div class="form-grupo">
+                                <label for="contacto-input">¿Cómo te contactamos?</label>
+                                <input type="text" id="contacto-input" name="contacto" placeholder="WhatsApp, email o Instagram" required>
+                            </div>
+                            <div class="form-grupo">
+                                <label for="asunto">Tema</label>
+                                <select id="asunto" name="asunto">
+                                    <option value="" disabled selected>Seleccioná un tema</option>
+                                    <option value="sumarme">Quiero sumarme al partido</option>
+                                    <option value="propuesta">Tengo una propuesta</option>
+                                    <option value="consulta">Tengo una consulta</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-grupo">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" placeholder="Contanos qué necesitás..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-enviar">Enviar mensaje</button>
+                        </form>
+
+                        <div class="form-confirmacion" id="formConfirmacion" aria-live="polite">
+                            <span style="font-size:2.2rem;" aria-hidden="true">✅</span>
+                            <h3>¡Mensaje enviado!</h3>
+                            <p>Las autoridades del partido van a leer tu mensaje y te van a responder a la brevedad.</p>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="somos-footer">
+        <img class="somos-footer-logo" src="../img/logo-somos.png" alt="Somos Más Con Vos">
+        <nav class="somos-redes" aria-label="Redes sociales">
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="../img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <img src="../img/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email">
+                <img src="../img/email.png" alt="Email">
+            </a>
+        </nav>
+        <p>&copy; 2026 Somos Más Con Vos · Profundidad, Misiones</p>
+        <a href="../index.html" class="volver-gabi">← Volver al sitio de Gabi Sánchez</a>
+    </footer>
+
+    <script>
+        document.getElementById('formContacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre   = document.getElementById('nombre').value.trim();
+            const contacto = document.getElementById('contacto-input').value.trim();
+            const asunto   = document.getElementById('asunto').value;
+            const mensaje  = document.getElementById('mensaje').value.trim();
+            if (!nombre || !contacto || !mensaje) return;
+            const asuntoTexto = {
+                sumarme:   'Quiero sumarme al partido',
+                propuesta: 'Tengo una propuesta',
+                consulta:  'Tengo una consulta',
+                otro:      'Otro tema'
+            }[asunto] || 'Consulta general';
+            const texto = `Hola, te escribo desde el sitio de Somos Más Con Vos.\n\n*Nombre:* ${nombre}\n*Contacto:* ${contacto}\n*Tema:* ${asuntoTexto}\n\n${mensaje}`;
+            window.open(`https://wa.me/+5493765148121?text=${encodeURIComponent(texto)}`, '_blank');
+            document.getElementById('formContacto').style.display = 'none';
+            document.getElementById('formConfirmacion').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>

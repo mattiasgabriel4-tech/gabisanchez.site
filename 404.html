@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada — Gabi Sánchez</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        .error-pagina {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--gris-claro);
+        }
+        .error-numero {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(5rem, 15vw, 10rem);
+            font-weight: 700;
+            color: var(--azul-principal);
+            line-height: 1;
+            margin-bottom: 8px;
+            opacity: 0.15;
+        }
+        .error-icono {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .error-pagina h1 {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: var(--azul-principal);
+            margin-bottom: 12px;
+        }
+        .error-pagina p {
+            font-size: 1rem;
+            color: var(--gris-texto);
+            max-width: 420px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .error-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
+            </a>
+        </div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quien-soy.html">¿Quién soy?</a></li>
+                <li><a href="propuestas.html">Propuestas</a></li>
+                <li><a href="fotogaleria.html">Fotogalería</a></li>
+                <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="error-pagina">
+            <div class="error-numero" aria-hidden="true">404</div>
+            <span class="error-icono" aria-hidden="true">🗺️</span>
+            <h1>Esta página no existe</h1>
+            <p>La dirección que ingresaste no corresponde a ninguna página del sitio. Puede que el link esté desactualizado o que hayas escrito algo mal.</p>
+            <div class="error-links">
+                <a href="index.html" class="btn-accion">Volver al inicio</a>
+                <a href="contacto.html" class="btn-secundario" style="color:var(--azul-principal); border-color:var(--azul-principal);">Contactar a Gabi</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <nav class="redes" aria-label="Redes sociales">
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok"><img src="img/tiktok.png" alt="TikTok"></a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook"><img src="img/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/instagram.png" alt="Instagram"></a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email"><img src="img/email.png" alt="Email"></a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X"><img src="img/x.png" alt="X"></a>
+        </nav>
+        <p>&copy; 2026 Gabi Sánchez. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

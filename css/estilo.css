@@ -369,9 +369,15 @@ footer p {
 }
 
 .redes img {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.80;
+}
+
+.redes a:hover img {
+    opacity: 1;
 }
 
 /* ============================================================

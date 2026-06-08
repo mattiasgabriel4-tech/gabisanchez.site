@@ -382,21 +382,21 @@ a:hover { color: var(--somos-oscuro); }
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: rgba(255,255,255,0.08);
-    transition: background-color var(--transicion), transform var(--transicion);
+    background-color: transparent;
+    transition: transform var(--transicion), opacity var(--transicion);
 }
 
 .somos-redes a:hover {
-    background-color: rgba(255,255,255,0.18);
     transform: translateY(-3px);
+    opacity: 0.80;
 }
 
 .somos-redes img {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
 }
 

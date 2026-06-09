@@ -283,8 +283,8 @@
                     </div>
                 </div>
                 <div class="instagram-feed-wrapper">
-                    <!-- Feed de Behold.so — se actualiza automáticamente con cada post de Instagram -->
-                    <div id="behold-feed"></div>
+                    <div id="behold-feed" class="ig-grid"></div>
+                    <p id="ig-cargando" style="text-align:center; color:var(--gris-texto); font-size:0.9rem; padding:20px 0;">Cargando fotos...</p>
                 </div>
             </section>
 
@@ -334,14 +334,41 @@
         <p id="footer-copy-gabi"></p>
     </footer>
 
-    <!-- Behold.so — Feed de Instagram -->
+    <!-- Feed de Instagram via Behold JSON -->
     <script>
-        window.beholdSettings = {
-            feedId: 'Zoxmcs98gOgLMFiBTkLW',
-            targetSelector: '#behold-feed'
-        };
+    (function(){
+        var FEED_URL = 'https://feeds.behold.so/Zoxmcs98gOgLMFiBTkLW';
+        var grid     = document.getElementById('behold-feed');
+        var loader   = document.getElementById('ig-cargando');
+
+        fetch(FEED_URL)
+            .then(function(r){ return r.json(); })
+            .then(function(posts){
+                loader.style.display = 'none';
+                posts.forEach(function(post){
+                    var img = post.sizes && post.sizes.medium
+                        ? post.sizes.medium.mediaUrl
+                        : post.mediaUrl;
+                    if (!img) return;
+                    var a = document.createElement('a');
+                    a.href      = post.permalink || '#';
+                    a.target    = '_blank';
+                    a.rel       = 'noopener';
+                    a.className = 'ig-item';
+                    a.title     = post.caption ? post.caption.substring(0,80) : '';
+                    var i = document.createElement('img');
+                    i.src     = img;
+                    i.alt     = post.caption ? post.caption.substring(0,60) : 'Foto de Instagram';
+                    i.loading = 'lazy';
+                    a.appendChild(i);
+                    grid.appendChild(a);
+                });
+            })
+            .catch(function(){
+                loader.textContent = 'No se pudieron cargar las fotos. Visitá el Instagram para verlas.';
+            });
+    })();
     </script>
-    <script src="https://w.behold.so/widget.js" type="module"></script>
 
     <script>
         /* ---- Galería del repo ---- */

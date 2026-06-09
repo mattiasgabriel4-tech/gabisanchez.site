@@ -202,23 +202,23 @@
 
 <script>document.getElementById("footer-copy-somos").innerHTML="&copy; 2025–"+new Date().getFullYear()+" Somos Más Con Vos · Profundidad, Misiones";</script>
     <script>
-        var btn = document.getElementById('somosHamburguesa');
-        var nav = document.querySelector('.somos-nav');
-        if (btn && nav) {
-            btn.addEventListener('click', function() {
+        (function(){
+            var btn = document.getElementById('somosHamburguesa');
+            var nav = document.querySelector('.somos-nav');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', function(){
                 var abierto = nav.classList.toggle('abierto');
                 btn.classList.toggle('activo', abierto);
-                btn.setAttribute('aria-expanded', abierto);
+                btn.setAttribute('aria-expanded', String(abierto));
             });
-            // Cerrar al hacer click en un link
-            nav.querySelectorAll('a').forEach(function(a) {
-                a.addEventListener('click', function() {
+            nav.querySelectorAll('a').forEach(function(a){
+                a.addEventListener('click', function(){
                     nav.classList.remove('abierto');
                     btn.classList.remove('activo');
-                    btn.setAttribute('aria-expanded', 'false');
+                    btn.setAttribute('aria-expanded','false');
                 });
             });
-        }
+        })();
     </script>
 </body>
 </html>

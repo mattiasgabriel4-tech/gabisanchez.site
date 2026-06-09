@@ -11,22 +11,6 @@
     <title>Gabi Sánchez — Concejal de Profundidad, Misiones</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/estilo.css">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WRKHEKP0G1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WRKHEKP0G1');
-</script>
-   <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "x3xiiz9amp");
-</script> 
     <script src="burbuja-somos.js" defer></script>
 </head>
 
@@ -39,6 +23,11 @@
                 <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
             </a>
         </div>
+        <button class="hamburguesa" id="menuHamburguesa" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="index.html" class="activo">Inicio</a></li>
@@ -191,5 +180,24 @@
     </footer>
 
 <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023–"+new Date().getFullYear()+" Gabi Sánchez. Todos los derechos reservados.";</script>
+    <script>
+        (function(){
+            var btn = document.getElementById('menuHamburguesa');
+            var nav = document.querySelector('header nav');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', function(){
+                var abierto = nav.classList.toggle('abierto');
+                btn.classList.toggle('activo', abierto);
+                btn.setAttribute('aria-expanded', abierto);
+            });
+            nav.querySelectorAll('a').forEach(function(a){
+                a.addEventListener('click', function(){
+                    nav.classList.remove('abierto');
+                    btn.classList.remove('activo');
+                    btn.setAttribute('aria-expanded','false');
+                });
+            });
+        })();
+    </script>
 </body>
 </html>

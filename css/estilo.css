@@ -508,7 +508,7 @@ footer p {
 }
 
 /* ============================================================
-   MENÚ HAMBURGUESA — SITIO GABI
+   MENÚ HAMBURGUESA — MOBILE
    ============================================================ */
 .hamburguesa {
     display: none;
@@ -520,12 +520,7 @@ footer p {
     cursor: pointer;
     padding: 8px;
     border-radius: var(--radio-sm);
-    transition: background-color var(--transicion);
     flex-shrink: 0;
-}
-
-.hamburguesa:hover {
-    background-color: rgba(255,255,255,0.10);
 }
 
 .hamburguesa span {
@@ -543,7 +538,7 @@ footer p {
 
 @media (max-width: 900px) {
     header {
-        flex-direction: row;
+        flex-direction: row !important;
         justify-content: space-between;
         height: auto;
         padding: 12px 20px;
@@ -555,7 +550,7 @@ footer p {
         display: flex;
     }
 
-    nav {
+    header nav {
         display: none;
         position: absolute;
         top: 100%;
@@ -567,17 +562,17 @@ footer p {
         z-index: 99;
     }
 
-    nav.abierto {
+    header nav.abierto {
         display: block;
     }
 
-    nav ul {
+    header nav ul {
         flex-direction: column;
-        gap: 4px;
+        gap: 2px;
         align-items: stretch;
     }
 
-    nav ul li a {
+    header nav ul li a {
         font-size: 0.95rem;
         padding: 10px 14px;
         display: block;

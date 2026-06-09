@@ -11,16 +11,16 @@
     <title>Novedades — Gabi Sánchez, Concejal de Profundidad</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/estilo.css">
-        
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-WRKHEKP0G1');
-</script>
-   
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WRKHEKP0G1');
+    </script>
+
     <script src="burbuja-somos.js" defer></script>
+
     <style>
         .novedades-hero {
             background-color: var(--azul-principal);
@@ -50,7 +50,6 @@
             padding: 72px 20px;
         }
 
-        /* ---- Card de novedad ---- */
         .novedad {
             background-color: var(--blanco);
             border-radius: var(--radio-md);
@@ -100,7 +99,6 @@
             font-size: 1.25rem;
             color: var(--azul-principal);
             margin-bottom: 10px;
-            line-height: 1.3;
         }
 
         .novedad p {
@@ -108,205 +106,100 @@
             color: var(--gris-texto);
             line-height: 1.75;
         }
-
-        .novedad img {
-            width: 100%;
-            border-radius: var(--radio-sm);
-            margin-top: 16px;
-            object-fit: cover;
-            max-height: 320px;
-        }
-
-        /* ---- Placeholder cuando no hay novedades ---- */
-        .novedades-vacio {
-            text-align: center;
-            padding: 48px 20px;
-            background-color: var(--gris-claro);
-            border-radius: var(--radio-lg);
-        }
-
-        .novedades-vacio .icono {
-            font-size: 3rem;
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .novedades-vacio h3 {
-            font-family: var(--fuente-titulo);
-            font-size: 1.3rem;
-            color: var(--azul-principal);
-            margin-bottom: 8px;
-        }
-
-        .novedades-vacio p {
-            font-size: 0.93rem;
-            color: var(--gris-texto);
-            max-width: 400px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* ---- CTA suscripción ---- */
-        .novedades-suscripcion {
-            margin-top: 56px;
-            background-color: var(--azul-principal);
-            border-radius: var(--radio-lg);
-            padding: 36px 32px;
-            text-align: center;
-            color: var(--blanco);
-        }
-
-        .novedades-suscripcion h3 {
-            font-family: var(--fuente-titulo);
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-
-        .novedades-suscripcion p {
-            font-size: 0.95rem;
-            opacity: 0.82;
-            max-width: 440px;
-            margin: 0 auto 24px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .novedades-hero { padding: 52px 20px 44px; }
-            .novedades-contenido { padding: 48px 16px; }
-            .novedad { padding: 20px 18px; }
-            .novedades-suscripcion { padding: 28px 20px; }
-        }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRKHEKP0G1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WRKHEKP0G1');
-    </script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NTM77KHK');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "x3xiiz9amp");
-    </script>
-    <script src="burbuja-somos.js" defer></script>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTM77KHK"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
+        </a>
+    </div>
+
+    <button class="hamburguesa" id="menuHamburguesa">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="quien-soy.html">¿Quién soy?</a></li>
+            <li><a href="propuestas.html">Propuestas</a></li>
+            <li><a href="fotogaleria.html">Fotogalería</a></li>
+            <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+            <li><a href="novedades.html" class="activo">Novedades</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<section class="novedades-hero">
+    <h1>Novedades</h1>
+    <p>Actividades, gestiones, recorridas y todo lo que pasa en Profundidad. Actualizado regularmente.</p>
+</section>
+
+<div class="novedades-contenido">
+
+    <!-- CONTENEDOR AUTOMÁTICO -->
+    <div id="contenedorNoticias"></div>
+
+</div>
+
+</main>
+
+<footer>
+    <nav class="redes">
+        <a href="#"><img src="img/tiktok.png"></a>
+        <a href="#"><img src="img/facebook.png"></a>
+        <a href="#"><img src="img/instagram.png"></a>
+        <a href="#"><img src="img/whatsapp.png"></a>
+        <a href="#"><img src="img/email.png"></a>
+        <a href="#"><img src="img/x.png"></a>
+    </nav>
+
+    <p id="footer-copy-gabi"></p>
+</footer>
+
+<script>
+document.getElementById("footer-copy-gabi").innerHTML =
+"&copy; 2023–" + new Date().getFullYear() + " Gabi Sánchez. Todos los derechos reservados.";
+</script>
+
+<script src="js/novedades.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const contenedor = document.getElementById("contenedorNoticias");
+
+    if (!contenedor || typeof noticias === "undefined") return;
+
+    noticias.forEach(noticia => {
+
+        contenedor.innerHTML += `
+        <article class="novedad">
+
+            <div class="novedad-meta">
+                <span class="novedad-fecha">${noticia.fecha}</span>
+                <span class="novedad-categoria cat-hcd">${noticia.categoria}</span>
+            </div>
+
+            <h2>${noticia.titulo}</h2>
+            <p>${noticia.resumen}</p>
+
+            <a class="btn-primario" href="${noticia.link}">
+                Leer nota completa →
             </a>
-        </div>
-        <button class="hamburguesa" id="menuHamburguesa" aria-label="Abrir menú" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav aria-label="Navegación principal">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="quien-soy.html">¿Quién soy?</a></li>
-                <li><a href="propuestas.html">Propuestas</a></li>
-                <li><a href="fotogaleria.html">Fotogalería</a></li>
-                <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
-                <li><a href="novedades.html" class="activo">Novedades</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
+        </article>`;
+    });
 
-        <section class="novedades-hero" aria-label="Novedades">
-            <h1>Novedades</h1>
-            <p>Actividades, gestiones, recorridas y todo lo que pasa en Profundidad. Actualizado regularmente.</p>
-        </section>
+});
+</script>
 
-        <div class="novedades-contenido">
-
-            <!-- NOVEDADES — agregá bloques .novedad acá arriba cuando tengas contenido -->
-
-            <!-- EJEMPLO DE NOVEDAD (descomentá y completá cuando quieras publicar):
-
-            <article class="novedad">
-                <div class="novedad-meta">
-                    <span class="novedad-fecha">8 de junio de 2026</span>
-                    <span class="novedad-categoria cat-hcd">HCD</span>
-                </div>
-                <h2>Título de la novedad</h2>
-                <p>Descripción de lo que pasó. Puede ser corta, no hace falta que sea un artículo largo.</p>
-            </article>
-
-            -->
-
-            <!-- Placeholder visible hasta que haya contenido -->
-            <div class="novedades-vacio" id="sinNovedades">
-                <span class="icono" aria-hidden="true">📰</span>
-                <h3>Las novedades se publican pronto</h3>
-                <p>Acá vas a encontrar actualizaciones sobre gestiones, actividades y todo lo que pasa en Profundidad. Volvé a visitar esta sección pronto.</p>
-            </div>
-
-            <!-- CTA para recibir novedades -->
-            <div class="novedades-suscripcion">
-                <h3>¿Querés enterarte primero?</h3>
-                <p>Dejá tu nombre y WhatsApp y te avisamos cuando haya novedades importantes.</p>
-                <a href="contacto.html#sumate" class="btn-primario">Quiero recibir novedades</a>
-            </div>
-
-        </div>
-
-    </main>
-
-    <footer>
-        <nav class="redes" aria-label="Redes sociales">
-            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok"><img src="img/tiktok.png" alt="TikTok"></a>
-            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook"><img src="img/facebook.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/instagram.png" alt="Instagram"></a>
-            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="img/whatsapp.png" alt="WhatsApp"></a>
-            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email"><img src="img/email.png" alt="Email"></a>
-            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X"><img src="img/x.png" alt="X"></a>
-        </nav>
-        <p id="footer-copy-gabi"></p>
-    </footer>
-
-    <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
-
-    <script>
-    (function(){
-        var btn = document.getElementById('menuHamburguesa');
-        var nav = document.querySelector('header nav');
-        if (!btn || !nav) return;
-        btn.addEventListener('click', function(){
-            var abierto = nav.classList.toggle('abierto');
-            btn.classList.toggle('activo', abierto);
-            btn.setAttribute('aria-expanded', String(abierto));
-        });
-        nav.querySelectorAll('a').forEach(function(a){
-            a.addEventListener('click', function(){
-                nav.classList.remove('abierto');
-                btn.classList.remove('activo');
-                btn.setAttribute('aria-expanded','false');
-            });
-        });
-    })();
-    </script>
 </body>
 </html>

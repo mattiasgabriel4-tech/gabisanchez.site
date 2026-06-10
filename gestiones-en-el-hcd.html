@@ -247,11 +247,11 @@
                     <span class="etiqueta">Inicio del mandato</span>
                 </div>
                 <div class="estadistica">
-                    <span class="numero">+15</span>
+                    <span class="numero" id="num-proyectos">+15</span>
                     <span class="etiqueta">Proyectos presentados</span>
                 </div>
                 <div class="estadistica">
-                    <span class="numero">17</span>
+                    <span class="numero" id="num-ordenanzas">17</span>
                     <span class="etiqueta">Ordenanzas vigentes</span>
                 </div>
                 <div class="estadistica">
@@ -373,6 +373,46 @@
 
     <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
 
+    <script>
+    (function(){
+        var btn = document.getElementById('menuHamburguesa');
+        var nav = document.querySelector('header nav');
+        if (!btn || !nav) return;
+        btn.addEventListener('click', function(){
+            var abierto = nav.classList.toggle('abierto');
+            btn.classList.toggle('activo', abierto);
+            btn.setAttribute('aria-expanded', String(abierto));
+        });
+        nav.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){
+                nav.classList.remove('abierto');
+                btn.classList.remove('activo');
+                btn.setAttribute('aria-expanded','false');
+            });
+        });
+    })();
+    </script>
+    <!-- Números dinámicos desde Google Sheets -->
+    <script>
+    (function(){
+        var SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT339zLE2gGf2BBDHMrFWf1ewHE3P23g7vPGd1m2JXrI2UeMfFjq1Yk95wy7Vey8fXQfFVue1LPkdhZ/pub?gid=1946793857&single=true&output=csv";
+        fetch(SHEET_URL)
+            .then(function(r){ return r.text(); })
+            .then(function(csv){
+                csv.trim().split("\n").forEach(function(fila){
+                    var cols = fila.split(",");
+                    var clave = (cols[0]||"").trim().replace(/"/g,"");
+                    var valor = (cols[1]||"").trim().replace(/"/g,"");
+                    if (!clave || !valor) return;
+                    var el = document.getElementById("num-" + clave);
+                    if (el) el.textContent = valor;
+                });
+            })
+            .catch(function(){});
+    })();
+    </script>
+
+    <!-- Menú hamburguesa -->
     <script>
     (function(){
         var btn = document.getElementById('menuHamburguesa');

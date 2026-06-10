@@ -1,14 +1,47 @@
 const novedades = [
     {
-        fecha: "2026-06-09",
         fechaTexto: "9 de junio de 2026",
-        categoria: "HCD",
-        titulo: "Presentación de cinco proyectos de comunicación",
-        bajada: "El Concejal Matías Sánchez Alfonso presentó cinco proyectos vinculados al control administrativo, transparencia y acceso a la información pública municipal.",
-        imagen: "img/novedades/acta-669.jpg",
+        categoria: "cat-hcd",
+        titulo: "Acta N° 669 - Sesión ordinaria del HCD",
+        bajada: "Se presentaron cinco proyectos de comunicación vinculados a transparencia, control administrativo y acceso a la información pública municipal.",
+        imagen: "",
         link: "novedades/2026/2026-06-09-5-proyectos-comunicacion.html"
     }
 ];
 
-// ordenar por fecha (más nuevo primero)
-novedades.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+document.addEventListener("DOMContentLoaded", function () {
+
+    const contenedor = document.getElementById("contenedorNovedades");
+    const placeholder = document.getElementById("sinNovedades");
+
+    if (!contenedor) return;
+
+    if (novedades.length > 0) {
+        placeholder.style.display = "none";
+
+        novedades.forEach(n => {
+            contenedor.innerHTML += `
+                <article class="novedad">
+
+                    <div class="novedad-meta">
+                        <span class="novedad-fecha">${n.fechaTexto}</span>
+                        <span class="novedad-categoria ${n.categoria}">${n.categoria.replace("cat-","")}</span>
+                    </div>
+
+                    <h2>${n.titulo}</h2>
+                    <p>${n.bajada}</p>
+
+                    <a class="novedad-link" href="${n.link}">
+                        Leer nota completa →
+                    </a>
+
+                </article>
+            `;
+        });
+
+    } else {
+        contenedor.innerHTML = "";
+        placeholder.style.display = "block";
+    }
+
+});

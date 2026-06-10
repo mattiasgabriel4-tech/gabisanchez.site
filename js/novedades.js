@@ -14,7 +14,7 @@ const noticias = [
   {
     fecha: "9 de junio de 2026",
     titulo: "Acta N° 669: Gabi Sánchez presentó 5 proyectos de comunicación",
-    resumen: "En la última sesión del Concejo Deliberante de Profundidad, la concejal presentó cinco proyectos de comunicación relacionados con transparencia, control administrativo y acceso a la información pública. La presidencia indicó que la información debe solicitarse al Ejecutivo municipal.",
+    resumen: "En la última sesión del Concejo Deliberante de Profundidad, el concejal presentó cinco proyectos de comunicación relacionados con transparencia, control administrativo y acceso a la información pública. La presidencia indicó que la información debe solicitarse al Ejecutivo municipal.",
     etiqueta: "HCD",
     archivo: "novedades/2026/2026-06-09-cinco-proyectos-comunicacion.html"
   }

@@ -113,10 +113,14 @@
     `;
     document.head.appendChild(estilos);
 
-    const enSubcarpeta = window.location.pathname.includes('/somos-profundidad/');
-    const rutaSomos    = enSubcarpeta ? 'somos-profundidad.html' : 'somos-profundidad/somos-profundidad.html';
-    const rutaLogo     = enSubcarpeta ? '../img/logo-somos.png' : 'img/logo-somos.png';
-    const rutaWsp      = enSubcarpeta ? '../img/whatsapp.png' : 'img/whatsapp.png';
+    // Detecta cuántos niveles de profundidad tiene la página actual
+    const partes = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+    const profundidad = partes.length > 0 ? partes.length - 1 : 0;
+    const subir = profundidad > 0 ? '../'.repeat(profundidad) : '';
+
+    const rutaSomos = subir + 'somos-profundidad/somos-profundidad.html';
+    const rutaLogo  = subir + 'img/logo-somos.png';
+    const rutaWsp   = subir + 'img/whatsapp.png';
 
     /* ---- Burbuja WhatsApp ---- */
     const burbujaWsp = document.createElement('div');

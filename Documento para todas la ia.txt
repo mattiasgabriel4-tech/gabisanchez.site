@@ -1,0 +1,352 @@
+================================================================
+GUÃA COMPLETA DEL PROYECTO â€” GABI SÃNCHEZ SITIO WEB
+gabisanchez.site (GitHub Pages)
+Ãšltima actualizaciÃ³n: junio 2026
+================================================================
+
+INSTRUCCIÃ“N PARA CUALQUIER IA QUE LEA ESTO:
+Este documento describe el proyecto web completo de Gabi SÃ¡nchez,
+concejal de Profundidad, Misiones, Argentina. Antes de generar
+cualquier cÃ³digo o sugerencia, leÃ© todo este documento. No
+modifiques nada que no se pida explÃ­citamente. RespetÃ¡ siempre
+la estructura, el diseÃ±o y la lÃ³gica ya establecida.
+
+================================================================
+1. DATOS DEL PROYECTO
+================================================================
+
+Nombre del sitio    : Gabi SÃ¡nchez â€” Concejal de Profundidad
+URL                 : gabisanchez.site
+Hosting             : GitHub Pages (sitio estÃ¡tico, sin backend)
+Repositorio         : github.com/[usuario]/gabisanchez.site
+TecnologÃ­as         : HTML5, CSS3, JavaScript vanilla (sin frameworks)
+GÃ©nero del concejal : MASCULINO â€” siempre "el concejal", nunca "la concejal"
+
+================================================================
+2. ESTRUCTURA DE ARCHIVOS
+================================================================
+
+/
+â”œâ”€â”€ index.html                        â† PÃ¡gina de inicio (home)
+â”œâ”€â”€ novedades.html                    â† Listado de noticias (dinÃ¡mico)
+â”œâ”€â”€ gestiones-en-el-hcd.html          â† Gestiones en el HCD
+â”œâ”€â”€ fotogaleria.html                  â† GalerÃ­a de fotos
+â”œâ”€â”€ contacto.html                     â† Contacto
+â”œâ”€â”€ 404.html                          â† PÃ¡gina de error
+â”œâ”€â”€ burbuja-somos.js                  â† Script de burbujas flotantes (WhatsApp + Somos MÃ¡s Con Vos)
+â”‚
+â”œâ”€â”€ css/
+â”‚   â”œâ”€â”€ estilo.css                    â† CSS PRINCIPAL â€” NO MODIFICAR sin pedido explÃ­cito
+â”‚   â””â”€â”€ gestion-hcd.css               â† CSS especÃ­fico de gestiones
+â”‚
+â”œâ”€â”€ js/
+â”‚   â””â”€â”€ novedades.js                  â† Sistema de noticias (lee desde Google Sheets)
+â”‚
+â”œâ”€â”€ img/
+â”‚   â”œâ”€â”€ logo.png                      â† Logo principal del sitio
+â”‚   â”œâ”€â”€ logo-somos.png                â† Logo "Somos MÃ¡s Con Vos"
+â”‚   â”œâ”€â”€ fondo-bienvenida.jpg          â† Imagen hero del inicio
+â”‚   â”œâ”€â”€ novedades/                    â† ImÃ¡genes de noticias (crear si no existe)
+â”‚   â”‚   â”œâ”€â”€ nota-presentacion.jpg
+â”‚   â”‚   â””â”€â”€ respuesta-hcd.jpg
+â”‚   â””â”€â”€ [redes sociales].png          â† tiktok, facebook, instagram, whatsapp, email, x
+â”‚
+â””â”€â”€ novedades/
+    â””â”€â”€ 2026/
+        â””â”€â”€ 2026-06-09-cinco-proyectos-comunicacion.html
+
+================================================================
+3. DISEÃ‘O Y VARIABLES CSS â€” NUNCA CAMBIAR ESTOS VALORES
+================================================================
+
+El archivo css/estilo.css define variables globales en :root.
+SIEMPRE usar estas variables, nunca valores hardcodeados de color.
+
+--azul-principal:   #1a4a7a    (azul institucional oscuro)
+--azul-medio:       #2563a8    (azul medio, hover y acentos)
+--azul-claro:       #dbeafe    (fondos sutiles)
+--blanco:           #ffffff
+--gris-claro:       #f4f6f9
+--gris-medio:       #e2e8f0
+--gris-texto:       #4a5568
+--negro-suave:      #1a202c
+
+--fuente-titulo:    'Lora', Georgia, serif
+--fuente-cuerpo:    'Inter', 'Segoe UI', sans-serif
+
+--radio-sm: 6px  |  --radio-md: 12px  |  --radio-lg: 20px
+--sombra-sm / --sombra-md / --sombra-lg  (definidas en estilo.css)
+--transicion: 0.25s ease
+
+================================================================
+4. ESTRUCTURA OBLIGATORIA DE CADA PÃGINA HTML
+================================================================
+
+Toda pÃ¡gina del sitio DEBE tener:
+
+A) En el <head>:
+   - <meta charset>, viewport, description, keywords, og:tags
+   - <title> con formato: "SecciÃ³n â€” Gabi SÃ¡nchez, Concejal de Profundidad"
+   - <link rel="icon" href="[ruta]/img/logo.png">
+   - <link rel="stylesheet" href="[ruta]/css/estilo.css">
+   - Google Analytics (gtag G-WRKHEKP0G1)
+   - Google Tag Manager (GTM-NTM77KHK)
+   - Microsoft Clarity (x3xiiz9amp)
+   - <script src="[ruta]/burbuja-somos.js" defer></script>
+   - CSS propio de la pÃ¡gina dentro de <style> (NO crear archivos CSS nuevos
+     salvo que se pida explÃ­citamente)
+
+B) En el <body>:
+   - GTM noscript iframe (al inicio del body)
+   - <header> con logo, botÃ³n hamburguesa y nav completo
+   - <main> con el contenido
+   - <footer> con redes sociales y copyright dinÃ¡mico
+   - Script del menÃº hamburguesa (siempre el mismo, ver secciÃ³n 6)
+   - Script del footer copyright dinÃ¡mico (ver secciÃ³n 6)
+
+================================================================
+5. HEADER â€” ESTRUCTURA EXACTA (copiar siempre igual)
+================================================================
+
+<header>
+    <div class="logo">
+        <a href="[ruta]/index.html">
+            <img src="[ruta]/img/logo.png" alt="Gabi SÃ¡nchez â€” Concejal de Profundidad">
+        </a>
+    </div>
+    <button class="hamburguesa" id="menuHamburguesa" aria-label="Abrir menÃº" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <nav aria-label="NavegaciÃ³n principal">
+        <ul>
+            <li><a href="[ruta]/index.html">Inicio</a></li>
+            <li><a href="[ruta]/quien-soy.html">Â¿QuiÃ©n soy?</a></li>
+            <li><a href="[ruta]/propuestas.html">Propuestas</a></li>
+            <li><a href="[ruta]/fotogaleria.html">FotogalerÃ­a</a></li>
+            <li><a href="[ruta]/gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+            <li><a href="[ruta]/novedades.html" class="activo">Novedades</a></li>
+            <li><a href="[ruta]/contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+NOTA: class="activo" va en el link de la pÃ¡gina actual.
+NOTA: [ruta] es la ruta relativa segÃºn la profundidad del archivo.
+  - RaÃ­z (/):             href="index.html"
+  - Un nivel (/carpeta/): href="../index.html"
+  - Dos niveles (/a/b/):  href="../../index.html"
+
+================================================================
+6. FOOTER Y SCRIPTS OBLIGATORIOS
+================================================================
+
+FOOTER (siempre igual, ajustando rutas de imÃ¡genes):
+
+<footer>
+    <nav class="redes" aria-label="Redes sociales">
+        <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok"><img src="[ruta]/img/tiktok.png" alt="TikTok"></a>
+        <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook"><img src="[ruta]/img/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram"><img src="[ruta]/img/instagram.png" alt="Instagram"></a>
+        <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="[ruta]/img/whatsapp.png" alt="WhatsApp"></a>
+        <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email"><img src="[ruta]/img/email.png" alt="Email"></a>
+        <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X"><img src="[ruta]/img/x.png" alt="X"></a>
+    </nav>
+    <p id="footer-copy-gabi"></p>
+</footer>
+
+SCRIPT COPYRIGHT (siempre al final del body):
+<script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
+
+SCRIPT MENÃš HAMBURGUESA (siempre al final del body):
+<script>
+(function(){
+    var btn = document.getElementById('menuHamburguesa');
+    var nav = document.querySelector('header nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function(){
+        var abierto = nav.classList.toggle('abierto');
+        btn.classList.toggle('activo', abierto);
+        btn.setAttribute('aria-expanded', String(abierto));
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+            nav.classList.remove('abierto');
+            btn.classList.remove('activo');
+            btn.setAttribute('aria-expanded','false');
+        });
+    });
+})();
+</script>
+
+================================================================
+7. BURBUJAS FLOTANTES â€” burbuja-somos.js
+================================================================
+
+El archivo burbuja-somos.js inyecta automÃ¡ticamente dos elementos:
+1. BotÃ³n flotante de WhatsApp (abajo a la izquierda)
+2. Logo flotante de "Somos MÃ¡s Con Vos" (abajo a la derecha)
+
+Se incluye en TODAS las pÃ¡ginas con:
+<script src="[ruta]/burbuja-somos.js" defer></script>
+
+El script detecta automÃ¡ticamente la profundidad de carpeta y
+ajusta las rutas de imÃ¡genes. NO hace falta configurar nada mÃ¡s.
+
+IMPORTANTE: En pÃ¡ginas dentro de subcarpetas (ej: novedades/2026/)
+la ruta debe ser: src="../../burbuja-somos.js"
+
+================================================================
+8. SISTEMA DE NOVEDADES
+================================================================
+
+ARQUITECTURA:
+- novedades.html        â†’ pÃ¡gina que muestra la lista de noticias
+- js/novedades.js       â†’ lee datos desde Google Sheets vÃ­a CSV pÃºblico
+- novedades/2026/*.html â†’ pÃ¡ginas individuales de cada noticia
+
+GOOGLE SHEETS (fuente de datos):
+URL pÃºblica CSV: https://docs.google.com/spreadsheets/d/e/2PACX-1vT339zLE2gGf2BBDHMrFWf1ewHE3P23g7vPGd1m2JXrI2UeMfFjq1Yk95wy7Vey8fXQfFVue1LPkdhZ/pub?output=csv
+
+COLUMNAS DE LA HOJA (fila 1 = tÃ­tulos, fila 2 en adelante = datos):
+A: fecha     â†’ "9 de junio de 2026"
+B: titulo    â†’ tÃ­tulo de la noticia
+C: resumen   â†’ texto corto (2-3 lÃ­neas) para la tarjeta
+D: etiqueta  â†’ categorÃ­a (HCD, GestiÃ³n, Transparencia, etc.)
+E: archivo   â†’ ruta relativa al HTML: novedades/2026/nombre-archivo.html
+
+PARA AGREGAR UNA NOTICIA NUEVA:
+1. Crear el archivo HTML en novedades/[aÃ±o]/[fecha]-[slug].html
+   (usar la plantilla de la secciÃ³n 9)
+2. Subir el HTML a GitHub
+3. Abrir la app "Hojas de cÃ¡lculo de Google" en el celular
+4. Agregar una fila nueva ENCIMA de las anteriores (despuÃ©s de fila 1)
+5. Completar las 5 columnas
+6. Guardar â€” aparece en el sitio en 1-2 minutos
+
+NOMBRE DE ARCHIVO: formato yyyy-mm-dd-titulo-corto.html
+Ejemplo: 2026-06-09-cinco-proyectos-comunicacion.html
+
+FUNCIONALIDADES DE novedades.html:
+- Carga automÃ¡tica desde Google Sheets
+- Buscador en tiempo real (filtra por tÃ­tulo y resumen)
+- Botones de filtro por etiqueta (se generan automÃ¡ticamente)
+- Mensaje de "sin resultados" si no hay coincidencias
+
+================================================================
+9. PLANTILLA PARA PÃGINAS INDIVIDUALES DE NOTICIAS
+================================================================
+
+Cada noticia individual en novedades/2026/ debe seguir esta estructura.
+NO inventar estilos nuevos â€” usar exactamente estas clases CSS.
+
+CLASES CSS DISPONIBLES (definidas en el <style> inline de cada nota):
+- .nota-hero           â†’ hero azul con tÃ­tulo
+- .nota-hero-inner     â†’ contenedor del hero
+- .nota-volver         â†’ link "â† Volver" en el hero
+- .nota-meta-hero      â†’ contenedor de fecha y etiquetas
+- .nota-fecha-hero     â†’ texto de fecha
+- .nota-etiqueta       â†’ badge de categorÃ­a
+- .nota                â†’ contenedor principal del cuerpo
+- .meta                â†’ cuadro de datos del acta (fondo azul claro)
+- .bloque              â†’ secciÃ³n de contenido con h2 y pÃ¡rrafos
+- .bloque h2           â†’ tÃ­tulo de secciÃ³n con lÃ­nea separadora
+- blockquote           â†’ cita con borde azul izquierdo
+- .docs-grid           â†’ grilla de links a documentos
+- .doc-link            â†’ card de documento individual
+- .doc-icono           â†’ emoji/icono del documento
+- .doc-label           â†’ nombre del documento
+- .doc-arrow           â†’ "Ver â†’" a la derecha
+- .imagenes-grid       â†’ grilla de 2 columnas para imÃ¡genes
+- .nota-pie            â†’ pie de la nota con botÃ³n volver
+- .volver              â†’ botÃ³n azul "â† Volver a Novedades"
+
+RUTAS DESDE novedades/2026/:
+- CSS:    ../../css/estilo.css
+- Logo:   ../../img/logo.png
+- Imgs:   ../../img/[archivo]
+- Burb:   ../../burbuja-somos.js
+- Inicio: ../../index.html
+- Novedades: ../../novedades.html
+
+================================================================
+10. ANALYTICS Y TRACKING â€” SIEMPRE INCLUIR EN TODAS LAS PÃGINAS
+================================================================
+
+Google Analytics (en <head>):
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WRKHEKP0G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WRKHEKP0G1');
+</script>
+
+Google Tag Manager (en <head>):
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NTM77KHK');</script>
+
+GTM noscript (al inicio del <body>):
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTM77KHK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+Microsoft Clarity (en <head>):
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x3xiiz9amp");
+</script>
+
+================================================================
+11. REGLAS PARA CUALQUIER IA QUE TRABAJE EN ESTE PROYECTO
+================================================================
+
+SIEMPRE:
+âœ“ Usar las variables CSS definidas en :root (nunca colores hardcodeados)
+âœ“ Incluir todos los scripts de analytics en todas las pÃ¡ginas
+âœ“ Incluir burbuja-somos.js en todas las pÃ¡ginas
+âœ“ Usar el mismo header y footer en todas las pÃ¡ginas
+âœ“ Respetar el gÃ©nero masculino: "el concejal presentÃ³", nunca "la concejal"
+âœ“ Respetar las rutas relativas segÃºn la profundidad del archivo
+âœ“ Mantener el mismo estilo visual en todas las pÃ¡ginas
+âœ“ Usar JavaScript vanilla (sin jQuery, sin React, sin frameworks)
+
+NUNCA:
+âœ— Cambiar los colores, fuentes o variables CSS principales
+âœ— Agregar librerÃ­as externas sin pedido explÃ­cito
+âœ— Crear archivos CSS separados salvo que se pida
+âœ— Modificar burbuja-somos.js salvo para correcciones de rutas
+âœ— Cambiar la estructura del header o footer
+âœ— Inventar rutas de archivos que no existen
+âœ— Modificar informaciÃ³n ya existente en las noticias sin pedido explÃ­cito
+âœ— Usar backend, bases de datos propias o servicios de pago
+
+================================================================
+12. INFORMACIÃ“N DE CONTACTO Y REDES SOCIALES
+================================================================
+
+WhatsApp    : https://wa.me/+5493765148121
+Facebook    : https://www.facebook.com/share/19egZWD3cf/
+Instagram   : https://www.instagram.com/gabisanchez01.ok
+TikTok      : https://www.tiktok.com/@gabisanchez01.ok
+X (Twitter) : https://x.com/gabi_sanchez01
+Email       : mattiasgabriel4@gmail.com
+
+================================================================
+13. HISTORIAL DE CAMBIOS IMPORTANTES
+================================================================
+
+Junio 2026:
+- Implementado sistema de novedades con Google Sheets como fuente
+- Agregado buscador y filtros dinÃ¡micos en novedades.html
+- Corregido burbuja-somos.js para detectar profundidad de carpetas
+- Primera noticia: 2026-06-09-cinco-proyectos-comunicacion.html
+  (Acta NÂ° 669 â€” 5 proyectos de comunicaciÃ³n)
+
+================================================================
+FIN DEL DOCUMENTO
+================================================================

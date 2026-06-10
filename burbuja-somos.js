@@ -135,20 +135,13 @@
         </a>
     `;
 
-    /* ---- Burbuja Somos ---- */
-    const burbujasSomos = document.createElement('div');
-    burbujasSomos.className = 'burbuja-somos';
-    burbujasSomos.innerHTML = `
-        <a href="${rutaSomos}"
-           class="burbuja-somos-btn"
-           aria-label="Conocé Somos Más Con Vos, el partido de Gabi Sánchez">
-            <img class="burbuja-somos-logo" src="${rutaLogo}" alt="Somos Más Con Vos">
-        </a>
-    `;
+    /* ---- Burbuja Somos — temporalmente desactivada ---- */
+    // const burbujasSomos = document.createElement('div');
+    // burbujasSomos.className = 'burbuja-somos';
 
     function inyectar() {
         document.body.appendChild(burbujaWsp);
-        document.body.appendChild(burbujasSomos);
+        // document.body.appendChild(burbujasSomos); // temporalmente desactivada
     }
 
     if (document.readyState === 'loading') {

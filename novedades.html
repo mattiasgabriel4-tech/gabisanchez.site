@@ -1,30 +1,8 @@
-<div class="novedades-contenido">
-
-    <!-- PANEL DE CONTROL -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
-
-        <input id="buscador"
-            placeholder="Buscar novedades..."
-            style="flex:1;min-width:200px;padding:10px;border-radius:8px;border:1px solid #ddd;">
-
-        <select id="filtroCategoria"
-            style="padding:10px;border-radius:8px;border:1px solid #ddd;">
-            <option value="TODAS">Todas</option>
-            <option value="HCD">HCD</option>
-            <option value="GESTION">Gestión</option>
-            <option value="ACTIVIDAD">Actividad</option>
-        </select>
-
-    </div>
-
-    <!-- LISTADO -->
-    <div id="contenedorNovedades"></div>
-
-</div>
-
-<script src="js/novedades.js"></script>
-
 <script>
+let novedades = JSON.parse(localStorage.getItem("novedades")) || [];
+
+novedades.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
 const contenedor = document.getElementById("contenedorNovedades");
 const buscador = document.getElementById("buscador");
 const filtroCategoria = document.getElementById("filtroCategoria");
@@ -37,8 +15,8 @@ function render(lista) {
         contenedor.innerHTML = `
             <div class="novedades-vacio">
                 <span class="icono">📰</span>
-                <h3>No hay resultados</h3>
-                <p>Probá con otro filtro o búsqueda.</p>
+                <h3>No hay novedades</h3>
+                <p>Pronto se publicarán actualizaciones.</p>
             </div>
         `;
         return;
@@ -51,7 +29,7 @@ function render(lista) {
 
                 <div class="novedad-meta">
                     <span class="novedad-fecha">${n.fechaTexto}</span>
-                    <span class="novedad-categoria cat-hcd">${n.categoria}</span>
+                    <span class="novedad-categoria">${n.categoria}</span>
                 </div>
 
                 <h2>${n.titulo}</h2>
@@ -60,9 +38,11 @@ function render(lista) {
 
                 ${n.imagen ? `<img src="${n.imagen}" alt="${n.titulo}">` : ""}
 
-                <a href="${n.link}" style="display:inline-block;margin-top:12px;color:#2b5cff;font-weight:600;">
-                    Leer nota completa →
-                </a>
+                ${n.link ? `
+                    <a href="${n.link}" class="novedad-link">
+                        Leer nota completa →
+                    </a>
+                ` : ""}
 
             </article>
         `;

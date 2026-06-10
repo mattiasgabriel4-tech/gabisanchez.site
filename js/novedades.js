@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             categoria: "HCD",
             titulo: "Acta N° 669 - Sesión ordinaria del Concejo Deliberante",
             bajada: "Se presentaron cinco proyectos de comunicación vinculados al control administrativo, transparencia institucional y acceso a la información pública municipal.",
-            link: "novedades/2026/2026-06-09-5-proyectos-comunicacion.html"
+            link: "novedades/2026/2026-06-09-cinco-proyectos-comunicacion.html"
         }
     ];
 

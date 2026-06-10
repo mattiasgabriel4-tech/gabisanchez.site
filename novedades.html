@@ -1,72 +1,222 @@
-<script src="js/novedades.js"></script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Novedades y noticias de Gabi Sánchez, concejal de Profundidad, Misiones. Seguí de cerca su gestión en el HCD y las últimas novedades del municipio.">
+    <meta name="keywords" content="Gabi Sánchez, novedades, noticias, concejal Profundidad, HCD Profundidad, Misiones">
+    <meta property="og:title" content="Novedades — Gabi Sánchez, Concejal de Profundidad">
+    <meta property="og:description" content="Últimas novedades y noticias de la gestión de Gabi Sánchez como concejal de Profundidad.">
+    <meta property="og:image" content="img/logo.png">
+    <title>Novedades — Gabi Sánchez, Concejal de Profundidad</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/estilo.css">
 
-<script>
-const contenedor = document.getElementById("contenedorNovedades");
-const buscador = document.getElementById("buscador");
-const filtroCategoria = document.getElementById("filtroCategoria");
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRKHEKP0G1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WRKHEKP0G1');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NTM77KHK');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "x3xiiz9amp");
+    </script>
+    <script src="burbuja-somos.js" defer></script>
 
-function render(lista){
+    <style>
+        /* ---- Hero de novedades ---- */
+        .novedades-hero {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            text-align: center;
+            padding: 72px 20px 60px;
+        }
+        .novedades-hero h1 {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .novedades-hero p {
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.82;
+            line-height: 1.7;
+        }
 
-    contenedor.innerHTML = "";
+        /* ---- Contenido principal ---- */
+        .novedades-contenido {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 64px 20px;
+        }
 
-    if(lista.length === 0){
-        contenedor.innerHTML = `
-            <div class="novedades-vacio">
-                <span class="icono">📰</span>
-                <h3>No hay novedades</h3>
+        /* ---- Cards de noticias (generadas por JS) ---- */
+        .novedad-card {
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--azul-medio);
+            transition: transform var(--transicion), box-shadow var(--transicion);
+        }
+        .novedad-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--sombra-md);
+        }
+        .novedad-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .novedad-fecha {
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+        }
+        .novedad-etiqueta {
+            display: inline-block;
+            background-color: var(--azul-claro);
+            color: var(--azul-principal);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 99px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .novedad-titulo {
+            font-family: var(--fuente-titulo);
+            font-size: 1.25rem;
+            color: var(--azul-principal);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .novedad-resumen {
+            font-size: 0.97rem;
+            color: var(--gris-texto);
+            line-height: 1.75;
+            margin-bottom: 18px;
+        }
+
+        /* ---- Estado vacío ---- */
+        .novedades-vacio {
+            text-align: center;
+            color: var(--gris-texto);
+            font-size: 1rem;
+            padding: 48px 0;
+        }
+
+        @media (max-width: 768px) {
+            .novedades-hero { padding: 52px 20px 44px; }
+            .novedades-contenido { padding: 40px 16px; }
+            .novedad-card { padding: 20px 18px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTM77KHK"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
+            </a>
+        </div>
+        <button class="hamburguesa" id="menuHamburguesa" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quien-soy.html">¿Quién soy?</a></li>
+                <li><a href="propuestas.html">Propuestas</a></li>
+                <li><a href="fotogaleria.html">Fotogalería</a></li>
+                <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+                <li><a href="novedades.html" class="activo">Novedades</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="novedades-hero" aria-label="Novedades">
+            <h1>Novedades</h1>
+            <p>Las últimas noticias de mi gestión como concejal, lo que pasa en el HCD y todo lo importante para los vecinos de Profundidad.</p>
+        </section>
+
+        <div class="novedades-contenido">
+
+            <!-- Las noticias se cargan automáticamente desde js/novedades.js -->
+            <div id="novedades-lista" aria-live="polite" aria-label="Listado de novedades">
+                <p class="novedades-vacio">Cargando novedades…</p>
             </div>
-        `;
-        return;
-    }
 
-    lista.forEach(n => {
+        </div>
 
-        contenedor.innerHTML += `
-            <article class="novedad">
+    </main>
 
-                <div class="novedad-meta">
-                    <span class="novedad-fecha">${n.fechaTexto}</span>
-                    <span class="novedad-categoria">${n.categoria}</span>
-                </div>
+    <footer>
+        <nav class="redes" aria-label="Redes sociales">
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok"><img src="img/tiktok.png" alt="TikTok"></a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook"><img src="img/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/instagram.png" alt="Instagram"></a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email"><img src="img/email.png" alt="Email"></a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X"><img src="img/x.png" alt="X"></a>
+        </nav>
+        <p id="footer-copy-gabi"></p>
+    </footer>
 
-                <h2>${n.titulo}</h2>
+    <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
 
-                <p>${n.bajada}</p>
+    <script>
+    (function(){
+        var btn = document.getElementById('menuHamburguesa');
+        var nav = document.querySelector('header nav');
+        if (!btn || !nav) return;
+        btn.addEventListener('click', function(){
+            var abierto = nav.classList.toggle('abierto');
+            btn.classList.toggle('activo', abierto);
+            btn.setAttribute('aria-expanded', String(abierto));
+        });
+        nav.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){
+                nav.classList.remove('abierto');
+                btn.classList.remove('activo');
+                btn.setAttribute('aria-expanded','false');
+            });
+        });
+    })();
+    </script>
 
-                ${n.imagen ? `<img src="${n.imagen}" alt="${n.titulo}">` : ""}
+    <!-- Sistema de novedades -->
+    <script src="js/novedades.js"></script>
 
-                <a class="novedad-link" href="${n.link}">
-                    Leer nota completa →
-                </a>
-
-            </article>
-        `;
-    });
-}
-
-// FILTRO
-function filtrar(){
-
-    const texto = buscador.value.toLowerCase();
-    const cat = filtroCategoria.value;
-
-    const filtrado = novedades.filter(n => {
-
-        const okTexto =
-            n.titulo.toLowerCase().includes(texto) ||
-            n.bajada.toLowerCase().includes(texto);
-
-        const okCat = (cat === "TODAS") || (n.categoria === cat);
-
-        return okTexto && okCat;
-    });
-
-    render(filtrado);
-}
-
-buscador.addEventListener("input", filtrar);
-filtroCategoria.addEventListener("change", filtrar);
-
-// inicial
-render(novedades);
-</script>
+</body>
+</html>

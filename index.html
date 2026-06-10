@@ -278,21 +278,21 @@
             <div class="contenedor texto-centrado">
                 <h2 class="seccion-titulo">Mi gestión en números</h2>
                 <div class="separador"></div>
-                <div class="numeros-grid">
+                <div class="numeros-grid" id="numeros-grid">
                     <div class="numero-item">
-                        <span class="numero-grande">+15</span>
+                        <span class="numero-grande" id="num-proyectos">+15</span>
                         <span class="numero-label">Proyectos presentados</span>
                     </div>
                     <div class="numero-item">
-                        <span class="numero-grande">17</span>
+                        <span class="numero-grande" id="num-ordenanzas">17</span>
                         <span class="numero-label">Ordenanzas vigentes</span>
                     </div>
                     <div class="numero-item">
-                        <span class="numero-grande">3</span>
+                        <span class="numero-grande" id="num-mandato">3</span>
                         <span class="numero-label">Años de mandato</span>
                     </div>
                     <div class="numero-item">
-                        <span class="numero-grande">2027</span>
+                        <span class="numero-grande" id="num-candidatura">2027</span>
                         <span class="numero-label">Candidato a intendente</span>
                     </div>
                 </div>
@@ -423,6 +423,28 @@
             .catch(function(){
                 contenedor.innerHTML = '<p class="novedades-cargando">No se pudieron cargar las novedades.</p>';
             });
+    })();
+    </script>
+
+    <!-- Números desde Google Sheets -->
+    <script>
+    (function(){
+        var SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT339zLE2gGf2BBDHMrFWf1ewHE3P23g7vPGd1m2JXrI2UeMfFjq1Yk95wy7Vey8fXQfFVue1LPkdhZ/pub?gid=0&single=true&output=csv&sheet=numeros";
+
+        fetch(SHEET_URL)
+            .then(function(r){ return r.text(); })
+            .then(function(csv){
+                var filas = csv.trim().split("\n");
+                filas.forEach(function(fila){
+                    var cols = fila.split(",");
+                    var clave = (cols[0]||"").trim().replace(/"/g,"");
+                    var valor = (cols[1]||"").trim().replace(/"/g,"");
+                    if (!clave || !valor) return;
+                    var el = document.getElementById("num-" + clave);
+                    if (el) el.textContent = valor;
+                });
+            })
+            .catch(function(){ /* si falla, quedan los valores por defecto */ });
     })();
     </script>
 

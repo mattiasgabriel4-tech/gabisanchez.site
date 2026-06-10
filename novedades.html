@@ -1,20 +1,3 @@
-<div class="novedades-contenido">
-
-    <div class="novedades-filtros">
-        <input id="buscador" type="text" placeholder="Buscar novedades...">
-
-        <select id="filtroCategoria">
-            <option value="TODAS">Todas</option>
-            <option value="HCD">HCD</option>
-            <option value="GESTION">Gestión</option>
-            <option value="ACTIVIDAD">Actividad</option>
-        </select>
-    </div>
-
-    <div id="contenedorNovedades"></div>
-
-</div>
-
 <script src="js/novedades.js"></script>
 
 <script>
@@ -22,11 +5,11 @@ const contenedor = document.getElementById("contenedorNovedades");
 const buscador = document.getElementById("buscador");
 const filtroCategoria = document.getElementById("filtroCategoria");
 
-function render(lista) {
+function render(lista){
 
     contenedor.innerHTML = "";
 
-    if (!lista.length) {
+    if(lista.length === 0){
         contenedor.innerHTML = `
             <div class="novedades-vacio">
                 <span class="icono">📰</span>
@@ -61,7 +44,8 @@ function render(lista) {
     });
 }
 
-function filtrar() {
+// FILTRO
+function filtrar(){
 
     const texto = buscador.value.toLowerCase();
     const cat = filtroCategoria.value;
@@ -83,5 +67,6 @@ function filtrar() {
 buscador.addEventListener("input", filtrar);
 filtroCategoria.addEventListener("change", filtrar);
 
+// inicial
 render(novedades);
 </script>

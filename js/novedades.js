@@ -1,9 +1,14 @@
-window.noticias = [
+const novedades = [
     {
-        fecha: "9 de junio de 2026",
+        fecha: "2026-06-09",
+        fechaTexto: "9 de junio de 2026",
         categoria: "HCD",
-        titulo: "Presentación de cinco proyectos de comunicación en el Honorable Concejo Deliberante",
-        resumen: "Durante la sesión ordinaria del 9 de junio de 2026 se presentaron cinco proyectos de comunicación vinculados a pedidos de información sobre compras directas, personal municipal, licencias, proveedores y flota municipal.",
-        link: "novedades/2026/2026-06-09-cinco-proyectos-comunicacion.html"
+        titulo: "Presentación de cinco proyectos de comunicación en el HCD",
+        bajada: "Se presentaron cinco proyectos vinculados al control institucional, transparencia y acceso a la información pública municipal.",
+        imagen: "img/novedades/acta-669.jpg",
+        link: "novedades/2026/2026-06-09-proyectos-hcd.html"
     }
 ];
+
+// Orden automático (más reciente primero)
+novedades.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));

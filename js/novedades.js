@@ -1,54 +1,88 @@
 /* ============================================================
    GABI SÁNCHEZ — SITIO OFICIAL
-   js/novedades.js — Sistema de noticias dinámico
+   js/novedades.js — Sistema de noticias desde Google Sheets
    ============================================================
 
    CÓMO AGREGAR UNA NOTICIA NUEVA:
-   1. Creá el archivo HTML en /novedades/2026/ (o el año que corresponda)
-   2. Agregá un objeto al array "noticias" abajo, siguiendo el mismo formato
-   3. Listo — aparece automáticamente en novedades.html
+   1. Abrís la app "Hojas de cálculo de Google" en el celular
+   2. Agregás una fila nueva con: fecha, titulo, resumen, etiqueta, archivo
+   3. Guardás — en unos minutos aparece automáticamente en el sitio
+
+   IMPORTANTE: Las noticias más nuevas van ARRIBA (fila 2, debajo del título)
 
    ============================================================ */
 
-const noticias = [
-  {
-    fecha: "9 de junio de 2026",
-    titulo: "Acta N° 669: Gabi Sánchez presentó 5 proyectos de comunicación",
-    resumen: "En la última sesión del Concejo Deliberante de Profundidad, el concejal presentó cinco proyectos de comunicación relacionados con transparencia, control administrativo y acceso a la información pública. La presidencia indicó que la información debe solicitarse al Ejecutivo municipal.",
-    etiqueta: "HCD",
-    archivo: "novedades/2026/2026-06-09-cinco-proyectos-comunicacion.html"
-  }
-  /* Para agregar más noticias, copiá el bloque de arriba (desde la llave { hasta },)
-     y pegalo aquí debajo, modificando los datos. Las más nuevas van primero. */
-];
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT339zLE2gGf2BBDHMrFWf1ewHE3P23g7vPGd1m2JXrI2UeMfFjq1Yk95wy7Vey8fXQfFVue1LPkdhZ/pub?output=csv";
 
-/* ============================================================
-   RENDERIZADO — No hace falta modificar nada de acá para abajo
-   ============================================================ */
 (function () {
+
   const contenedor = document.getElementById("novedades-lista");
   if (!contenedor) return;
 
-  if (noticias.length === 0) {
-    contenedor.innerHTML = `
-      <p class="novedades-vacio">No hay novedades publicadas todavía. Volvé pronto.</p>
-    `;
-    return;
+  contenedor.innerHTML = '<p class="novedades-vacio">Cargando novedades…</p>';
+
+  fetch(SHEET_URL)
+    .then(function (res) {
+      if (!res.ok) throw new Error("No se pudo cargar");
+      return res.text();
+    })
+    .then(function (csv) {
+
+      const filas = csv.trim().split("\n").slice(1); // saltea la fila de títulos
+
+      if (filas.length === 0 || (filas.length === 1 && filas[0].trim() === "")) {
+        contenedor.innerHTML = '<p class="novedades-vacio">No hay novedades publicadas todavía. Volvé pronto.</p>';
+        return;
+      }
+
+      const html = filas.map(function (fila) {
+        // Manejo de comas dentro de comillas (CSV estándar)
+        const cols = parsearCSV(fila);
+        const fecha    = (cols[0] || "").trim();
+        const titulo   = (cols[1] || "").trim();
+        const resumen  = (cols[2] || "").trim();
+        const etiqueta = (cols[3] || "").trim();
+        const archivo  = (cols[4] || "").trim();
+
+        if (!titulo) return ""; // saltea filas vacías
+
+        return `
+          <article class="novedad-card">
+            <div class="novedad-meta">
+              <span class="novedad-fecha">${fecha}</span>
+              ${etiqueta ? `<span class="novedad-etiqueta">${etiqueta}</span>` : ""}
+            </div>
+            <h3 class="novedad-titulo">${titulo}</h3>
+            <p class="novedad-resumen">${resumen}</p>
+            ${archivo ? `<a class="btn-accion" href="${archivo}">Leer nota completa →</a>` : ""}
+          </article>
+        `;
+      }).join("");
+
+      contenedor.innerHTML = html || '<p class="novedades-vacio">No hay novedades publicadas todavía.</p>';
+    })
+    .catch(function () {
+      contenedor.innerHTML = '<p class="novedades-vacio">No se pudieron cargar las novedades. Intentá de nuevo más tarde.</p>';
+    });
+
+  /* Parser CSV simple que respeta comas dentro de comillas */
+  function parsearCSV(fila) {
+    const resultado = [];
+    let campo = "";
+    let dentroComillas = false;
+    for (let i = 0; i < fila.length; i++) {
+      const c = fila[i];
+      if (c === '"') {
+        dentroComillas = !dentroComillas;
+      } else if (c === "," && !dentroComillas) {
+        resultado.push(campo);
+        campo = "";
+      } else {
+        campo += c;
+      }
+    }
+    resultado.push(campo);
+    return resultado;
   }
 
-  const html = noticias.map(function (n) {
-    return `
-      <article class="novedad-card">
-        <div class="novedad-meta">
-          <span class="novedad-fecha">${n.fecha}</span>
-          <span class="novedad-etiqueta">${n.etiqueta}</span>
-        </div>
-        <h3 class="novedad-titulo">${n.titulo}</h3>
-        <p class="novedad-resumen">${n.resumen}</p>
-        <a class="btn-accion" href="${n.archivo}">Leer nota completa →</a>
-      </article>
-    `;
-  }).join("");
-
-  contenedor.innerHTML = html;
 })();

@@ -11,16 +11,6 @@
     <title>Gabi Sánchez — Concejal de Profundidad, Misiones</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/estilo.css">
-    
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WRKHEKP0G1');
-</script>
-    
-    <script src="burbuja-somos.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRKHEKP0G1"></script>
     <script>
@@ -45,6 +35,166 @@
         })(window, document, "clarity", "script", "x3xiiz9amp");
     </script>
     <script src="burbuja-somos.js" defer></script>
+    <style>
+        /* ---- Gestión en números ---- */
+        .seccion-numeros {
+            padding: var(--espacio-lg) var(--espacio-md);
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            text-align: center;
+        }
+        .seccion-numeros .seccion-titulo { color: var(--blanco); }
+        .seccion-numeros .separador { background-color: rgba(255,255,255,0.40); }
+        .numeros-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto var(--espacio-md);
+        }
+        .numero-item {
+            padding: 24px 12px;
+            background-color: rgba(255,255,255,0.08);
+            border-radius: var(--radio-md);
+        }
+        .numero-grande {
+            display: block;
+            font-family: var(--fuente-titulo);
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .numero-label {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.75;
+        }
+
+        /* ---- Visión ---- */
+        .seccion-vision {
+            padding: var(--espacio-lg) var(--espacio-md);
+            background-color: var(--gris-claro);
+        }
+        .vision-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .vision-texto p { font-size: 1.05rem; color: var(--gris-texto); line-height: 1.8; }
+        .vision-valores { display: flex; flex-direction: column; gap: 20px; }
+        .vision-valor {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            padding: 18px 20px;
+            box-shadow: var(--sombra-sm);
+        }
+        .vision-icono { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+        .vision-valor strong { display: block; color: var(--azul-principal); font-size: 0.95rem; margin-bottom: 3px; }
+        .vision-valor p { font-size: 0.88rem; color: var(--gris-texto); line-height: 1.5; }
+
+        /* ---- Últimas novedades en el index ---- */
+        .seccion-ultimas-novedades {
+            padding: var(--espacio-lg) var(--espacio-md);
+            background-color: var(--blanco);
+        }
+        .ultimas-novedades-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto var(--espacio-md);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .ultimas-novedades-header h2 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.8rem;
+            color: var(--azul-principal);
+        }
+        .ultimas-novedades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .novedad-preview {
+            background-color: var(--gris-claro);
+            border-radius: var(--radio-md);
+            padding: 24px;
+            border-left: 4px solid var(--azul-medio);
+            transition: transform var(--transicion), box-shadow var(--transicion);
+            text-decoration: none;
+            color: var(--negro-suave);
+            display: block;
+        }
+        .novedad-preview:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-md);
+            color: var(--negro-suave);
+        }
+        .novedad-preview-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .novedad-preview-fecha {
+            font-size: 0.8rem;
+            color: var(--gris-texto);
+        }
+        .novedad-preview-cat {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 2px 8px;
+            border-radius: 99px;
+            background-color: var(--azul-claro);
+            color: var(--azul-principal);
+        }
+        .novedad-preview h3 {
+            font-family: var(--fuente-titulo);
+            font-size: 1rem;
+            color: var(--azul-principal);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .novedad-preview p {
+            font-size: 0.88rem;
+            color: var(--gris-texto);
+            line-height: 1.6;
+        }
+        .novedad-preview-leer {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--azul-medio);
+        }
+        .novedades-cargando {
+            text-align: center;
+            color: var(--gris-texto);
+            font-size: 0.9rem;
+            padding: 20px;
+            grid-column: 1/-1;
+        }
+
+        @media (max-width: 768px) {
+            .numeros-grid { grid-template-columns: repeat(2, 1fr); }
+            .vision-inner { grid-template-columns: 1fr; gap: 36px; }
+            .ultimas-novedades-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
 </head>
 
 <body>
@@ -94,28 +244,34 @@
         <section class="destacados" aria-label="Secciones destacadas">
             <h2>¿Qué encontrás acá?</h2>
             <div class="tarjetas">
-
                 <article class="tarjeta">
                     <h3>Propuestas 2027</h3>
                     <p>Un plan de gobierno concreto para Profundidad. Servicios, educación, trabajo, transparencia y mucho más.</p>
                     <a href="propuestas.html">Ver propuestas →</a>
                 </article>
-
                 <article class="tarjeta">
                     <h3>Gestiones en el HCD</h3>
                     <p>Proyectos presentados, ordenanzas aprobadas y documentos de mi trabajo como concejal desde 2023.</p>
                     <a href="gestiones-en-el-hcd.html">Ver gestiones →</a>
                 </article>
-
                 <article class="tarjeta">
                     <h3>Fotogalería</h3>
                     <p>Recorridas, reuniones y presencia en el territorio. El trabajo de todos los días en Profundidad.</p>
                     <a href="fotogaleria.html">Ver fotos →</a>
                 </article>
-
             </div>
         </section>
 
+        <!-- ÚLTIMAS NOVEDADES -->
+        <section class="seccion-ultimas-novedades" aria-label="Últimas novedades">
+            <div class="ultimas-novedades-header">
+                <h2>Últimas novedades</h2>
+                <a href="novedades.html" class="btn-accion">Ver todas →</a>
+            </div>
+            <div class="ultimas-novedades-grid" id="index-novedades">
+                <p class="novedades-cargando">Cargando novedades...</p>
+            </div>
+        </section>
 
         <!-- GESTIÓN EN NÚMEROS -->
         <section class="seccion-numeros" aria-label="Gestión en números">
@@ -216,7 +372,61 @@
         <p id="footer-copy-gabi"></p>
     </footer>
 
-<script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023–"+new Date().getFullYear()+" Gabi Sánchez. Todos los derechos reservados.";</script>
+    <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
+
+    <!-- Últimas novedades desde Google Sheets -->
+    <script>
+    (function(){
+        var SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT339zLE2gGf2BBDHMrFWf1ewHE3P23g7vPGd1m2JXrI2UeMfFjq1Yk95wy7Vey8fXQfFVue1LPkdhZ/pub?output=csv";
+        var contenedor = document.getElementById("index-novedades");
+        var HOY = new Date();
+
+        function parsearCSV(fila) {
+            var resultado = [], campo = "", dentroComillas = false;
+            for (var i = 0; i < fila.length; i++) {
+                var c = fila[i];
+                if (c === '"') { dentroComillas = !dentroComillas; }
+                else if (c === ',' && !dentroComillas) { resultado.push(campo); campo = ""; }
+                else { campo += c; }
+            }
+            resultado.push(campo);
+            return resultado;
+        }
+
+        fetch(SHEET_URL)
+            .then(function(r){ return r.text(); })
+            .then(function(csv){
+                var filas = csv.trim().split("\n").slice(1);
+                var noticias = filas
+                    .map(function(f){ var c = parsearCSV(f); return { fecha: (c[0]||"").trim(), titulo: (c[1]||"").trim(), resumen: (c[2]||"").trim(), etiqueta: (c[3]||"").trim(), archivo: (c[4]||"").trim() }; })
+                    .filter(function(n){ return n.titulo !== ""; })
+                    .slice(0, 3); // solo las 3 más recientes
+
+                if (noticias.length === 0) {
+                    contenedor.innerHTML = '<p class="novedades-cargando">No hay novedades publicadas todavía.</p>';
+                    return;
+                }
+
+                contenedor.innerHTML = noticias.map(function(n){
+                    var link = n.archivo ? n.archivo : "novedades.html";
+                    return '<a class="novedad-preview" href="' + link + '">' +
+                        '<div class="novedad-preview-meta">' +
+                            '<span class="novedad-preview-fecha">' + n.fecha + '</span>' +
+                            (n.etiqueta ? '<span class="novedad-preview-cat">' + n.etiqueta + '</span>' : '') +
+                        '</div>' +
+                        '<h3>' + n.titulo + '</h3>' +
+                        '<p>' + n.resumen.substring(0, 120) + (n.resumen.length > 120 ? '...' : '') + '</p>' +
+                        '<span class="novedad-preview-leer">Leer nota completa →</span>' +
+                    '</a>';
+                }).join('');
+            })
+            .catch(function(){
+                contenedor.innerHTML = '<p class="novedades-cargando">No se pudieron cargar las novedades.</p>';
+            });
+    })();
+    </script>
+
+    <!-- Menú hamburguesa -->
     <script>
     (function(){
         var btn = document.getElementById('menuHamburguesa');
@@ -236,5 +446,6 @@
         });
     })();
     </script>
+
 </body>
 </html>

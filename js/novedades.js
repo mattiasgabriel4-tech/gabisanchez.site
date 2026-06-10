@@ -1,56 +1,54 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* ============================================================
+   GABI SÁNCHEZ — SITIO OFICIAL
+   js/novedades.js — Sistema de noticias dinámico
+   ============================================================
 
-    // 1. DATOS DE NOTICIAS (AQUÍ AGREGÁS MÁS DESPUÉS)
-    const novedades = [
-        {
-            fecha: "9 de junio de 2026",
-            categoria: "HCD",
-            titulo: "Acta N° 669 - Sesión ordinaria del Concejo Deliberante",
-            bajada: "Se presentaron cinco proyectos de comunicación vinculados al control administrativo, transparencia institucional y acceso a la información pública municipal.",
-            link: "novedades/2026/2026-06-09-cinco-proyectos-comunicacion.html"
-        }
-    ];
+   CÓMO AGREGAR UNA NOTICIA NUEVA:
+   1. Creá el archivo HTML en /novedades/2026/ (o el año que corresponda)
+   2. Agregá un objeto al array "noticias" abajo, siguiendo el mismo formato
+   3. Listo — aparece automáticamente en novedades.html
 
-    // 2. BUSCAR CONTENEDOR EN TU HTML
-    const contenedor = document.getElementById("contenedorNovedades");
-    const placeholder = document.getElementById("sinNovedades");
+   ============================================================ */
 
-    // 3. CONTROL DE ERROR (SI NO EXISTE EL DIV)
-    if (!contenedor) {
-        console.error("ERROR: No existe #contenedorNovedades en novedades.html");
-        return;
-    }
+const noticias = [
+  {
+    fecha: "9 de junio de 2026",
+    titulo: "Acta N° 669: Gabi Sánchez presentó 5 proyectos de comunicación",
+    resumen: "En la última sesión del Concejo Deliberante de Profundidad, la concejal presentó cinco proyectos de comunicación relacionados con transparencia, control administrativo y acceso a la información pública. La presidencia indicó que la información debe solicitarse al Ejecutivo municipal.",
+    etiqueta: "HCD",
+    archivo: "novedades/2026/2026-06-09-cinco-proyectos-comunicacion.html"
+  }
+  /* Para agregar más noticias, copiá el bloque de arriba (desde la llave { hasta },)
+     y pegalo aquí debajo, modificando los datos. Las más nuevas van primero. */
+];
 
-    // 4. LIMPIAR CONTENIDO
-    contenedor.innerHTML = "";
+/* ============================================================
+   RENDERIZADO — No hace falta modificar nada de acá para abajo
+   ============================================================ */
+(function () {
+  const contenedor = document.getElementById("novedades-lista");
+  if (!contenedor) return;
 
-    // 5. RENDER DE NOTICIAS
-    novedades.forEach(n => {
+  if (noticias.length === 0) {
+    contenedor.innerHTML = `
+      <p class="novedades-vacio">No hay novedades publicadas todavía. Volvé pronto.</p>
+    `;
+    return;
+  }
 
-        const card = document.createElement("article");
-        card.className = "novedad";
+  const html = noticias.map(function (n) {
+    return `
+      <article class="novedad-card">
+        <div class="novedad-meta">
+          <span class="novedad-fecha">${n.fecha}</span>
+          <span class="novedad-etiqueta">${n.etiqueta}</span>
+        </div>
+        <h3 class="novedad-titulo">${n.titulo}</h3>
+        <p class="novedad-resumen">${n.resumen}</p>
+        <a class="btn-accion" href="${n.archivo}">Leer nota completa →</a>
+      </article>
+    `;
+  }).join("");
 
-        card.innerHTML = `
-            <div class="novedad-meta">
-                <span class="novedad-fecha">${n.fecha}</span>
-                <span class="novedad-categoria cat-hcd">${n.categoria}</span>
-            </div>
-
-            <h2>${n.titulo}</h2>
-
-            <p>${n.bajada}</p>
-
-            <a class="novedad-link" href="${n.link}">
-                Leer nota completa →
-            </a>
-        `;
-
-        contenedor.appendChild(card);
-    });
-
-    // 6. OCULTAR PLACEHOLDER SI HAY NOTICIAS
-    if (placeholder && novedades.length > 0) {
-        placeholder.style.display = "none";
-    }
-
-});
+  contenedor.innerHTML = html;
+})();

@@ -169,6 +169,33 @@
         }
         .sumate-beneficio span { font-size: 1.1rem; }
 
+        /* ---- Mini mapa ---- */
+        .mini-mapa {
+            margin-top: 10px;
+            border-radius: var(--radio-md);
+            overflow: hidden;
+            box-shadow: var(--sombra-sm);
+            border: 1.5px solid var(--gris-medio);
+        }
+        .mini-mapa iframe {
+            display: block;
+            border: none;
+            width: 100%;
+            height: 200px;
+        }
+        .mini-mapa a {
+            display: block;
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--gris-texto);
+            padding: 6px;
+            background: var(--blanco);
+            text-decoration: none;
+        }
+        .mini-mapa a:hover {
+            text-decoration: underline;
+        }
+
         /* ---- Responsive ---- */
         @media (max-width: 768px) {
             .contacto-hero { padding: 52px 20px 44px; }
@@ -274,6 +301,20 @@
                         <span style="font-size:1.4rem; flex-shrink:0;">📍</span>
                         <div class="canal-info"><strong>Dirección</strong><span>Manzana 3 · Profundidad, Misiones · CP 3308</span></div>
                     </div>
+
+                    <!-- MINI MAPA OPENSTREETMAP -->
+                    <div class="mini-mapa">
+                        <iframe
+                            title="Ubicación en Profundidad, Misiones"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-54.9700%2C-27.2700%2C-54.9300%2C-27.2300&layer=mapnik&marker=-27.2500%2C-54.9500"
+                            loading="lazy"
+                            allowfullscreen>
+                        </iframe>
+                        <a href="https://www.openstreetmap.org/?mlat=-27.2500&mlon=-54.9500#map=14/-27.2500/-54.9500" target="_blank" rel="noopener">
+                            Ver mapa más grande ↗
+                        </a>
+                    </div>
+
                 </section>
 
                 <section aria-labelledby="titulo-formulario">

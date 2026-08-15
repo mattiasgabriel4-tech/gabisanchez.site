@@ -370,13 +370,13 @@ footer p {
     opacity: 0.80;
 }
 
-.redes img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
+.redes i {
+    font-size: 20px;
+    color: var(--blanco);
 }
-
-.redes a:hover img {
+.redes a:hover i {
+    opacity: 0.75;
+}
     opacity: 0.75;
 }
 

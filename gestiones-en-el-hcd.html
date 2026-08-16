@@ -190,6 +190,105 @@
             .estadistica .numero { font-size: 1.8rem; }
             .nota-transparencia { flex-direction: column; gap: 8px; padding: 18px; }
         }
+
+        .herramientas-doc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+        .buscador-doc {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            border: 1px solid var(--gris-medio);
+            border-radius: var(--radio-sm);
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.95rem;
+        }
+        .filtros-anio {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .filtro-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--azul-medio);
+            background-color: var(--blanco);
+            color: var(--azul-medio);
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+        .filtro-btn.activo, .filtro-btn:hover {
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+        }
+        .doc-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--azul-medio);
+        }
+        .doc-card .doc-tipo-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--azul-medio);
+            background-color: var(--azul-claro);
+            padding: 3px 9px;
+            border-radius: 99px;
+            flex-shrink: 0;
+        }
+        .doc-card .doc-titulo {
+            flex: 1;
+            font-size: 0.92rem;
+            color: var(--negro-suave);
+            line-height: 1.4;
+        }
+        .doc-card .doc-ver {
+            flex-shrink: 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--azul-medio);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .doc-vacio {
+            text-align: center;
+            color: var(--gris-texto);
+            padding: 24px;
+            font-size: 0.9rem;
+        }
+        .tabs-notas {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: var(--gris-claro);
+            color: var(--gris-texto);
+            border-radius: var(--radio-sm) var(--radio-sm) 0 0;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .tab-btn.activo {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+        }
+        @media (max-width: 768px) {
+            .doc-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
     </style>
 </head>
 
@@ -250,68 +349,37 @@
                 </div>
             </div>
 
-            <section class="carpetas-seccion" aria-labelledby="titulo-2026">
-                <h2 id="titulo-2026">Gestiones 2026 <span class="badge-nuevo">Nuevo</span></h2>
-                <p class="descripcion">Proyectos, ordenanzas y gestiones del período en curso. Se actualiza a medida que avanzan las sesiones del HCD.</p>
-                <a class="carpeta-card destacado" href="https://drive.google.com/drive/folders/1W254XL4VgmfLa32AAiPykSFY8BmHhaOv" target="_blank" rel="noopener">
-                    <span class="carpeta-icono" aria-hidden="true">📁</span>
-                    <div class="carpeta-info">
-                        <h3>Documentos 2026</h3>
-                        <p>Proyectos, ordenanzas y resoluciones del período en curso.</p>
-                        <span class="ver-link">Abrir en Google Drive →</span>
-                    </div>
-                </a>
-            </section>
-
-            <hr class="separador-seccion">
-
             <section class="carpetas-seccion" aria-labelledby="titulo-proyectos">
                 <h2 id="titulo-proyectos">Proyectos presentados por mí</h2>
-                <p class="descripcion">Proyectos de ordenanza, resolución y comunicación presentados ante el HCD desde el inicio del mandato. Transporte, medio ambiente, salud, educación, desarrollo local y transparencia institucional.</p>
-
-                <a class="carpeta-card" href="https://drive.google.com/drive/folders/1Sd8zNEMqIKZeHZxFIPlXKBo7M4u4pFBY" target="_blank" rel="noopener">
-                    <span class="carpeta-icono" aria-hidden="true">📄</span>
-                    <div class="carpeta-info">
-                        <h3>Proyectos 2025</h3>
-                        <p>Régimen de Inversiones Locales, arbolado urbano, cajas eléctricas en plaza, mantenimiento de calles y más.</p>
-                        <span class="ver-link">Abrir en Google Drive →</span>
-                    </div>
-                </a>
-                <a class="carpeta-card" href="https://drive.google.com/drive/folders/1SJZtb4TYMwgV2n1zQfVoMFpGrczlJ-3I" target="_blank" rel="noopener">
-                    <span class="carpeta-icono" aria-hidden="true">📄</span>
-                    <div class="carpeta-info">
-                        <h3>Proyectos 2024</h3>
-                        <p>Transporte, prevención del suicidio, descacharrización, reglamento interno del HCD, arbolado urbano y más.</p>
-                        <span class="ver-link">Abrir en Google Drive →</span>
-                    </div>
-                </a>
-                <a class="carpeta-card" href="https://drive.google.com/drive/folders/1SJIh93sj8S0--OfhpnhSZdiFm0SGD86j" target="_blank" rel="noopener">
-                    <span class="carpeta-icono" aria-hidden="true">📄</span>
-                    <div class="carpeta-info">
-                        <h3>Proyectos 2023</h3>
-                        <p>Primeros proyectos del mandato. Comunicación sobre servicios de colectivos.</p>
-                        <span class="ver-link">Abrir en Google Drive →</span>
-                    </div>
-                </a>
+                <p class="descripcion">Proyectos de ordenanza, resolución y comunicación presentados ante el HCD desde el inicio del mandato.</p>
+                <div class="herramientas-doc">
+                    <input type="text" class="buscador-doc" id="buscar-proyectos" placeholder="Buscar proyecto por título...">
+                </div>
+                <div class="filtros-anio" id="filtros-proyectos"></div>
+                <div id="lista-proyectos"></div>
             </section>
-
             <hr class="separador-seccion">
-
             <section class="carpetas-seccion" aria-labelledby="titulo-ordenanzas">
-                <h2 id="titulo-ordenanzas">Ordenanzas vigentes</h2>
-                <p class="descripcion">Todas las ordenanzas, resoluciones y declaraciones aprobadas por el HCD de Profundidad desde el inicio del mandato en diciembre de 2023.</p>
-                <a class="carpeta-card" href="https://drive.google.com/drive/folders/1QjH-6GlJW694fqUq6sNJtTzLUN1PYF3A" target="_blank" rel="noopener">
-                    <span class="carpeta-icono" aria-hidden="true">📋</span>
-                    <div class="carpeta-info">
-                        <h3>Ordenanzas vigentes desde 10/12/2023</h3>
-                        <p>Ordenanzas 01 a 17 del período 2024, resoluciones y declaraciones de interés municipal.</p>
-                        <span class="ver-link">Abrir en Google Drive →</span>
-                    </div>
-                </a>
+                <h2 id="titulo-ordenanzas">Ordenanzas, resoluciones y declaraciones</h2>
+                <p class="descripcion">Todo lo aprobado por el HCD de Profundidad desde el inicio del mandato en diciembre de 2023.</p>
+                <div class="herramientas-doc">
+                    <input type="text" class="buscador-doc" id="buscar-ordenanzas" placeholder="Buscar por número o título...">
+                </div>
+                <div class="filtros-anio" id="filtros-ordenanzas"></div>
+                <div id="lista-ordenanzas"></div>
             </section>
-
             <hr class="separador-seccion">
-
+            <section class="carpetas-seccion" aria-labelledby="titulo-notas">
+                <h2 id="titulo-notas">Notas</h2>
+                <p class="descripcion">Notas enviadas y recibidas en el marco de la gestión.</p>
+                <div class="tabs-notas">
+                    <button class="tab-btn activo" data-tab="enviada">Enviadas</button>
+                    <button class="tab-btn" data-tab="recibida">Recibidas</button>
+                </div>
+                <div class="filtros-anio" id="filtros-notas"></div>
+                <div id="lista-notas"></div>
+            </section>
+            <hr class="separador-seccion">
             <div class="nota-transparencia" role="note">
                 <span class="nota-icono" aria-hidden="true">🔓</span>
                 <div>
@@ -379,5 +447,131 @@
     })();
     </script>
 
+    <script src="js/documentos-datos.js"></script>
+
+    <script>
+    (function(){
+        if (typeof DOCUMENTOS_HCD === "undefined") return;
+
+        function verLink(id){ return "https://drive.google.com/file/d/" + id + "/preview"; }
+
+        function renderFiltros(contenedorId, anios, callback){
+            var cont = document.getElementById(contenedorId);
+            var todos = document.createElement("button");
+            todos.className = "filtro-btn activo";
+            todos.textContent = "Todos";
+            todos.onclick = function(){
+                cont.querySelectorAll(".filtro-btn").forEach(function(b){ b.classList.remove("activo"); });
+                todos.classList.add("activo");
+                callback(null);
+            };
+            cont.appendChild(todos);
+            anios.forEach(function(anio){
+                var btn = document.createElement("button");
+                btn.className = "filtro-btn";
+                btn.textContent = anio;
+                btn.onclick = function(){
+                    cont.querySelectorAll(".filtro-btn").forEach(function(b){ b.classList.remove("activo"); });
+                    btn.classList.add("activo");
+                    callback(anio);
+                };
+                cont.appendChild(btn);
+            });
+        }
+
+        // PROYECTOS
+        var proyectos = DOCUMENTOS_HCD.proyectos;
+        var aniosProyectos = [...new Set(proyectos.map(function(p){return p.anio;}))].sort().reverse();
+        var filtroAnioProy = null;
+
+        function renderProyectos(){
+            var texto = (document.getElementById("buscar-proyectos").value || "").toLowerCase();
+            var lista = proyectos.filter(function(p){
+                var pasaAnio = !filtroAnioProy || p.anio === filtroAnioProy;
+                var pasaTexto = p.titulo.toLowerCase().includes(texto);
+                return pasaAnio && pasaTexto;
+            });
+            var cont = document.getElementById("lista-proyectos");
+            if (lista.length === 0){
+                cont.innerHTML = '<p class="doc-vacio">No se encontraron proyectos.</p>';
+                return;
+            }
+            cont.innerHTML = lista.map(function(p){
+                return '<div class="doc-card"><span class="doc-tipo-badge">' + p.anio + '</span>' +
+                    '<span class="doc-titulo">' + p.titulo + '</span>' +
+                    '<a class="doc-ver" href="' + verLink(p.id) + '" target="_blank" rel="noopener">Ver documento →</a></div>';
+            }).join("");
+        }
+        renderFiltros("filtros-proyectos", aniosProyectos, function(anio){ filtroAnioProy = anio; renderProyectos(); });
+        document.getElementById("buscar-proyectos").addEventListener("input", renderProyectos);
+        renderProyectos();
+
+        // ORDENANZAS
+        var ordenanzas = DOCUMENTOS_HCD.ordenanzas;
+        var aniosOrdenanzas = [...new Set(ordenanzas.map(function(o){return o.anio;}))].sort().reverse();
+        var filtroAnioOrd = null;
+
+        function renderOrdenanzas(){
+            var texto = (document.getElementById("buscar-ordenanzas").value || "").toLowerCase();
+            var lista = ordenanzas.filter(function(o){
+                var pasaAnio = !filtroAnioOrd || o.anio === filtroAnioOrd;
+                var pasaTexto = o.titulo.toLowerCase().includes(texto) || (o.numero || "").includes(texto);
+                return pasaAnio && pasaTexto;
+            });
+            var cont = document.getElementById("lista-ordenanzas");
+            if (lista.length === 0){
+                cont.innerHTML = '<p class="doc-vacio">No se encontraron resultados.</p>';
+                return;
+            }
+            cont.innerHTML = lista.map(function(o){
+                return '<div class="doc-card"><span class="doc-tipo-badge">' + o.tipo + '</span>' +
+                    '<span class="doc-titulo">' + o.titulo + '</span>' +
+                    '<a class="doc-ver" href="' + verLink(o.id) + '" target="_blank" rel="noopener">Ver documento →</a></div>';
+            }).join("");
+        }
+        renderFiltros("filtros-ordenanzas", aniosOrdenanzas, function(anio){ filtroAnioOrd = anio; renderOrdenanzas(); });
+        document.getElementById("buscar-ordenanzas").addEventListener("input", renderOrdenanzas);
+        renderOrdenanzas();
+
+        // NOTAS
+        var notas = DOCUMENTOS_HCD.notas;
+        var aniosNotas = [...new Set(notas.map(function(n){return n.anio;}))].sort().reverse();
+        var filtroAnioNotas = null;
+        var tabActiva = "enviada";
+
+        function renderNotas(){
+            var lista = notas.filter(function(n){
+                var pasaAnio = !filtroAnioNotas || n.anio === filtroAnioNotas;
+                return pasaAnio && n.tipo === tabActiva;
+            });
+            var cont = document.getElementById("lista-notas");
+            if (lista.length === 0){
+                cont.innerHTML = '<p class="doc-vacio">No hay notas ' + (tabActiva === "enviada" ? "enviadas" : "recibidas") + ' en este período.</p>';
+                return;
+            }
+            cont.innerHTML = lista.map(function(n){
+                return '<div class="doc-card"><span class="doc-tipo-badge">' + n.anio + '</span>' +
+                    '<span class="doc-titulo">' + n.titulo + '</span>' +
+                    '<a class="doc-ver" href="' + verLink(n.id) + '" target="_blank" rel="noopener">Ver documento →</a></div>';
+            }).join("");
+        }
+        renderFiltros("filtros-notas", aniosNotas, function(anio){ filtroAnioNotas = anio; renderNotas(); });
+        document.querySelectorAll(".tab-btn").forEach(function(btn){
+            btn.addEventListener("click", function(){
+                document.querySelectorAll(".tab-btn").forEach(function(b){ b.classList.remove("activo"); });
+                btn.classList.add("activo");
+                tabActiva = btn.getAttribute("data-tab");
+                renderNotas();
+            });
+        });
+        renderNotas();
+
+        // Actualizar contadores del hero
+        var elProy = document.getElementById("num-proyectos");
+        var elOrd = document.getElementById("num-ordenanzas");
+        if (elProy) elProy.textContent = "+" + proyectos.length;
+        if (elOrd) elOrd.textContent = ordenanzas.filter(function(o){return o.tipo === "Ordenanza";}).length;
+    })();
+    </script>
 </body>
 </html>

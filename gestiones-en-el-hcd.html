@@ -453,7 +453,7 @@
     (function(){
         if (typeof DOCUMENTOS_HCD === "undefined") return;
 
-        function verLink(id){ return "https://drive.google.com/file/d/" + id + "/preview"; }
+        function verLink(id){ return "https://drive.google.com/uc?export=view&id=" + id; }
 
         function renderFiltros(contenedorId, anios, callback){
             var cont = document.getElementById(contenedorId);

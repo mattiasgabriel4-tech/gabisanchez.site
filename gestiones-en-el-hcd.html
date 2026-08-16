@@ -289,6 +289,44 @@
         @media (max-width: 768px) {
             .doc-card { flex-direction: column; align-items: flex-start; gap: 8px; }
         }
+
+        .modal-doc {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.75);
+            z-index: 1000;
+            padding: 20px;
+        }
+        .modal-doc.abierto { display: flex; flex-direction: column; }
+        .modal-doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--azul-principal);
+            padding: 14px 18px;
+            border-radius: var(--radio-md) var(--radio-md) 0 0;
+        }
+        .modal-doc-header span {
+            color: var(--blanco);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .modal-doc-cerrar {
+            background: none;
+            border: none;
+            color: var(--blanco);
+            font-size: 1.6rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .modal-doc iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background-color: var(--blanco);
+            border-radius: 0 0 var(--radio-md) var(--radio-md);
+        }
     </style>
 </head>
 
@@ -390,6 +428,14 @@
 
         </div>
 
+
+        <div class="modal-doc" id="modal-doc">
+            <div class="modal-doc-header">
+                <span id="modal-doc-titulo">Documento</span>
+                <button class="modal-doc-cerrar" id="modal-doc-cerrar" aria-label="Cerrar">&times;</button>
+            </div>
+            <iframe id="modal-doc-iframe" src=""></iframe>
+        </div>
     </main>
 
     <footer>
@@ -453,7 +499,21 @@
     (function(){
         if (typeof DOCUMENTOS_HCD === "undefined") return;
 
-        function verLink(id){ return "https://drive.google.com/uc?export=view&id=" + id; }
+        function escHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+        function abrirModal(id, titulo){
+            document.getElementById("modal-doc-iframe").src = "https://drive.google.com/file/d/" + id + "/preview";
+            document.getElementById("modal-doc-titulo").textContent = titulo;
+            document.getElementById("modal-doc").classList.add("abierto");
+        }
+        document.getElementById("modal-doc-cerrar").addEventListener("click", function(){
+            document.getElementById("modal-doc").classList.remove("abierto");
+            document.getElementById("modal-doc-iframe").src = "";
+        });
+        document.addEventListener("click", function(e){
+            if (e.target.classList.contains("doc-ver")){
+                abrirModal(e.target.getAttribute("data-id"), e.target.getAttribute("data-titulo"));
+            }
+        });
 
         function renderFiltros(contenedorId, anios, callback){
             var cont = document.getElementById(contenedorId);
@@ -499,7 +559,7 @@
             cont.innerHTML = lista.map(function(p){
                 return '<div class="doc-card"><span class="doc-tipo-badge">' + p.anio + '</span>' +
                     '<span class="doc-titulo">' + p.titulo + '</span>' +
-                    '<a class="doc-ver" href="' + verLink(p.id) + '" target="_blank" rel="noopener">Ver documento →</a></div>';
+                    '<button class="doc-ver" data-id="' + p.id + '" data-titulo="' + escHtml(p.titulo) + '">Ver documento →</button></div>';
             }).join("");
         }
         renderFiltros("filtros-proyectos", aniosProyectos, function(anio){ filtroAnioProy = anio; renderProyectos(); });
@@ -526,7 +586,7 @@
             cont.innerHTML = lista.map(function(o){
                 return '<div class="doc-card"><span class="doc-tipo-badge">' + o.tipo + '</span>' +
                     '<span class="doc-titulo">' + o.titulo + '</span>' +
-                    '<a class="doc-ver" href="' + verLink(o.id) + '" target="_blank" rel="noopener">Ver documento →</a></div>';
+                    '<button class="doc-ver" data-id="' + o.id + '" data-titulo="' + escHtml(o.titulo) + '">Ver documento →</button></div>';
             }).join("");
         }
         renderFiltros("filtros-ordenanzas", aniosOrdenanzas, function(anio){ filtroAnioOrd = anio; renderOrdenanzas(); });
@@ -552,7 +612,7 @@
             cont.innerHTML = lista.map(function(n){
                 return '<div class="doc-card"><span class="doc-tipo-badge">' + n.anio + '</span>' +
                     '<span class="doc-titulo">' + n.titulo + '</span>' +
-                    '<a class="doc-ver" href="' + verLink(n.id) + '" target="_blank" rel="noopener">Ver documento →</a></div>';
+                    '<button class="doc-ver" data-id="' + n.id + '" data-titulo="' + escHtml(n.titulo) + '">Ver documento →</button></div>';
             }).join("");
         }
         renderFiltros("filtros-notas", aniosNotas, function(anio){ filtroAnioNotas = anio; renderNotas(); });

@@ -363,52 +363,67 @@
     <main>
   <section class="pres-hero">
     <h1>El presupuesto municipal, explicado</h1>
-    <p>Qué dice el presupuesto de Profundidad, de dónde sale la plata, en qué se gasta y cómo se compara con años anteriores. Cada número tiene su fuente y las opiniones están marcadas como tales.</p>
+    <p>Qué dice el presupuesto de Profundidad, de dónde sale la plata, en qué se gasta y cómo se compara con años anteriores. Todo se puede tocar: cada número abre su detalle, con la fuente y la diferencia entre dato, cálculo y opinión.</p>
+  </section>
+  <nav class="pp-indice" aria-label="Secciones">
+    <a href="#resumen">Resumen</a><a href="#evolucion">Evolución</a><a href="#recursos">Recursos</a><a href="#gastos">Gastos</a><a href="#personal">Personal</a><a href="#datos">Datos</a><a href="#semaforo">Semáforo</a><a href="#metodo">Método</a>
+  </nav>
+
+  <section class="pres-seccion" id="resumen">
+    <h2>El presupuesto en cifras</h2>
+    <div id="pp-anios" class="pp-chips"></div>
+    <div id="pp-kpis" class="pres-grid"></div>
+    <p class="pres-fuente">Elegí un año y tocá cualquier cuadro para ver cómo evolucionó. Porcentajes sobre el presupuesto inicial (Ejecutivo + Concejo Deliberante).</p>
   </section>
 
-  <section class="pres-seccion">
-    <h2>Presupuesto 2027 en pocas cifras</h2>
-    <div class="pres-grid">
-      <div class="pres-card"><span class="pres-num">$ 1.306,8 M</span><span class="pres-txt">Presupuesto total proyectado</span></div>
-      <div class="pres-card"><span class="pres-num">92%</span><span class="pres-txt">Viene de la coparticipación</span></div>
-      <div class="pres-card"><span class="pres-num">2,9%</span><span class="pres-txt">Son recursos propios del municipio</span></div>
-      <div class="pres-card"><span class="pres-num">48%</span><span class="pres-txt">Se va en personal</span></div>
-      <div class="pres-card"><span class="pres-num">0,8%</span><span class="pres-txt">Es inversión física del Ejecutivo</span></div>
-      <div class="pres-card"><span class="pres-num">$ 72 M</span><span class="pres-txt">Deuda: amortización más intereses</span></div>
-    </div>
-    <p class="pres-fuente">Fuente: Proyecto de Ordenanza de Presupuesto 2027. Los porcentajes son cálculo propio sobre esos montos.</p>
-  </section>
-
-  <section class="pres-seccion">
-    <h2>De dónde sale la plata (2027)</h2>
-    <div id="graf-ingresos" class="pres-graf"></div>
-    <h2>En qué se gasta (2027)</h2>
-    <div id="graf-gastos" class="pres-graf"></div>
-    <p class="pres-fuente">Incluye Departamento Ejecutivo y Concejo Deliberante. Montos en millones de pesos.</p>
-  </section>
-
-  <section class="pres-seccion">
-    <h2>Comparativa por año</h2>
+  <section class="pres-seccion" id="evolucion">
+    <h2>Evolución 2023-2027</h2>
+    <p>Lo presupuestado, lo recaudado y lo gastado. Los presupuestos iniciales se corrigen durante el año, y por eso conviene mirar los tres juntos.</p>
+    <div id="ch-evol"></div>
     <div class="pres-tabla-wrap"><table id="tabla-anios" class="pres-tabla"></table></div>
-    <p class="pres-fuente">Los años marcados como pendientes se completan al cargar los documentos. El balance 2026 recién existe después de que cierre el año.</p>
+    <p class="pres-fuente">2023 y 2024 son balances; 2025 es la rendición de cuentas. 2026 es solo presupuesto: su balance recién existe en marzo de 2027. Tocá cualquier número de la tabla.</p>
   </section>
 
-  <section class="pres-seccion">
+  <section class="pres-seccion" id="recursos">
+    <h2>De dónde sale la plata</h2>
+    <div id="ch-rec"></div>
+  </section>
+
+  <section class="pres-seccion" id="gastos">
+    <h2>En qué se gasta</h2>
+    <div id="ch-gas"></div>
+  </section>
+
+  <section class="pres-seccion" id="personal">
+    <h2>Personal: cuántos son y cuánta plata se destina</h2>
+    <p>El gasto en personal es la partida más grande. Acá se ve cuánto va a planta, a temporarios y al Concejo, cuántos cargos detallan las ordenanzas y cuánto implica por cargo.</p>
+    <div id="ch-per"></div>
+    <div id="pp-cargos" class="pp-cargos"></div>
+    <h3 style="margin-top:1.5rem">¿Cuánto sale cada cargo?</h3>
+    <p>Jugá con los controles. La ordenanza no trae la escala salarial, así que esto es un promedio por cargo, no el sueldo de una categoría.</p>
+    <div id="pp-calc"></div>
+  </section>
+
+  <section class="pres-seccion" id="datos">
     <h2>Datos interesantes</h2>
-    <p class="pres-pend">Esta sección se completa con el análisis de los documentos.</p>
+    <p>Tocá cada tarjeta para ver el detalle y de qué documento sale.</p>
+    <div id="pp-hechos" class="pp-hechos"></div>
   </section>
 
-  <section class="pres-seccion">
+  <section class="pres-seccion" id="semaforo">
     <h2>¿Es un buen balance?</h2>
-    <p class="pres-pend">Acá va el semáforo por indicador, con su explicación y su respaldo.</p>
+    <p>Ocho indicadores sobre el presupuesto 2027. Los umbrales de colores son criterios orientativos propios, no normas legales; cada uno muestra su criterio y una "otra mirada".</p>
+    <div id="pp-semaforo" class="pp-semaforo"></div>
+    <div class="pp-conclusion"><b>OPINIÓN.</b> Un presupuesto equilibrado en el papel y consistente con los años anteriores, con tres puntos de atención: la inversión casi desaparece, el gasto en personal sigue creciendo y hay un préstamo que se paga por años. Es una lectura sobre criterios orientativos: otra persona puede ponderarlos distinto. Lo más útil para el control es seguir la ejecución a lo largo del año.</div>
   </section>
 
-  <section class="pres-seccion pres-metodo">
+  <section class="pres-seccion pp-metodo" id="metodo">
     <h2>Cómo se hizo este análisis</h2>
-    <p>Se separan tres cosas: <strong>datos</strong> (lo que dicen los documentos), <strong>cálculos</strong> (porcentajes y comparaciones propias) y <strong>valoraciones</strong> (opinión, siempre marcada como tal). Cuando un documento no explica un gasto, se dice que no lo explica.</p>
-    <p>Fuentes: Rendición de Cuentas Final del Ejercicio 2025 (folios 1 a 48) y Proyecto de Ordenanza de Presupuesto 2027.</p>
+    <p>Se separan tres cosas: <strong>datos</strong> (lo que dicen los documentos), <strong>cálculos</strong> (porcentajes y comparaciones propias) y <strong>opiniones</strong> (siempre marcadas como tales). Cuando un documento no explica un gasto, se dice que no lo explica.</p>
+    <p>Fuentes: Ordenanzas de presupuesto 2024, 2025 y 2026, Proyecto de Ordenanza 2027, Balances 2023 y 2024 y Rendición de Cuentas 2025. Inflación: INDEC; expectativa 2026: REM del Banco Central. Los montos están en pesos corrientes y las cifras fueron leídas de documentos escaneados.</p>
   </section>
 </main>
+
 
 
     <footer>

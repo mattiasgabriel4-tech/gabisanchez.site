@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análisis del presupuesto municipal de Profundidad: ingresos, gastos y comparativa por año.">
+    <meta name="keywords" content="Gabi Sánchez, concejal Profundidad, HCD Profundidad, ordenanzas Profundidad, gestión municipal Misiones">
+    <meta property="og:title" content="Presupuesto municipal explicado">
+    <meta property="og:description" content="Proyectos presentados y ordenanzas vigentes. El trabajo concreto de Gabi Sánchez como concejal de Profundidad, Misiones.">
+    <meta property="og:image" content="img/logo.png">
+    <title>Presupuesto municipal — Gabi Sánchez, Concejal de Profundidad</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRKHEKP0G1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WRKHEKP0G1');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NTM77KHK');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "x3xiiz9amp");
+    </script>
+
+    <style>
+        .gestiones-hero {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+            text-align: center;
+            padding: 72px 20px 60px;
+        }
+        .gestiones-hero h1 {
+            font-family: var(--fuente-titulo);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .gestiones-hero p {
+            font-size: 1.05rem;
+            max-width: 640px;
+            margin: 0 auto;
+            opacity: 0.82;
+            line-height: 1.7;
+        }
+        .gestiones-contenido {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 72px 20px;
+        }
+        .estadisticas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 64px;
+        }
+        .estadistica {
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 28px 20px;
+            text-align: center;
+            border-top: 4px solid var(--azul-medio);
+        }
+        .estadistica .numero {
+            font-family: var(--fuente-titulo);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--azul-principal);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .estadistica .etiqueta {
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .carpetas-seccion { margin-bottom: 56px; }
+        .carpetas-seccion h2 {
+            font-family: var(--fuente-titulo);
+            font-size: 1.7rem;
+            color: var(--azul-principal);
+            margin-bottom: 8px;
+        }
+        .carpetas-seccion .descripcion {
+            font-size: 1rem;
+            color: var(--gris-texto);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        .carpeta-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 22px 24px;
+            text-decoration: none;
+            color: var(--negro-suave);
+            border-left: 4px solid var(--azul-medio);
+            transition: transform var(--transicion), box-shadow var(--transicion);
+            margin-bottom: 12px;
+        }
+        .carpeta-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--sombra-md);
+            color: var(--negro-suave);
+        }
+        .carpeta-card.destacado { border-left-color: var(--azul-principal); }
+        .carpeta-icono { font-size: 2rem; flex-shrink: 0; line-height: 1; }
+        .carpeta-info { flex: 1; }
+        .carpeta-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--azul-principal);
+            margin-bottom: 3px;
+        }
+        .carpeta-info p {
+            font-size: 0.86rem;
+            color: var(--gris-texto);
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+        .carpeta-info .ver-link {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--azul-medio);
+        }
+        .badge-nuevo {
+            display: inline-block;
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 99px;
+            letter-spacing: 0.04em;
+            margin-left: 8px;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+        .separador-seccion {
+            border: none;
+            border-top: 1px solid var(--gris-medio);
+            margin: 48px 0;
+        }
+        .nota-transparencia {
+            background-color: var(--azul-claro);
+            border-radius: var(--radio-md);
+            padding: 24px 28px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .nota-icono { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+        .nota-transparencia h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--azul-principal);
+            margin-bottom: 5px;
+        }
+        .nota-transparencia p {
+            font-size: 0.9rem;
+            color: var(--gris-texto);
+            line-height: 1.7;
+        }
+        @media (max-width: 768px) {
+            .gestiones-hero { padding: 52px 20px 44px; }
+            .gestiones-contenido { padding: 48px 16px; }
+            .estadisticas { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .estadistica { padding: 18px 10px; }
+            .estadistica .numero { font-size: 1.8rem; }
+            .nota-transparencia { flex-direction: column; gap: 8px; padding: 18px; }
+        }
+
+        .herramientas-doc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+        .buscador-doc {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            border: 1px solid var(--gris-medio);
+            border-radius: var(--radio-sm);
+            font-family: var(--fuente-cuerpo);
+            font-size: 0.95rem;
+        }
+        .filtros-anio {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .filtro-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--azul-medio);
+            background-color: var(--blanco);
+            color: var(--azul-medio);
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+        .filtro-btn.activo, .filtro-btn:hover {
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+        }
+        .doc-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background-color: var(--blanco);
+            border-radius: var(--radio-md);
+            box-shadow: var(--sombra-sm);
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--azul-medio);
+        }
+        .doc-card .doc-tipo-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--azul-medio);
+            background-color: var(--azul-claro);
+            padding: 3px 9px;
+            border-radius: 99px;
+            flex-shrink: 0;
+        }
+        .doc-card .doc-titulo {
+            flex: 1;
+            font-size: 0.92rem;
+            color: var(--negro-suave);
+            line-height: 1.4;
+        }
+        .doc-card .doc-ver {
+            flex-shrink: 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--azul-medio);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .doc-vacio {
+            text-align: center;
+            color: var(--gris-texto);
+            padding: 24px;
+            font-size: 0.9rem;
+        }
+        .tabs-notas {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: var(--gris-claro);
+            color: var(--gris-texto);
+            border-radius: var(--radio-sm) var(--radio-sm) 0 0;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .tab-btn.activo {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+        }
+        @media (max-width: 768px) {
+            .doc-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+
+        .modal-doc {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.75);
+            z-index: 1000;
+            padding: 20px;
+        }
+        .modal-doc.abierto { display: flex; flex-direction: column; }
+        .modal-doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--azul-principal);
+            padding: 14px 18px;
+            border-radius: var(--radio-md) var(--radio-md) 0 0;
+        }
+        .modal-doc-header span {
+            color: var(--blanco);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .modal-doc-cerrar {
+            background: none;
+            border: none;
+            color: var(--blanco);
+            font-size: 1.6rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .modal-doc iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background-color: var(--blanco);
+            border-radius: 0 0 var(--radio-md) var(--radio-md);
+        }
+    </style>
+    <link rel="stylesheet" href="css/presupuesto.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTM77KHK"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.png" alt="Gabi Sánchez — Concejal de Profundidad">
+            </a>
+        </div>
+        <button class="hamburguesa" id="menuHamburguesa" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quien-soy.html">¿Quién soy?</a></li>
+                <li><a href="propuestas.html">Propuestas</a></li>
+                <li><a href="fotogaleria.html">Fotogalería</a></li>
+                <li><a href="gestiones-en-el-hcd.html">Gestiones en el HCD</a></li>
+                <li><a href="novedades.html">Novedades</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+  <section class="pres-hero">
+    <h1>El presupuesto municipal, explicado</h1>
+    <p>Qué dice el presupuesto de Profundidad, de dónde sale la plata, en qué se gasta y cómo se compara con años anteriores. Cada número tiene su fuente y las opiniones están marcadas como tales.</p>
+  </section>
+
+  <section class="pres-seccion">
+    <h2>Presupuesto 2027 en pocas cifras</h2>
+    <div class="pres-grid">
+      <div class="pres-card"><span class="pres-num">$ 1.306,8 M</span><span class="pres-txt">Presupuesto total proyectado</span></div>
+      <div class="pres-card"><span class="pres-num">92%</span><span class="pres-txt">Viene de la coparticipación</span></div>
+      <div class="pres-card"><span class="pres-num">2,9%</span><span class="pres-txt">Son recursos propios del municipio</span></div>
+      <div class="pres-card"><span class="pres-num">48%</span><span class="pres-txt">Se va en personal</span></div>
+      <div class="pres-card"><span class="pres-num">0,8%</span><span class="pres-txt">Es inversión física del Ejecutivo</span></div>
+      <div class="pres-card"><span class="pres-num">$ 72 M</span><span class="pres-txt">Deuda: amortización más intereses</span></div>
+    </div>
+    <p class="pres-fuente">Fuente: Proyecto de Ordenanza de Presupuesto 2027. Los porcentajes son cálculo propio sobre esos montos.</p>
+  </section>
+
+  <section class="pres-seccion">
+    <h2>De dónde sale la plata (2027)</h2>
+    <div id="graf-ingresos" class="pres-graf"></div>
+    <h2>En qué se gasta (2027)</h2>
+    <div id="graf-gastos" class="pres-graf"></div>
+    <p class="pres-fuente">Incluye Departamento Ejecutivo y Concejo Deliberante. Montos en millones de pesos.</p>
+  </section>
+
+  <section class="pres-seccion">
+    <h2>Comparativa por año</h2>
+    <div class="pres-tabla-wrap"><table id="tabla-anios" class="pres-tabla"></table></div>
+    <p class="pres-fuente">Los años marcados como pendientes se completan al cargar los documentos. El balance 2026 recién existe después de que cierre el año.</p>
+  </section>
+
+  <section class="pres-seccion">
+    <h2>Datos interesantes</h2>
+    <p class="pres-pend">Esta sección se completa con el análisis de los documentos.</p>
+  </section>
+
+  <section class="pres-seccion">
+    <h2>¿Es un buen balance?</h2>
+    <p class="pres-pend">Acá va el semáforo por indicador, con su explicación y su respaldo.</p>
+  </section>
+
+  <section class="pres-seccion pres-metodo">
+    <h2>Cómo se hizo este análisis</h2>
+    <p>Se separan tres cosas: <strong>datos</strong> (lo que dicen los documentos), <strong>cálculos</strong> (porcentajes y comparaciones propias) y <strong>valoraciones</strong> (opinión, siempre marcada como tal). Cuando un documento no explica un gasto, se dice que no lo explica.</p>
+    <p>Fuentes: Rendición de Cuentas Final del Ejercicio 2025 (folios 1 a 48) y Proyecto de Ordenanza de Presupuesto 2027.</p>
+  </section>
+</main>
+
+
+    <footer>
+        <nav class="redes" aria-label="Redes sociales">
+            <a href="https://www.tiktok.com/@gabisanchez01.ok" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/share/19egZWD3cf/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/gabisanchez01.ok" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/+5493765148121" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="mailto:mattiasgabriel4@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://x.com/gabi_sanchez01" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </nav>
+        <p id="footer-copy-gabi"></p>
+    </footer>
+
+    <script>document.getElementById("footer-copy-gabi").innerHTML="&copy; 2023&ndash;"+new Date().getFullYear()+" Gabi S&aacute;nchez. Todos los derechos reservados.";</script>
+
+    <!-- Números dinámicos desde Google Sheets -->
+    <script>
+    (function(){
+        var SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT339zLE2gGf2BBDHMrFWf1ewHE3P23g7vPGd1m2JXrI2UeMfFjq1Yk95wy7Vey8fXQfFVue1LPkdhZ/pub?gid=1946793857&single=true&output=csv";
+        fetch(SHEET_URL)
+            .then(function(r){ return r.text(); })
+            .then(function(csv){
+                csv.trim().split("\n").forEach(function(fila){
+                    var cols = fila.split(",");
+                    var clave = (cols[0]||"").trim().replace(/"/g,"");
+                    var valor = (cols[1]||"").trim().replace(/"/g,"");
+                    if (!clave || !valor) return;
+                    var el = document.getElementById("num-" + clave);
+                    if (el) el.textContent = valor;
+                });
+            })
+            .catch(function(){});
+    })();
+    </script>
+
+    <!-- Menú hamburguesa -->
+    <script>
+    (function(){
+        var btn = document.getElementById('menuHamburguesa');
+        var nav = document.querySelector('header nav');
+        if (!btn || !nav) return;
+        btn.addEventListener('click', function(){
+            var abierto = nav.classList.toggle('abierto');
+            btn.classList.toggle('activo', abierto);
+            btn.setAttribute('aria-expanded', String(abierto));
+        });
+        nav.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){
+                nav.classList.remove('abierto');
+                btn.classList.remove('activo');
+                btn.setAttribute('aria-expanded','false');
+            });
+        });
+    })();
+    </script>
+
+    <script src="js/documentos-datos.js"></script>
+
+    <script>
+    (function(){
+        if (typeof DOCUMENTOS_HCD === "undefined") return;
+
+        function escHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+        function abrirModal(id, titulo){
+            document.getElementById("modal-doc-iframe").src = "https://drive.google.com/file/d/" + id + "/preview";
+            document.getElementById("modal-doc-titulo").textContent = titulo;
+            document.getElementById("modal-doc").classList.add("abierto");
+        }
+        document.getElementById("modal-doc-cerrar").addEventListener("click", function(){
+            document.getElementById("modal-doc").classList.remove("abierto");
+            document.getElementById("modal-doc-iframe").src = "";
+        });
+        document.addEventListener("click", function(e){
+            if (e.target.classList.contains("doc-ver")){
+                abrirModal(e.target.getAttribute("data-id"), e.target.getAttribute("data-titulo"));
+            }
+        });
+
+        function renderFiltros(contenedorId, anios, callback){
+            var cont = document.getElementById(contenedorId);
+            var todos = document.createElement("button");
+            todos.className = "filtro-btn activo";
+            todos.textContent = "Todos";
+            todos.onclick = function(){
+                cont.querySelectorAll(".filtro-btn").forEach(function(b){ b.classList.remove("activo"); });
+                todos.classList.add("activo");
+                callback(null);
+            };
+            cont.appendChild(todos);
+            anios.forEach(function(anio){
+                var btn = document.createElement("button");
+                btn.className = "filtro-btn";
+                btn.textContent = anio;
+                btn.onclick = function(){
+                    cont.querySelectorAll(".filtro-btn").forEach(function(b){ b.classList.remove("activo"); });
+                    btn.classList.add("activo");
+                    callback(anio);
+                };
+                cont.appendChild(btn);
+            });
+        }
+
+        // PROYECTOS
+        var proyectos = DOCUMENTOS_HCD.proyectos;
+        var aniosProyectos = [...new Set(proyectos.map(function(p){return p.anio;}))].sort().reverse();
+        var filtroAnioProy = null;
+
+        function renderProyectos(){
+            var texto = (document.getElementById("buscar-proyectos").value || "").toLowerCase();
+            var lista = proyectos.filter(function(p){
+                var pasaAnio = !filtroAnioProy || p.anio === filtroAnioProy;
+                var pasaTexto = p.titulo.toLowerCase().includes(texto);
+                return pasaAnio && pasaTexto;
+            });
+            var cont = document.getElementById("lista-proyectos");
+            if (lista.length === 0){
+                cont.innerHTML = '<p class="doc-vacio">No se encontraron proyectos.</p>';
+                return;
+            }
+            cont.innerHTML = lista.map(function(p){
+                return '<div class="doc-card"><span class="doc-tipo-badge">' + p.anio + '</span>' +
+                    '<span class="doc-titulo">' + p.titulo + '</span>' +
+                    '<button class="doc-ver" data-id="' + p.id + '" data-titulo="' + escHtml(p.titulo) + '">Ver documento →</button></div>';
+            }).join("");
+        }
+        renderFiltros("filtros-proyectos", aniosProyectos, function(anio){ filtroAnioProy = anio; renderProyectos(); });
+        document.getElementById("buscar-proyectos").addEventListener("input", renderProyectos);
+        renderProyectos();
+
+        // ORDENANZAS
+        var ordenanzas = DOCUMENTOS_HCD.ordenanzas;
+        var aniosOrdenanzas = [...new Set(ordenanzas.map(function(o){return o.anio;}))].sort().reverse();
+        var filtroAnioOrd = null;
+
+        function renderOrdenanzas(){
+            var texto = (document.getElementById("buscar-ordenanzas").value || "").toLowerCase();
+            var lista = ordenanzas.filter(function(o){
+                var pasaAnio = !filtroAnioOrd || o.anio === filtroAnioOrd;
+                var pasaTexto = o.titulo.toLowerCase().includes(texto) || (o.numero || "").includes(texto);
+                return pasaAnio && pasaTexto;
+            });
+            var cont = document.getElementById("lista-ordenanzas");
+            if (lista.length === 0){
+                cont.innerHTML = '<p class="doc-vacio">No se encontraron resultados.</p>';
+                return;
+            }
+            cont.innerHTML = lista.map(function(o){
+                return '<div class="doc-card"><span class="doc-tipo-badge">' + o.tipo + '</span>' +
+                    '<span class="doc-titulo">' + o.titulo + '</span>' +
+                    '<button class="doc-ver" data-id="' + o.id + '" data-titulo="' + escHtml(o.titulo) + '">Ver documento →</button></div>';
+            }).join("");
+        }
+        renderFiltros("filtros-ordenanzas", aniosOrdenanzas, function(anio){ filtroAnioOrd = anio; renderOrdenanzas(); });
+        document.getElementById("buscar-ordenanzas").addEventListener("input", renderOrdenanzas);
+        renderOrdenanzas();
+
+        // NOTAS
+        var notas = DOCUMENTOS_HCD.notas;
+        var aniosNotas = [...new Set(notas.map(function(n){return n.anio;}))].sort().reverse();
+        var filtroAnioNotas = null;
+        var tabActiva = "enviada";
+
+        function renderNotas(){
+            var lista = notas.filter(function(n){
+                var pasaAnio = !filtroAnioNotas || n.anio === filtroAnioNotas;
+                return pasaAnio && n.tipo === tabActiva;
+            });
+            var cont = document.getElementById("lista-notas");
+            if (lista.length === 0){
+                cont.innerHTML = '<p class="doc-vacio">No hay notas ' + (tabActiva === "enviada" ? "enviadas" : "recibidas") + ' en este período.</p>';
+                return;
+            }
+            cont.innerHTML = lista.map(function(n){
+                return '<div class="doc-card"><span class="doc-tipo-badge">' + n.anio + '</span>' +
+                    '<span class="doc-titulo">' + n.titulo + '</span>' +
+                    '<button class="doc-ver" data-id="' + n.id + '" data-titulo="' + escHtml(n.titulo) + '">Ver documento →</button></div>';
+            }).join("");
+        }
+        renderFiltros("filtros-notas", aniosNotas, function(anio){ filtroAnioNotas = anio; renderNotas(); });
+        document.querySelectorAll(".tab-btn").forEach(function(btn){
+            btn.addEventListener("click", function(){
+                document.querySelectorAll(".tab-btn").forEach(function(b){ b.classList.remove("activo"); });
+                btn.classList.add("activo");
+                tabActiva = btn.getAttribute("data-tab");
+                renderNotas();
+            });
+        });
+        renderNotas();
+
+        // Actualizar contadores del hero
+        var elProy = document.getElementById("num-proyectos");
+        var elOrd = document.getElementById("num-ordenanzas");
+        if (elProy) elProy.textContent = "+" + proyectos.length;
+        if (elOrd) elOrd.textContent = ordenanzas.filter(function(o){return o.tipo === "Ordenanza";}).length;
+    })();
+    </script>
+<script src="js/presupuesto-datos.js"></script>
+<script src="js/presupuesto.js"></script>
+</body>
+</html>

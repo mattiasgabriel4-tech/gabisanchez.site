@@ -362,67 +362,166 @@
 
     <main>
   <section class="pres-hero">
-    <h1>El presupuesto municipal, explicado</h1>
-    <p>Qué dice el presupuesto de Profundidad, de dónde sale la plata, en qué se gasta y cómo se compara con años anteriores. Todo se puede tocar: cada número abre su detalle, con la fuente y la diferencia entre dato, cálculo y opinión.</p>
-  </section>
-  <nav class="pp-indice" aria-label="Secciones">
-    <a href="#resumen">Resumen</a><a href="#evolucion">Evolución</a><a href="#recursos">Recursos</a><a href="#gastos">Gastos</a><a href="#personal">Personal</a><a href="#datos">Datos</a><a href="#semaforo">Semáforo</a><a href="#metodo">Método</a>
-  </nav>
-
-  <section class="pres-seccion" id="resumen">
-    <h2>El presupuesto en cifras</h2>
-    <div id="pp-anios" class="pp-chips"></div>
-    <div id="pp-kpis" class="pres-grid"></div>
-    <p class="pres-fuente">Elegí un año y tocá cualquier cuadro para ver cómo evolucionó. Porcentajes sobre el presupuesto inicial (Ejecutivo + Concejo Deliberante).</p>
+    <h1>El presupuesto del municipio, explicado simple</h1>
+    <p>Acá te contamos, con palabras sencillas, cuánta plata maneja la Municipalidad de Profundidad, de dónde viene y en qué se usa. Todo sale de los documentos oficiales.</p>
+    <button type="button" class="ps-oir ps-btn-claro">🔊 Escuchar el resumen</button>
   </section>
 
-  <section class="pres-seccion" id="evolucion">
-    <h2>Evolución 2023-2027</h2>
-    <p>Lo presupuestado, lo recaudado y lo gastado. Los presupuestos iniciales se corrigen durante el año, y por eso conviene mirar los tres juntos.</p>
-    <div id="ch-evol"></div>
-    <div class="pres-tabla-wrap"><table id="tabla-anios" class="pres-tabla"></table></div>
-    <p class="pres-fuente">2023 y 2024 son balances; 2025 es la rendición de cuentas. 2026 es solo presupuesto: su balance recién existe en marzo de 2027. Tocá cualquier número de la tabla.</p>
+  <section class="pres-seccion ps-simple" id="simple">
+    <h2>Si el presupuesto 2027 fuera de $100</h2>
+    <p>El presupuesto que se propone para 2027 es de $1.306 millones. Para entenderlo fácil, lo achicamos a $100: cada cuadradito es $1.</p>
+    <h3>¿De dónde viene la plata?</h3>
+    <div id="wf-in" class="ps-wf"></div>
+    <h3>¿En qué se usa?</h3>
+    <div id="wf-out" class="ps-wf"></div>
+    <p class="pres-fuente">Fuente: Proyecto de Ordenanza de Presupuesto 2027 (todavía no está aprobado). Los números por cada $100 son un cálculo propio, redondeado.</p>
   </section>
 
-  <section class="pres-seccion" id="recursos">
-    <h2>De dónde sale la plata</h2>
-    <div id="ch-rec"></div>
+  <section class="pres-seccion ps-simple" id="cinco">
+    <h2>Lo más importante, en 5 puntos</h2>
+    <div id="ps-puntos" class="ps-puntos"></div>
+    <p class="ps-aviso">Esta página explica números de documentos oficiales. No dice que algo esté bien o mal. Si algo no se entiende o querés opinar, escribinos desde <a href="contacto.html">Contacto</a>.</p>
   </section>
 
-  <section class="pres-seccion" id="gastos">
-    <h2>En qué se gasta</h2>
-    <div id="ch-gas"></div>
+  <section class="pres-seccion ps-simple ps-crit" id="critica">
+    <h2>Mirada crítica: ¿se usa bien la plata de los contribuyentes?</h2>
+    <p class="ps-etiqueta"><b>OPINIÓN DEL AUTOR.</b> Los números salen de documentos oficiales. La lectura es una mirada de austeridad fiscal: se gasta lo que se recauda y cada peso del contribuyente tiene que rendir cuentas. Los documentos no prueban mal uso de fondos: muestran decisiones de gasto que merecen una explicación. Son preguntas con números, no acusaciones a personas, y otra persona puede ver distinto.</p>
+
+    <details class="ps-q"><summary><span>1</span> Casi la mitad del presupuesto es personal</summary>
+      <p><b>Los números.</b> En 2024 era el 33,5%. En 2027 se propone 48,2% ($630 millones de $1.306). Los temporarios ($260 M) pasan a la planta permanente ($240 M).</p>
+      <p><b>Por qué preocupa.</b> Si la estructura crece más rápido que los servicios que el vecino ve, queda menos plata para obras y para el vecino.</p>
+      <p><b>Lo que tendría que explicar la gestión.</b> ¿Cuántos temporarios hay, en qué áreas y qué hace cada uno? La ordenanza no lo informa.</p>
+    </details>
+    <details class="ps-q"><summary><span>2</span> El "ahorro" de 2027 es, casi todo, pago de deuda</summary>
+      <p><b>Los números.</b> El presupuesto muestra $72 M de "ahorro", pero $60 M son la devolución del préstamo. Para obras y equipos nuevos quedan $12 M: menos del 1%.</p>
+      <p><b>Por qué preocupa.</b> Un ahorro que se va en cuotas no es plata libre para el vecino.</p>
+      <p><b>Lo que tendría que explicar la gestión.</b> ¿Qué obras se harían con $7 M y con qué otros fondos?</p>
+    </details>
+    <details class="ps-q"><summary><span>3</span> $400 millones sin detalle</summary>
+      <p><b>Los números.</b> $200 M en insumos y $200 M en servicios (Ejecutivo) figuran solo como total. Las planillas por rubro están en blanco, todos los años.</p>
+      <p><b>Por qué preocupa.</b> Transparencia es poder ver en qué se gasta cada peso. Con solo el total no se puede controlar.</p>
+      <p><b>Lo que tendría que explicar la gestión.</b> ¿Cuánto va a combustible, repuestos, alquileres y honorarios? ¿A quiénes se paga?</p>
+    </details>
+    <details class="ps-q"><summary><span>4</span> Se gasta plata que casi no se recauda</summary>
+      <p><b>Los números.</b> De cada $100, $97 vienen de Nación y Provincia. Los recursos propios son el 2,9% ($37 M).</p>
+      <p><b>Por qué preocupa.</b> Cuando quien gasta no es quien cobra, hay menos incentivo para cuidar cada peso.</p>
+      <p><b>Lo que tendría que explicar la gestión.</b> ¿Qué plan hay para mejorar lo que se cobra y cuidar lo que se gasta?</p>
+    </details>
+    <details class="ps-q"><summary><span>5</span> Un préstamo de $177 millones que se paga con fondos que no alcanzan</summary>
+      <p><b>Los números.</b> En 2025 se tomó el préstamo (coincide con una retroexcavadora). La Compensación del Consenso Fiscal que lo paga cerró 2025 en -$4,5 M. En 2027 recibe $58 M y el servicio de la deuda es de $72 M.</p>
+      <p><b>Por qué preocupa.</b> La diferencia sale de la coparticipación, o sea del mismo bolsillo que paga todo lo demás.</p>
+      <p><b>Lo que tendría que explicar la gestión.</b> ¿Cuál es el contrato, la tasa, el plazo y el uso real de la máquina?</p>
+    </details>
+    <details class="ps-q"><summary><span>6</span> Presupuestos que arrancan cortos y se corrigen por resolución</summary>
+      <p><b>Los números.</b> En 2024 se anotaron $360,8 M y se recaudaron $616,3 M. En 2025 se pasó de $867,65 M a $1.068,5 M, casi todo por el préstamo. Los Art. 6 y 9 dejan al Ejecutivo reestructurar partidas y usar créditos por resolución.</p>
+      <p><b>Por qué preocupa.</b> Si el presupuesto que vota el Concejo no es el que se ejecuta, el control pierde sentido.</p>
+      <p><b>Lo que tendría que explicar la gestión.</b> ¿Cuántas modificaciones se hicieron y por cuánto? ¿Se informaron al Concejo?</p>
+    </details>
+    <details class="ps-q"><summary><span>7</span> Reservas y gastos de representación</summary>
+      <p><b>Los números.</b> El crédito adicional es de $24,8 M y no dice a qué se destina. En representación, la partida 2027 es de $15 M, pero el Art. 8 permite $12 M al año ($1 M por mes).</p>
+      <p><b>Por qué preocupa.</b> Son montos chicos frente al total, pero muestran cómo se cuida el detalle.</p>
+      <p><b>Lo que tendría que explicar la gestión.</b> ¿Para qué es el crédito adicional? ¿Por qué $3 M más que el tope?</p>
+    </details>
+
+    <div class="ps-resp">
+      <h3>Para ser justos, la gestión podría responder</h3>
+      <ul>
+        <li>Los sueldos pagan servicios que el vecino usa: caminos, salud, escuelas y atención.</li>
+        <li>En 2025 se ejecutó el 99% del presupuesto autorizado: se hizo lo que se anotó.</li>
+        <li>El préstamo compró una máquina que queda en el patrimonio del pueblo.</li>
+        <li>Las obras grandes suelen llegar por convenios con Nación o Provincia y se suman durante el año.</li>
+        <li>Con inflación, es normal corregir los presupuestos.</li>
+      </ul>
+    </div>
+
+    <div class="ps-resp ps-pedir">
+      <h3>Para afirmar más, hace falta ver los libros</h3>
+      <p>Con los documentos publicados no se puede revisar peso por peso. La rendición cita los libros Diario, Mayor y Registro de Compromisos e Imputaciones. Se puede pedir por pedido de informes del Concejo o por acceso a la información pública:</p>
+      <ol>
+        <li>Nómina de personal temporario: cantidad, área, categoría y costo mensual.</li>
+        <li>Ejecución 2025 y 2026 por rubro de insumos y servicios, con proveedores.</li>
+        <li>Lista de obras 2024 a 2026: monto, fuente de fondos y estado.</li>
+        <li>Contrato del préstamo del Banco Macro: monto, tasa, plazo y destino.</li>
+        <li>Detalle del crédito adicional y de las modificaciones del presupuesto hechas por resolución.</li>
+        <li>Gastos de representación mes a mes en 2025 y 2026.</li>
+      </ol>
+      <p>Con esas respuestas se pasa de las preguntas a los hallazgos.</p>
+    </div>
   </section>
 
-  <section class="pres-seccion" id="personal">
-    <h2>Personal: cuántos son y cuánta plata se destina</h2>
-    <p>El gasto en personal es la partida más grande. Acá se ve cuánto va a planta, a temporarios y al Concejo, cuántos cargos detallan las ordenanzas y cuánto implica por cargo.</p>
-    <div id="ch-per"></div>
-    <div id="pp-cargos" class="pp-cargos"></div>
-    <h3 style="margin-top:1.5rem">¿Cuánto sale cada cargo?</h3>
-    <p>Jugá con los controles. La ordenanza no trae la escala salarial, así que esto es un promedio por cargo, no el sueldo de una categoría.</p>
-    <div id="pp-calc"></div>
+  <section class="pres-seccion ps-simple" id="glosario">
+    <h2>Palabras que vas a encontrar</h2>
+    <div id="ps-glosario" class="ps-glos"></div>
   </section>
 
-  <section class="pres-seccion" id="datos">
-    <h2>Datos interesantes</h2>
-    <p>Tocá cada tarjeta para ver el detalle y de qué documento sale.</p>
-    <div id="pp-hechos" class="pp-hechos"></div>
+  <section class="pres-seccion ps-simple ps-centro">
+    <button type="button" id="ps-ver" class="ps-btn" aria-expanded="false">Ver gráficos y detalle completo</button>
+    <p>Para quien quiera ver los números con más detalle: gráficos por año, tablas y cálculos.</p>
   </section>
 
-  <section class="pres-seccion" id="semaforo">
-    <h2>¿Es un buen balance?</h2>
-    <p>Ocho indicadores sobre el presupuesto 2027. Los umbrales de colores son criterios orientativos propios, no normas legales; cada uno muestra su criterio y una "otra mirada".</p>
-    <div id="pp-semaforo" class="pp-semaforo"></div>
-    <div class="pp-conclusion"><b>OPINIÓN.</b> Un presupuesto equilibrado en el papel y consistente con los años anteriores, con tres puntos de atención: la inversión casi desaparece, el gasto en personal sigue creciendo y hay un préstamo que se paga por años. Es una lectura sobre criterios orientativos: otra persona puede ponderarlos distinto. Lo más útil para el control es seguir la ejecución a lo largo del año.</div>
-  </section>
+  <div id="ps-avanzado" hidden>
+    <nav class="pp-indice" aria-label="Secciones del detalle">
+      <a href="#resumen">Resumen</a><a href="#evolucion">Evolución</a><a href="#recursos">Recursos</a><a href="#gastos">Gastos</a><a href="#personal">Personal</a><a href="#datos">Datos</a><a href="#semaforo">Para mirar de cerca</a>
+    </nav>
+
+    <section class="pres-seccion" id="resumen">
+      <h2>El presupuesto en cifras</h2>
+      <div id="pp-anios" class="pp-chips"></div>
+      <div id="pp-kpis" class="pres-grid"></div>
+      <p class="pres-fuente">Elegí un año y tocá cualquier cuadro para ver cómo evolucionó. Porcentajes sobre el presupuesto inicial (Ejecutivo + Concejo Deliberante).</p>
+    </section>
+
+    <section class="pres-seccion" id="evolucion">
+      <h2>Evolución 2023-2027</h2>
+      <p>Lo anotado en el presupuesto, lo que se recaudó y lo que se gastó. Los presupuestos se corrigen durante el año, por eso conviene mirar los tres juntos.</p>
+      <div id="ch-evol"></div>
+      <div class="pres-tabla-wrap"><table id="tabla-anios" class="pres-tabla"></table></div>
+      <p class="pres-fuente">2023 y 2024 son balances; 2025 es la rendición de cuentas. 2026 es solo presupuesto: su balance recién existe en marzo de 2027. Tocá cualquier número de la tabla.</p>
+    </section>
+
+    <section class="pres-seccion" id="recursos">
+      <h2>De dónde sale la plata, año por año</h2>
+      <div id="ch-rec"></div>
+    </section>
+
+    <section class="pres-seccion" id="gastos">
+      <h2>En qué se gasta, año por año</h2>
+      <div id="ch-gas"></div>
+    </section>
+
+    <section class="pres-seccion" id="personal">
+      <h2>Personal: quiénes trabajan y cuánta plata se destina</h2>
+      <p>Los sueldos son la parte más grande del presupuesto: pagan el trabajo de las personas que hacen funcionar el municipio. Acá se ve cuánto va a planta, a temporarios y al Concejo, y cuántos cargos detallan las ordenanzas. Este análisis no dice si alguien cobra de más o de menos.</p>
+      <div id="ch-per"></div>
+      <div id="pp-cargos" class="pp-cargos"></div>
+      <details class="ps-det">
+        <summary>Cálculo aproximado por cargo (para quien quiere números más finos)</summary>
+        <p>Jugá con los controles. La ordenanza no trae la escala salarial, así que es un promedio por cargo, no el sueldo de una categoría.</p>
+        <div id="pp-calc"></div>
+      </details>
+    </section>
+
+    <section class="pres-seccion" id="datos">
+      <h2>Datos para tener en cuenta</h2>
+      <p>Tocá cada tarjeta para ver el detalle y de qué documento sale.</p>
+      <div id="pp-hechos" class="pp-hechos"></div>
+    </section>
+
+    <section class="pres-seccion" id="semaforo">
+      <h2>Puntos para mirar de cerca</h2>
+      <p>Ocho indicadores sobre el presupuesto 2027. Los colores son criterios orientativos propios, no normas legales; cada uno muestra su criterio y una "otra mirada".</p>
+      <div id="pp-semaforo" class="pp-semaforo"></div>
+      <div class="pp-conclusion"><b>OPINIÓN.</b> Es un presupuesto equilibrado en el papel. Los puntos para seguir de cerca son tres: casi no hay plata anotada para obras nuevas, el gasto en sueldos sigue creciendo y hay un préstamo que se paga por varios años. Es una lectura basada en criterios orientativos: otra persona puede pensar distinto. Lo más útil es ir viendo cómo se ejecuta durante el año.</div>
+    </section>
+  </div>
 
   <section class="pres-seccion pp-metodo" id="metodo">
-    <h2>Cómo se hizo este análisis</h2>
-    <p>Se separan tres cosas: <strong>datos</strong> (lo que dicen los documentos), <strong>cálculos</strong> (porcentajes y comparaciones propias) y <strong>opiniones</strong> (siempre marcadas como tales). Cuando un documento no explica un gasto, se dice que no lo explica.</p>
-    <p>Fuentes: Ordenanzas de presupuesto 2024, 2025 y 2026, Proyecto de Ordenanza 2027, Balances 2023 y 2024 y Rendición de Cuentas 2025. Inflación: INDEC; expectativa 2026: REM del Banco Central. Los montos están en pesos corrientes y las cifras fueron leídas de documentos escaneados.</p>
+    <h2>De dónde salen los datos</h2>
+    <p>Ordenanzas de presupuesto 2024, 2025 y 2026, Proyecto de Ordenanza 2027, Balances 2023 y 2024 y Rendición de Cuentas 2025. Inflación: INDEC; expectativa 2026: REM del Banco Central. Los montos están en pesos de cada año y las cifras fueron leídas de documentos escaneados.</p>
+    <p>En el detalle se separan tres cosas: <strong>datos</strong> (lo que dicen los documentos), <strong>cálculos</strong> (porcentajes y comparaciones propias) y <strong>opiniones</strong> (siempre marcadas como tales).</p>
   </section>
 </main>
+
 
 
 
@@ -622,6 +721,7 @@
     })();
     </script>
 <script src="js/presupuesto-datos.js"></script>
+<script src="js/presupuesto-simple.js"></script>
 <script src="js/presupuesto.js"></script>
 </body>
 </html>

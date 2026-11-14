@@ -328,7 +328,7 @@
             border-radius: 0 0 var(--radio-md) var(--radio-md);
         }
     </style>
-    <link rel="stylesheet" href="css/presupuesto.css?v=3">
+    <link rel="stylesheet" href="css/presupuesto.css?v=4">
 </head>
 
 <body>
@@ -362,25 +362,59 @@
 
     <main>
   <section class="pres-hero">
-    <h1>El presupuesto del municipio, explicado simple</h1>
-    <p>Acá te contamos, con palabras sencillas, cuánta plata maneja la Municipalidad de Profundidad, de dónde viene y en qué se usa. Todo sale de los documentos oficiales.</p>
-    <button type="button" class="ps-oir ps-btn-claro">🔊 Escuchar el resumen</button>
+    <h1>El presupuesto municipal, explicado</h1>
+    <p>Qué dice el presupuesto de Profundidad, de dónde sale la plata, en qué se gasta y cómo se compara con años anteriores. Todo se puede tocar: cada número abre su detalle, con la fuente y la diferencia entre dato, cálculo y opinión.</p>
+  </section>
+  <nav class="pp-indice" aria-label="Secciones">
+    <a href="#resumen">Resumen</a><a href="#evolucion">Evolución</a><a href="#recursos">Recursos</a><a href="#gastos">Gastos</a><a href="#personal">Personal</a><a href="#datos">Datos</a><a href="#semaforo">Semáforo</a><a href="#critica">Mirada crítica</a><a href="#metodo">Método</a>
+  </nav>
+
+  <section class="pres-seccion" id="resumen">
+    <h2>El presupuesto en cifras</h2>
+    <div id="pp-anios" class="pp-chips"></div>
+    <div id="pp-kpis" class="pres-grid"></div>
+    <p class="pres-fuente">Elegí un año y tocá cualquier cuadro para ver cómo evolucionó. Porcentajes sobre el presupuesto inicial (Ejecutivo + Concejo Deliberante).</p>
   </section>
 
-  <section class="pres-seccion ps-simple" id="simple">
-    <h2>Si el presupuesto 2027 fuera de $100</h2>
-    <p>El presupuesto que se propone para 2027 es de $1.306 millones. Para entenderlo fácil, lo achicamos a $100: cada cuadradito es $1.</p>
-    <h3>¿De dónde viene la plata?</h3>
-    <div id="wf-in" class="ps-wf"></div>
-    <h3>¿En qué se usa?</h3>
-    <div id="wf-out" class="ps-wf"></div>
-    <p class="pres-fuente">Fuente: Proyecto de Ordenanza de Presupuesto 2027 (todavía no está aprobado). Los números por cada $100 son un cálculo propio, redondeado.</p>
+  <section class="pres-seccion" id="evolucion">
+    <h2>Evolución 2023-2027</h2>
+    <p>Lo presupuestado, lo recaudado y lo gastado. Los presupuestos iniciales se corrigen durante el año, y por eso conviene mirar los tres juntos.</p>
+    <div id="ch-evol"></div>
+    <div class="pres-tabla-wrap"><table id="tabla-anios" class="pres-tabla"></table></div>
+    <p class="pres-fuente">2023 y 2024 son balances; 2025 es la rendición de cuentas. 2026 es solo presupuesto: su balance recién existe en marzo de 2027. Tocá cualquier número de la tabla.</p>
   </section>
 
-  <section class="pres-seccion ps-simple" id="cinco">
-    <h2>Lo más importante, en 5 puntos</h2>
-    <div id="ps-puntos" class="ps-puntos"></div>
-    <p class="ps-aviso">Esta página explica números de documentos oficiales. No dice que algo esté bien o mal. Si algo no se entiende o querés opinar, escribinos desde <a href="contacto.html">Contacto</a>.</p>
+  <section class="pres-seccion" id="recursos">
+    <h2>De dónde sale la plata</h2>
+    <div id="ch-rec"></div>
+  </section>
+
+  <section class="pres-seccion" id="gastos">
+    <h2>En qué se gasta</h2>
+    <div id="ch-gas"></div>
+  </section>
+
+  <section class="pres-seccion" id="personal">
+    <h2>Personal: cuántos son y cuánta plata se destina</h2>
+    <p>El gasto en personal es la partida más grande. Acá se ve cuánto va a planta, a temporarios y al Concejo, cuántos cargos detallan las ordenanzas y cuánto implica por cargo.</p>
+    <div id="ch-per"></div>
+    <div id="pp-cargos" class="pp-cargos"></div>
+    <h3 style="margin-top:1.5rem">¿Cuánto sale cada cargo?</h3>
+    <p>Jugá con los controles. La ordenanza no trae la escala salarial, así que esto es un promedio por cargo, no el sueldo de una categoría.</p>
+    <div id="pp-calc"></div>
+  </section>
+
+  <section class="pres-seccion" id="datos">
+    <h2>Datos interesantes</h2>
+    <p>Tocá cada tarjeta para ver el detalle y de qué documento sale.</p>
+    <div id="pp-hechos" class="pp-hechos"></div>
+  </section>
+
+  <section class="pres-seccion" id="semaforo">
+    <h2>¿Es un buen balance?</h2>
+    <p>Ocho indicadores sobre el presupuesto 2027. Los umbrales de colores son criterios orientativos propios, no normas legales; cada uno muestra su criterio y una "otra mirada".</p>
+    <div id="pp-semaforo" class="pp-semaforo"></div>
+    <div class="pp-conclusion"><b>OPINIÓN.</b> Un presupuesto equilibrado en el papel y consistente con los años anteriores, con tres puntos de atención: la inversión casi desaparece, el gasto en personal sigue creciendo y hay un préstamo que se paga por años. Es una lectura sobre criterios orientativos: otra persona puede ponderarlos distinto. Lo más útil para el control es seguir la ejecución a lo largo del año.</div>
   </section>
 
   <section class="pres-seccion ps-simple ps-crit" id="critica">
@@ -449,79 +483,12 @@
     </div>
   </section>
 
-  <section class="pres-seccion ps-simple" id="glosario">
-    <h2>Palabras que vas a encontrar</h2>
-    <div id="ps-glosario" class="ps-glos"></div>
-  </section>
-
-  <section class="pres-seccion ps-simple ps-centro">
-    <button type="button" id="ps-ver" class="ps-btn" aria-expanded="false">Ver gráficos y detalle completo</button>
-    <p>Para quien quiera ver los números con más detalle: gráficos por año, tablas y cálculos.</p>
-  </section>
-
-  <div id="ps-avanzado" hidden>
-    <nav class="pp-indice" aria-label="Secciones del detalle">
-      <a href="#resumen">Resumen</a><a href="#evolucion">Evolución</a><a href="#recursos">Recursos</a><a href="#gastos">Gastos</a><a href="#personal">Personal</a><a href="#datos">Datos</a><a href="#semaforo">Para mirar de cerca</a>
-    </nav>
-
-    <section class="pres-seccion" id="resumen">
-      <h2>El presupuesto en cifras</h2>
-      <div id="pp-anios" class="pp-chips"></div>
-      <div id="pp-kpis" class="pres-grid"></div>
-      <p class="pres-fuente">Elegí un año y tocá cualquier cuadro para ver cómo evolucionó. Porcentajes sobre el presupuesto inicial (Ejecutivo + Concejo Deliberante).</p>
-    </section>
-
-    <section class="pres-seccion" id="evolucion">
-      <h2>Evolución 2023-2027</h2>
-      <p>Lo anotado en el presupuesto, lo que se recaudó y lo que se gastó. Los presupuestos se corrigen durante el año, por eso conviene mirar los tres juntos.</p>
-      <div id="ch-evol"></div>
-      <div class="pres-tabla-wrap"><table id="tabla-anios" class="pres-tabla"></table></div>
-      <p class="pres-fuente">2023 y 2024 son balances; 2025 es la rendición de cuentas. 2026 es solo presupuesto: su balance recién existe en marzo de 2027. Tocá cualquier número de la tabla.</p>
-    </section>
-
-    <section class="pres-seccion" id="recursos">
-      <h2>De dónde sale la plata, año por año</h2>
-      <div id="ch-rec"></div>
-    </section>
-
-    <section class="pres-seccion" id="gastos">
-      <h2>En qué se gasta, año por año</h2>
-      <div id="ch-gas"></div>
-    </section>
-
-    <section class="pres-seccion" id="personal">
-      <h2>Personal: quiénes trabajan y cuánta plata se destina</h2>
-      <p>Los sueldos son la parte más grande del presupuesto: pagan el trabajo de las personas que hacen funcionar el municipio. Acá se ve cuánto va a planta, a temporarios y al Concejo, y cuántos cargos detallan las ordenanzas. Este análisis no dice si alguien cobra de más o de menos.</p>
-      <div id="ch-per"></div>
-      <div id="pp-cargos" class="pp-cargos"></div>
-      <details class="ps-det">
-        <summary>Cálculo aproximado por cargo (para quien quiere números más finos)</summary>
-        <p>Jugá con los controles. La ordenanza no trae la escala salarial, así que es un promedio por cargo, no el sueldo de una categoría.</p>
-        <div id="pp-calc"></div>
-      </details>
-    </section>
-
-    <section class="pres-seccion" id="datos">
-      <h2>Datos para tener en cuenta</h2>
-      <p>Tocá cada tarjeta para ver el detalle y de qué documento sale.</p>
-      <div id="pp-hechos" class="pp-hechos"></div>
-    </section>
-
-    <section class="pres-seccion" id="semaforo">
-      <h2>Puntos para mirar de cerca</h2>
-      <p>Ocho indicadores sobre el presupuesto 2027. Los colores son criterios orientativos propios, no normas legales; cada uno muestra su criterio y una "otra mirada".</p>
-      <div id="pp-semaforo" class="pp-semaforo"></div>
-      <div class="pp-conclusion"><b>OPINIÓN.</b> Es un presupuesto equilibrado en el papel. Los puntos para seguir de cerca son tres: casi no hay plata anotada para obras nuevas, el gasto en sueldos sigue creciendo y hay un préstamo que se paga por varios años. Es una lectura basada en criterios orientativos: otra persona puede pensar distinto. Lo más útil es ir viendo cómo se ejecuta durante el año.</div>
-    </section>
-  </div>
-
   <section class="pres-seccion pp-metodo" id="metodo">
-    <h2>De dónde salen los datos</h2>
-    <p>Ordenanzas de presupuesto 2024, 2025 y 2026, Proyecto de Ordenanza 2027, Balances 2023 y 2024 y Rendición de Cuentas 2025. Inflación: INDEC; expectativa 2026: REM del Banco Central. Los montos están en pesos de cada año y las cifras fueron leídas de documentos escaneados.</p>
-    <p>En el detalle se separan tres cosas: <strong>datos</strong> (lo que dicen los documentos), <strong>cálculos</strong> (porcentajes y comparaciones propias) y <strong>opiniones</strong> (siempre marcadas como tales).</p>
+    <h2>Cómo se hizo este análisis</h2>
+    <p>Se separan tres cosas: <strong>datos</strong> (lo que dicen los documentos), <strong>cálculos</strong> (porcentajes y comparaciones propias) y <strong>opiniones</strong> (siempre marcadas como tales). Cuando un documento no explica un gasto, se dice que no lo explica.</p>
+    <p>Fuentes: Ordenanzas de presupuesto 2024, 2025 y 2026, Proyecto de Ordenanza 2027, Balances 2023 y 2024 y Rendición de Cuentas 2025. Inflación: INDEC; expectativa 2026: REM del Banco Central. Los montos están en pesos corrientes y las cifras fueron leídas de documentos escaneados.</p>
   </section>
 </main>
-
 
 
 
@@ -720,8 +687,7 @@
         if (elOrd) elOrd.textContent = ordenanzas.filter(function(o){return o.tipo === "Ordenanza";}).length;
     })();
     </script>
-<script src="js/presupuesto-datos.js?v=3"></script>
-<script src="js/presupuesto-simple.js?v=3"></script>
-<script src="js/presupuesto.js?v=3"></script>
+<script src="js/presupuesto-datos.js?v=4"></script>
+<script src="js/presupuesto.js?v=4"></script>
 </body>
 </html>

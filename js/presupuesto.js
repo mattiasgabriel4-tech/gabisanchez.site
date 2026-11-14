@@ -153,7 +153,6 @@
     if (cfg.unit) { var u = el('p', { 'class': 'pp-unidad' }, box); u.textContent = cfg.unit; }
   }
   function dibujar(box, cfg) { chart(box, cfg); redraws.push(function () { chart(box, cfg); }); }
-  window.PPRedibujar = function () { redraws.forEach(function (f) { f(); }); };
   var lastW = window.innerWidth, tmr;
   window.addEventListener('resize', function () {
     if (window.innerWidth === lastW) return;
@@ -434,13 +433,13 @@
       { n: 'Presupuesto vs lo que realmente pas\u00f3', v: sg(corr) + ' en 2025', col: 'a', cr: 'Orientativo: verde menos de 10% de correcci\u00f3n, amarillo 10-30%, rojo m\u00e1s de 30%.', l: 'En 2025 el presupuesto se corrigi\u00f3 ' + sg(corr) + ' (casi todo por el pr\u00e9stamo). En 2024 lo recaudado super\u00f3 al inicial en +70,8%.', o: 'Con inflaci\u00f3n de 117,8% en 2024 era dif\u00edcil proyectar. Pero que el presupuesto inicial quede sistem\u00e1ticamente corto resta valor al control del Concejo.', f: 'Ordenanzas, balance 2024 y rendici\u00f3n 2025' },
       { n: 'Detalle del gasto', v: pc(sinDes) + ' sin desglose', col: 'a', cr: 'Orientativo: verde menos de 10%, amarillo 10-40%, rojo m\u00e1s de 40% del presupuesto sin desglose por rubro.', l: 'Bienes de consumo y servicios ($400 M) y las obras figuran solo como totales; los renglones por rubro est\u00e1n en blanco.', o: 'El formato oficial tiene los renglones y se completan solo totales: es habitual, pero deja al Concejo sin saber en qu\u00e9 se gasta cada peso.', f: 'Clasificación por objeto de las ordenanzas' }
     ];
-    var NOM = { v: 'Sin alerta', a: 'Para seguir de cerca', r: 'Para mirar con atenci\u00f3n' };
+    var NOM = { v: 'Verde', a: 'Amarillo', r: 'Rojo' };
     box.innerHTML = '';
     IND.forEach(function (i) {
       var b = el('button', { type: 'button', 'class': 'pp-sem' }, box);
       b.innerHTML = '<i class="pp-luz pp-luz-' + i.col + '" title="' + NOM[i.col] + '"></i><span class="pp-sem-n">' + i.n + '</span><b>' + i.v + '</b>';
       b.onclick = function () {
-        abrir(i.n + ' \u00b7 ' + NOM[i.col], nota('dato', i.l) + '<p><b>Criterio:</b> ' + i.cr + '</p>' + nota('op', 'Clasificaci\u00f3n: ' + NOM[i.col] + ', seg\u00fan el criterio de arriba. Es una opini\u00f3n, no un hecho.') + '<p><b>Otra mirada:</b> ' + i.o + '</p>' + fuente(i.f));
+        abrir(i.n + ' \u00b7 ' + NOM[i.col], nota('dato', i.l) + '<p><b>Criterio:</b> ' + i.cr + '</p>' + nota('op', 'Sem\u00e1foro ' + NOM[i.col].toLowerCase() + ' seg\u00fan ese criterio.') + '<p><b>Otra mirada:</b> ' + i.o + '</p>' + fuente(i.f));
       };
     });
   }

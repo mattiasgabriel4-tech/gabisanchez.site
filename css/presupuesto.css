@@ -96,3 +96,24 @@
 .ps-resp h3{margin-top:14px}
 .ps-resp li{font-size:1rem;line-height:1.6;margin-bottom:6px}
 .ps-pedir{background:var(--azul-claro,#dbeafe)}
+/* === ENCUESTA === */
+.pe-aviso{background:var(--gris-claro,#f4f6f9);border-radius:10px;padding:12px 14px;font-size:.95rem;line-height:1.55}
+.pe-form{display:grid;gap:14px;margin-top:12px}
+.pe-preg{border:0;margin:0;padding:14px;background:var(--blanco,#fff);border-radius:12px;box-shadow:var(--sombra-sm,0 2px 8px rgba(26,74,122,.1))}
+.pe-preg legend{float:left;width:100%;font-weight:700;color:var(--azul-principal,#1a4a7a);padding:0 0 8px;line-height:1.4;font-size:1rem}
+.pe-preg legend+.pe-op{clear:both}
+.pe-req{color:#c53030}
+.pe-op{display:flex;gap:10px;align-items:flex-start;padding:9px 6px;font-size:1rem;line-height:1.4;cursor:pointer;border-radius:8px}
+.pe-op:hover{background:var(--gris-claro,#f4f6f9)}
+.pe-op input,.pe-acepto input{width:20px;height:20px;margin:1px 0 0;flex:0 0 auto}
+.pe-campo{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+.pe-campo small{font-weight:400;color:var(--gris-texto,#4a5568)}
+.pe-campo input,.pe-campo textarea{font:inherit;padding:10px;border:1px solid var(--gris-medio,#e2e8f0);border-radius:8px;width:100%;box-sizing:border-box}
+.pe-web{position:absolute;left:-9999px;height:0;overflow:hidden}
+.pe-acepto{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;line-height:1.45}
+.pe-enviar{padding:15px 22px;border:0;border-radius:999px;background:var(--azul-principal,#1a4a7a);color:#fff;font:inherit;font-size:1.05rem;font-weight:700;cursor:pointer}
+.pe-enviar:disabled{opacity:.6}
+.pe-msg{min-height:1.4em;margin:0;font-size:.95rem}
+.pe-err{color:#c53030;font-weight:600}
+.pe-gracias{background:#f0fff4;border-left:4px solid #2f855a;border-radius:10px;padding:16px;line-height:1.55}
+.pe-otra{margin-top:8px;border:1px solid var(--azul-principal,#1a4a7a);background:#fff;color:var(--azul-principal,#1a4a7a);border-radius:999px;padding:8px 14px;font:inherit;cursor:pointer}
